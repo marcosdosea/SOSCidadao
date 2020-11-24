@@ -4657,7 +4657,7 @@
 											"top": 173,
 											"width": 48.40087890625,
 											"height": 13,
-											"text": "Usuario"
+											"text": "Pessoa"
 										},
 										{
 											"_type": "LabelView",
@@ -10784,7 +10784,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFElm6BOFNpegQ="
 					},
-					"name": "Usuario",
+					"name": "Pessoa",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -43872,9 +43872,9 @@
 										"$ref": "AAAAAAF1+EL0xVjtAFA="
 									},
 									"font": "Arial;13;0",
-									"left": 538,
+									"left": 537,
 									"top": 148,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -50211,9 +50211,9 @@
 										"$ref": "AAAAAAF1+EOyqmPeuF0="
 									},
 									"font": "Arial;13;0",
-									"left": 540,
+									"left": 539,
 									"top": 124,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
