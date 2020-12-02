@@ -26,3 +26,7 @@ Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisõe
 <p align="center" >
    <img src="./utils-readme/gestor.png" width="650px" >
 </p>
+
+*** 
+
+**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
