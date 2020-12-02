@@ -1,5 +1,6 @@
 # SOSCidadao
-
+**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
+***
 Sistema para registro e acompanhamento de ocorrências relacionados à segurança ou ações ilicitas, como também situações de emergências. Trazendo consigo uma maior acessibildidade, em relação aos meios tradicionais para registrar uma ocorrência, e controle das informações sobre os casos cadastrados na plataforma, possibilitando melhor gerenciamento do adanamento da suas aberturas de ocorrências, bem como permitir gerênciar, quantificar e realizar o controle das mesmas.
 
 <p align="center">
@@ -27,6 +28,3 @@ Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisõe
    <img src="./utils-readme/gestor.png" width="650px" >
 </p>
 
-*** 
-
-**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
