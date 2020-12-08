@@ -20,3 +20,17 @@ C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao
 C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.RazorTargetAssemblyInfo.cs
 C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\staticwebassets\SoSCidadaoWeb.StaticWebAssets.Manifest.cache
 C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\staticwebassets\SoSCidadaoWeb.StaticWebAssets.xml
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.exe
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.deps.json
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.runtimeconfig.json
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.runtimeconfig.dev.json
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.dll
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.Views.dll
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadaoWeb.Views.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.Views.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.dll
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.genruntimeconfig.cache
+C:\Users\Luiz Carlos Moitinho\Documents\Projetos\C#\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.csproj.CopyComplete
