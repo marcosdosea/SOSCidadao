@@ -1,5 +1,5 @@
 -- MySQL Workbench Synchronization
--- Generated: 2020-11-23 23:34
+-- Generated: 2021-01-11 22:46
 -- Model: New Model
 -- Version: 1.0
 -- Project: Name of the project
@@ -9,238 +9,218 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbOcorrencia` (
+CREATE SCHEMA IF NOT EXISTS `sos_cidadao` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Ocorrencia` (
   `idOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
-  `dataOcorrencia` DATETIME NOT NULL,
-  `descOcorrencia` TEXT NULL DEFAULT NULL,
-  `fkIdStatusOcorrencia` INT(11) NOT NULL,
-  `fkIdLocal` INT(11) NOT NULL,
-  `fkIdPessoaSolicitante` INT(11) NOT NULL,
+  `dataCadastro` DATETIME NOT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  `statusOcorrencia` ENUM('Em andamento', 'Em aberto', 'Arquivada', 'Atendida', 'Inativa') NOT NULL DEFAULT 'Em Aberto',
+  `telefoneContato` VARCHAR(15) NULL DEFAULT NULL,
+  `emergencia` TINYINT(4) NOT NULL,
+  `idPessoaSolicitante` INT(11) NULL DEFAULT NULL,
+  `idLocal` INT(11) NOT NULL,
   PRIMARY KEY (`idOcorrencia`),
-  INDEX `fk_tbOcorrencia_tbStatusOcorrencia1_idx` (`fkIdStatusOcorrencia` ASC) VISIBLE,
-  INDEX `fk_tbOcorrencia_tbLocal1_idx` (`fkIdLocal` ASC) VISIBLE,
-  INDEX `fk_tbOcorrencia_tbPessoa1_idx` (`fkIdPessoaSolicitante` ASC) VISIBLE,
-  CONSTRAINT `fk_tbOcorrencia_tbStatusOcorrencia1`
-    FOREIGN KEY (`fkIdStatusOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbStatusOcorrencia` (`idStatusOcorrencia`)
+  INDEX `fk_Ocorrencia_Local1_idx` (`idLocal` ASC) VISIBLE,
+  INDEX `fk_Ocorrencia_Pessoa1_idx` (`idPessoaSolicitante` ASC) VISIBLE,
+  CONSTRAINT `fk_Ocorrencia_Local1`
+    FOREIGN KEY (`idLocal`)
+    REFERENCES `sos_cidadao`.`Local` (`idLocal`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbOcorrencia_tbLocal1`
-    FOREIGN KEY (`fkIdLocal`)
-    REFERENCES `db_sos_cidadao`.`tbLocal` (`idLocal`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbOcorrencia_tbPessoa1`
-    FOREIGN KEY (`fkIdPessoaSolicitante`)
-    REFERENCES `db_sos_cidadao`.`tbPessoa` (`idPessoa`)
+  CONSTRAINT `fk_Ocorrencia_Pessoa1`
+    FOREIGN KEY (`idPessoaSolicitante`)
+    REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbStatusOcorrencia` (
-  `idStatusOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmStatusOcorrencia` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idStatusOcorrencia`),
-  UNIQUE INDEX `nmStatusOcorrencia_UNIQUE` (`nmStatusOcorrencia` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbTipoOcorrencia` (
-  `idTipoOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmTipoOcorrencia` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idTipoOcorrencia`),
-  UNIQUE INDEX `nmTipoOcorrencia_UNIQUE` (`nmTipoOcorrencia` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbLocal` (
-  `idLocal` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmLocal` VARCHAR(45) NOT NULL,
-  `latitudeLocal` DECIMAL NULL DEFAULT NULL,
-  `longitudeLocal` DECIMAL NULL DEFAULT NULL,
-  PRIMARY KEY (`idLocal`),
-  UNIQUE INDEX `nm_Local_UNIQUE` (`nmLocal` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbLocalAgregado` (
-  `idLocalAgregado` INT(11) NOT NULL AUTO_INCREMENT,
-  `fkIdLocalPrincipal` INT(11) NOT NULL,
-  `fkIdLocalSecundario` INT(11) NOT NULL,
-  PRIMARY KEY (`idLocalAgregado`),
-  INDEX `fk_tbLocalAgregado_tbLocal1_idx` (`fkIdLocalPrincipal` ASC) VISIBLE,
-  INDEX `fk_tbLocalAgregado_tbLocal2_idx` (`fkIdLocalSecundario` ASC) VISIBLE,
-  CONSTRAINT `fk_tbLocalAgregado_tbLocal1`
-    FOREIGN KEY (`fkIdLocalPrincipal`)
-    REFERENCES `db_sos_cidadao`.`tbLocal` (`idLocal`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbLocalAgregado_tbLocal2`
-    FOREIGN KEY (`fkIdLocalSecundario`)
-    REFERENCES `db_sos_cidadao`.`tbLocal` (`idLocal`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbOcorrenciaTipoOcorrencia` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`OcorrenciaTipoOcorrencia` (
   `idOcorrenciaTipoOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
-  `fkIdTipoOcorrencia` INT(11) NOT NULL,
-  `fkIdOcorrencia` INT(11) NOT NULL,
+  `idOcorrencia` INT(11) NOT NULL,
+  `idTipoOcorrencia` INT(11) NOT NULL,
   PRIMARY KEY (`idOcorrenciaTipoOcorrencia`),
-  INDEX `fk_tbOcorrenciaTipoOcorrencia_tbTipoOcorrencia1_idx` (`fkIdTipoOcorrencia` ASC) VISIBLE,
-  INDEX `fk_tbOcorrenciaTipoOcorrencia_tbOcorrencia1_idx` (`fkIdOcorrencia` ASC) VISIBLE,
-  CONSTRAINT `fk_tbOcorrenciaTipoOcorrencia_tbTipoOcorrencia1`
-    FOREIGN KEY (`fkIdTipoOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbTipoOcorrencia` (`idTipoOcorrencia`)
+  INDEX `fk_OcorrenciaTipoOcorrencia_Ocorrencia1_idx` (`idOcorrencia` ASC) VISIBLE,
+  INDEX `fk_OcorrenciaTipoOcorrencia_TipoOcorrencia1_idx` (`idTipoOcorrencia` ASC) VISIBLE,
+  CONSTRAINT `fk_OcorrenciaTipoOcorrencia_Ocorrencia1`
+    FOREIGN KEY (`idOcorrencia`)
+    REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbOcorrenciaTipoOcorrencia_tbOcorrencia1`
-    FOREIGN KEY (`fkIdOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbOcorrencia` (`idOcorrencia`)
+  CONSTRAINT `fk_OcorrenciaTipoOcorrencia_TipoOcorrencia1`
+    FOREIGN KEY (`idTipoOcorrencia`)
+    REFERENCES `sos_cidadao`.`TipoOcorrencia` (`idTipoOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbPessoa` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Pessoa` (
   `idPessoa` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmPessoa` VARCHAR(250) NOT NULL,
-  `cpfPessoa` VARCHAR(14) NOT NULL,
-  `rgPessoa` VARCHAR(14) NOT NULL,
-  `dtNascimento` DATE NULL DEFAULT NULL,
-  `telefonePessoa` VARCHAR(16) NULL DEFAULT NULL,
-  `login` VARCHAR(45) NULL DEFAULT NULL,
-  `senha` TEXT NULL DEFAULT NULL,
-  `emailPessoa` VARCHAR(45) NULL DEFAULT NULL,
-  `tokenRecuSenha` TEXT NULL DEFAULT NULL,
-  `fkIdNivelAcesso` INT(11) NOT NULL,
+  `nome` VARCHAR(250) NOT NULL,
+  `sexo` ENUM('F', 'M') NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `rg` VARCHAR(14) NOT NULL,
+  `telefone` VARCHAR(16) NOT NULL,
+  `dataNascimento` DATETIME NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(20) NOT NULL,
+  `senha` TEXT NOT NULL,
+  `cep` VARCHAR(45) NOT NULL,
+  `rua` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `uf` CHAR(2) NOT NULL,
+  `numeroEndereco` INT(11) NULL DEFAULT NULL,
+  `tipoPessoa` ENUM('Pessoa', 'Agente', 'Administrador') NOT NULL DEFAULT 'Pessoa',
+  `statusPessoa` ENUM('Ativo', 'Inativo', 'Excluido') NOT NULL DEFAULT 'Ativo',
+  `dataCadastro` DATETIME NOT NULL,
+  `idOrganizacao` INT(11) NOT NULL,
   PRIMARY KEY (`idPessoa`),
-  UNIQUE INDEX `rgPessoa_UNIQUE` (`rgPessoa` ASC) VISIBLE,
-  UNIQUE INDEX `cpfPessoa_UNIQUE` (`cpfPessoa` ASC) VISIBLE,
-  UNIQUE INDEX `emailPessoa_UNIQUE` (`emailPessoa` ASC) VISIBLE,
+  UNIQUE INDEX `rgPessoa_UNIQUE` (`rg` ASC) VISIBLE,
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE,
-  UNIQUE INDEX `telefonePessoa_UNIQUE` (`telefonePessoa` ASC) VISIBLE,
-  INDEX `fk_tbPessoa_tbNivelAcesso1_idx` (`fkIdNivelAcesso` ASC) VISIBLE,
-  CONSTRAINT `fk_tbPessoa_tbNivelAcesso1`
-    FOREIGN KEY (`fkIdNivelAcesso`)
-    REFERENCES `db_sos_cidadao`.`tbNivelAcesso` (`idNivelAcesso`)
+  INDEX `fk_Pessoa_Organizacao1_idx` (`idOrganizacao` ASC) VISIBLE,
+  CONSTRAINT `fk_Pessoa_Organizacao1`
+    FOREIGN KEY (`idOrganizacao`)
+    REFERENCES `sos_cidadao`.`Organizacao` (`idOrganizacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbAtendimentoOcorrencia` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`AtendimentoOcorrencia` (
   `idAtendimentoOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
-  `fkIdOcorrencia` INT(11) NOT NULL,
-  `fkIdPessoaAtende` INT(11) NOT NULL,
+  `dataCadastro` DATETIME NOT NULL,
+  `idOcorrencia` INT(11) NOT NULL,
+  `idPessoa` INT(11) NOT NULL,
   PRIMARY KEY (`idAtendimentoOcorrencia`),
-  INDEX `fk_tbAtendimentoOcorrencia_tbPessoa1_idx` (`fkIdPessoaAtende` ASC) VISIBLE,
-  INDEX `fk_tbAtendimentoOcorrencia_tbOcorrencia1_idx` (`fkIdOcorrencia` ASC) VISIBLE,
-  CONSTRAINT `fk_tbAtendimentoOcorrencia_tbPessoa1`
-    FOREIGN KEY (`fkIdPessoaAtende`)
-    REFERENCES `db_sos_cidadao`.`tbPessoa` (`idPessoa`)
+  INDEX `fk_AtendimentoOcorrencia_Ocorrencia1_idx` (`idOcorrencia` ASC) VISIBLE,
+  INDEX `fk_AtendimentoOcorrencia_Pessoa1_idx` (`idPessoa` ASC) VISIBLE,
+  CONSTRAINT `fk_AtendimentoOcorrencia_Ocorrencia1`
+    FOREIGN KEY (`idOcorrencia`)
+    REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbAtendimentoOcorrencia_tbOcorrencia1`
-    FOREIGN KEY (`fkIdOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbOcorrencia` (`idOcorrencia`)
+  CONSTRAINT `fk_AtendimentoOcorrencia_Pessoa1`
+    FOREIGN KEY (`idPessoa`)
+    REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbNivelAcesso` (
-  `idNivelAcesso` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmNivelAcesso` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`idNivelAcesso`),
-  UNIQUE INDEX `nmNivelAcesso_UNIQUE` (`nmNivelAcesso` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbPertence` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Pertence` (
   `idPertence` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmPertence` VARCHAR(250) NOT NULL,
-  `descPertence` TEXT NULL DEFAULT NULL,
-  `fkIdTipoPertence` INT(11) NOT NULL,
+  `nome` VARCHAR(250) NOT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  `statusPertence` ENUM('Em análise', 'Arquivado', 'Encontrado', 'Entregue') NOT NULL DEFAULT 'Em análise',
+  `idOcorrencia` INT(11) NOT NULL,
+  `idTipoPertence` INT(11) NOT NULL,
   PRIMARY KEY (`idPertence`),
-  INDEX `fk_tbPertence_tbTipoPertence1_idx` (`fkIdTipoPertence` ASC) VISIBLE,
-  CONSTRAINT `fk_tbPertence_tbTipoPertence1`
-    FOREIGN KEY (`fkIdTipoPertence`)
-    REFERENCES `db_sos_cidadao`.`tbTipoPertence` (`idTipoPertence`)
+  INDEX `fk_Pertence_Ocorrencia1_idx` (`idOcorrencia` ASC) VISIBLE,
+  INDEX `fk_Pertence_TipoPertence1_idx` (`idTipoPertence` ASC) VISIBLE,
+  CONSTRAINT `fk_Pertence_Ocorrencia1`
+    FOREIGN KEY (`idOcorrencia`)
+    REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pertence_TipoPertence1`
+    FOREIGN KEY (`idTipoPertence`)
+    REFERENCES `sos_cidadao`.`TipoPertence` (`idTipoPertence`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbTipoPertence` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`TipoPertence` (
   `idTipoPertence` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmTipoPertence` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTipoPertence`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbOcorrenciaPertence` (
-  `idOcorrenciaPertence` INT(11) NOT NULL AUTO_INCREMENT,
-  `fkIdPertence` INT(11) NOT NULL,
-  `fkIdOcorrencia` INT(11) NOT NULL,
-  PRIMARY KEY (`idOcorrenciaPertence`),
-  INDEX `fk_tbOcorrenciaPertence_tbPertence1_idx` (`fkIdPertence` ASC) VISIBLE,
-  INDEX `fk_tbOcorrenciaPertence_tbOcorrencia1_idx` (`fkIdOcorrencia` ASC) VISIBLE,
-  CONSTRAINT `fk_tbOcorrenciaPertence_tbPertence1`
-    FOREIGN KEY (`fkIdPertence`)
-    REFERENCES `db_sos_cidadao`.`tbPertence` (`idPertence`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbOcorrenciaPertence_tbOcorrencia1`
-    FOREIGN KEY (`fkIdOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbOcorrencia` (`idOcorrencia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbComentario` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Comentario` (
   `idComentario` INT(11) NOT NULL AUTO_INCREMENT,
-  `dataHora` DATETIME NOT NULL,
-  `comentario` TEXT NOT NULL,
-  `fkIdPessoa` INT(11) NOT NULL,
-  `fkIdOcorrencia` INT(11) NOT NULL,
+  `dataCadastro` DATETIME NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `idOcorrencia` INT(11) NOT NULL,
   PRIMARY KEY (`idComentario`),
-  INDEX `fk_tbComentario_tbPessoa1_idx` (`fkIdPessoa` ASC) VISIBLE,
-  INDEX `fk_tbComentario_tbOcorrencia1_idx` (`fkIdOcorrencia` ASC) VISIBLE,
-  CONSTRAINT `fk_tbComentario_tbPessoa1`
-    FOREIGN KEY (`fkIdPessoa`)
-    REFERENCES `db_sos_cidadao`.`tbPessoa` (`idPessoa`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbComentario_tbOcorrencia1`
-    FOREIGN KEY (`fkIdOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbOcorrencia` (`idOcorrencia`)
+  INDEX `fk_Comentario_Ocorrencia1_idx` (`idOcorrencia` ASC) VISIBLE,
+  CONSTRAINT `fk_Comentario_Ocorrencia1`
+    FOREIGN KEY (`idOcorrencia`)
+    REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `db_sos_cidadao`.`tbAnexoPertence` (
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Anexo` (
   `idAnexoPertence` INT(11) NOT NULL AUTO_INCREMENT,
-  `nmAnexoPertence` VARCHAR(250) NOT NULL,
+  `nome` VARCHAR(250) NOT NULL,
   `urlArquivo` VARCHAR(250) NOT NULL,
-  `dataHora` DATETIME NULL DEFAULT NULL,
-  `fkIdPessoa` INT(11) NOT NULL,
-  `fkIdOcorrencia` INT(11) NOT NULL,
+  `dataCadastro` DATETIME NULL DEFAULT NULL,
+  `idOcorrencia` INT(11) NOT NULL,
   PRIMARY KEY (`idAnexoPertence`),
-  INDEX `fk_tbAnexoPertence_tbPessoa1_idx` (`fkIdPessoa` ASC) VISIBLE,
-  INDEX `fk_tbAnexoPertence_tbOcorrencia1_idx` (`fkIdOcorrencia` ASC) VISIBLE,
-  CONSTRAINT `fk_tbAnexoPertence_tbPessoa1`
-    FOREIGN KEY (`fkIdPessoa`)
-    REFERENCES `db_sos_cidadao`.`tbPessoa` (`idPessoa`)
+  INDEX `fk_Anexo_Ocorrencia_idx` (`idOcorrencia` ASC) VISIBLE,
+  CONSTRAINT `fk_Anexo_Ocorrencia`
+    FOREIGN KEY (`idOcorrencia`)
+    REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tbAnexoPertence_tbOcorrencia1`
-    FOREIGN KEY (`fkIdOcorrencia`)
-    REFERENCES `db_sos_cidadao`.`tbOcorrencia` (`idOcorrencia`)
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`TipoOcorrencia` (
+  `idTipoOcorrencia` INT(11) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTipoOcorrencia`),
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Organizacao` (
+  `idOrganizacao` INT(11) NOT NULL,
+  `nomeRazao` VARCHAR(250) NOT NULL,
+  `nomeFantasia` VARCHAR(250) NOT NULL,
+  `cep` VARCHAR(10) NOT NULL,
+  `rua` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  `uf` CHAR(2) NOT NULL,
+  `numeroEndereco` INT(11) NULL DEFAULT NULL,
+  `dataRegistro` DATETIME NOT NULL,
+  `idPessoa` INT(11) NOT NULL,
+  PRIMARY KEY (`idOrganizacao`),
+  INDEX `fk_Organizacao_Pessoa1_idx` (`idPessoa` ASC) VISIBLE,
+  CONSTRAINT `fk_Organizacao_Pessoa1`
+    FOREIGN KEY (`idPessoa`)
+    REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Local` (
+  `idLocal` INT(11) NOT NULL,
+  `nome` VARCHAR(250) NULL DEFAULT NULL,
+  `latitude` DECIMAL NULL DEFAULT NULL,
+  `longitude` DECIMAL NULL DEFAULT NULL,
+  `cep` VARCHAR(10) NULL DEFAULT NULL,
+  `rua` VARCHAR(45) NULL DEFAULT NULL,
+  `bairro` VARCHAR(45) NULL DEFAULT NULL,
+  `cidade` VARCHAR(45) NULL DEFAULT NULL,
+  `uf` CHAR(2) NULL DEFAULT NULL,
+  `numeroEndereco` INT(11) NULL DEFAULT NULL,
+  `idOrganizacao` INT(11) NOT NULL,
+  PRIMARY KEY (`idLocal`),
+  INDEX `fk_Local_Organizacao1_idx` (`idOrganizacao` ASC) VISIBLE,
+  CONSTRAINT `fk_Local_Organizacao1`
+    FOREIGN KEY (`idOrganizacao`)
+    REFERENCES `sos_cidadao`.`Organizacao` (`idOrganizacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
