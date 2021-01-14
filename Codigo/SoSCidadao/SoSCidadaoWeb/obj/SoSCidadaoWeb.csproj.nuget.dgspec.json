@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Luiz Carlos Moitinho\\Documents\\Projetos\\C#\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj": {}
+    "C:\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Luiz Carlos Moitinho\\Documents\\Projetos\\C#\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj": {
+    "C:\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Luiz Carlos Moitinho\\Documents\\Projetos\\C#\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj",
+        "projectUniqueName": "C:\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj",
         "projectName": "SoSCidadaoWeb",
-        "projectPath": "C:\\Users\\Luiz Carlos Moitinho\\Documents\\Projetos\\C#\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj",
+        "projectPath": "C:\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\SoSCidadaoWeb.csproj",
         "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Luiz Carlos Moitinho\\Documents\\Projetos\\C#\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\obj\\",
+        "outputPath": "C:\\SOSCidadao\\Codigo\\SoSCidadao\\SoSCidadaoWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
