@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -31,8 +32,9 @@ namespace Core
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySQL("server=localhost;port=3307;user=root;password=123456;database=sos_cidadao");
+                optionsBuilder.UseMySQL(
+                    ConfigurationManager.ConnectionStrings["SosCidadaoConnection"].ConnectionString
+                  );
             }
         }
 

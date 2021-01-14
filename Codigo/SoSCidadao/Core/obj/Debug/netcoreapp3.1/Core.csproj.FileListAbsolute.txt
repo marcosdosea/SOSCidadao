@@ -6,7 +6,6 @@ C:\SOSCidadao\Codigo\SoSCidadao\Core\bin\Debug\netcoreapp3.1\Core.pdb
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
-C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.dll
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.pdb
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.genruntimeconfig.cache
