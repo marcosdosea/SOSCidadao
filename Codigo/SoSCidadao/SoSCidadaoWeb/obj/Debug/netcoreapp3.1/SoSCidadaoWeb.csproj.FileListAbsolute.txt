@@ -48,7 +48,6 @@ C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\bin\Debug\netcoreapp3.1\SoSCidadao
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.csprojAssemblyReference.cache
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.AssemblyInfoInputs.cache
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.AssemblyInfo.cs
-C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.MvcApplicationPartsAssemblyInfo.cache
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.RazorAssemblyInfo.cache
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.RazorAssemblyInfo.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.TagHelpers.input.cache
