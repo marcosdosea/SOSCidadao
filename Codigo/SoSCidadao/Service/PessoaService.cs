@@ -30,14 +30,14 @@ namespace Service
             return pessoa.IdPessoa;
         }
 
-        public Pessoa Obter(Pessoa pessoa)
+        public Pessoa Obter(int id)
         {
-            var _pessoa = _context.Pessoa.Find(pessoa.IdPessoa);
+            var _pessoa = _context.Pessoa.Find(id);
             return _pessoa;
 
         }
 
-        public IEnumerable<Pessoa> ObterTodos(Pessoa pessoa)
+        public IEnumerable<Pessoa> ObterTodos()
         {
             return GetQuery();
         }
@@ -51,9 +51,9 @@ namespace Service
 
         }
 
-        public int Remover(Pessoa pessoa)
+        public int Remover(int id)
         {
-            var _pessoa = _context.Pessoa.Find(pessoa.IdPessoa);
+            var _pessoa = _context.Pessoa.Find(id);
             _context.Pessoa.Remove(_pessoa);
             return _context.SaveChanges();
         }
