@@ -2450,6 +2450,19 @@
         "runtime": {
           "bin/placeholder/Core.dll": {}
         }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
       }
     }
   },
@@ -8009,6 +8022,11 @@
       "type": "project",
       "path": "../Core/Core.csproj",
       "msbuildProject": "../Core/Core.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8016,7 +8034,8 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.0",
       "Core >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.9.10",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
+      "Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8047,6 +8066,9 @@
           "projectReferences": {
             "C:\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj": {
               "projectPath": "C:\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj"
+            },
+            "C:\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj": {
+              "projectPath": "C:\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj"
             }
           }
         }
