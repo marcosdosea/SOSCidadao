@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Core;
 using Core.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SoSCidadaoWeb.Models;
 
@@ -28,6 +25,7 @@ namespace SoSCidadaoWeb.Controllers
         {
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
+            ViewBag.isBannerHidden = 0;
             return View(listaPessoasModel);
         }
 
@@ -42,6 +40,7 @@ namespace SoSCidadaoWeb.Controllers
         // GET: Pessoa/Create
         public ActionResult Create()
         {
+            ViewBag.isBannerHidden = 0;
             return View();
         }
 

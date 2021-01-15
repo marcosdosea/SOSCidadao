@@ -44,7 +44,7 @@ namespace Service
 
         private IQueryable<Pessoa> GetQuery()
         {
-            IOrderedQueryable<Pessoa> tb_pessoa = _context.Pessoa;
+            IQueryable<Pessoa> tb_pessoa = _context.Pessoa;
             var query = from pessoa in tb_pessoa
                         select pessoa;
             return query;

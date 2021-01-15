@@ -1,0 +1,14 @@
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Service.runtimeconfig.json
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Service.runtimeconfig.dev.json
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Core.dll
+C:\SOSCidadao\Codigo\SoSCidadao\Service\bin\Debug\netcoreapp3.1\Core.pdb
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.pdb
+C:\SOSCidadao\Codigo\SoSCidadao\Service\obj\Debug\netcoreapp3.1\Service.genruntimeconfig.cache
