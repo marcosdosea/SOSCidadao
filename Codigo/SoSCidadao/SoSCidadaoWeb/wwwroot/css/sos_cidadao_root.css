@@ -17,12 +17,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    z-index:10
+    z-index:5 !important
 }
 
 html, body {
     width: 100%;
-    height: 5000px;
+
     font-family:'Roboto', sans-serif;
     background-color: var(--color-white-primary) !important;
 }
@@ -72,41 +72,49 @@ a:active {
 .navbar-customize {
     padding-left: 5%;
     padding-right: 5%;
-    z-index: 4;
+    z-index: 4 ;
     background-color: rgba(0, 0, 0, 0);
- 
 }
-
 
 .bg-main-blue {
     background-color: #17a3b8bf;
-    height: 70%;
-    z-index: 3;
+    height: 45vw;
+    z-index: 1 !important;
     position: absolute;
     top: 0;
 }
 
-
-.bg-main-blue {
-    background-color: #17a3b8bf;
-    height: 100%;
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
 .banner-img {
     background-image: url('../img/home/bg.jpg');
     background-repeat: no-repeat, repeat-y;
     background-attachment: scroll;
-    height: 100%;
-    z-index: 0;
+    height: 45vw;
+    z-index: 0 !important;
     position: absolute;
     top: 0;
     left: 0;
 }
 
+.bg-main-blue-full {
+    background-color: #17a3b8bf;
+    height: 100%;
+    z-index: 1 !important;
+    position: absolute;
+    top: 0;
+}
+
+
+.banner-img-full {
+    background-image: url('../img/home/bg.jpg');
+    background-repeat: no-repeat, repeat-y;
+    background-attachment: scroll;
+    height: 100%;
+    z-index: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 
 .logo {

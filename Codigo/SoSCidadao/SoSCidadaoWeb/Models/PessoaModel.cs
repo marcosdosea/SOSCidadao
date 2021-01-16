@@ -14,7 +14,7 @@ namespace SoSCidadaoWeb.Models
         [Required(ErrorMessage = "Não foi possivel identificar o número cadastral da pessoa")]
         public int idPessoa { get; set; }
 
-        [Display(Name = "Nome")]
+        [Display(Name = "Nome Completo")]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
@@ -46,9 +46,9 @@ namespace SoSCidadaoWeb.Models
         [Required(ErrorMessage = "Campo E-mail é obrigatório.")]
         public string Email { get; set; }
 
-        [Display(Name = "RG")]
-        [StringLength(20, MinimumLength = 5, ErrorMessage = "Campo Login deve possuir no mínimo 5 caracteres.")]
-        [Required(ErrorMessage = "Campo Login é obrigatório.")]
+        [Display(Name = "Usuário")]
+        [StringLength(20, MinimumLength = 5, ErrorMessage = "Campo Usuário deve possuir no mínimo 5 caracteres.")]
+        [Required(ErrorMessage = "Campo Usuário é obrigatório.")]
         public string Login { get; set; }
 
 
@@ -90,7 +90,7 @@ namespace SoSCidadaoWeb.Models
         [Required(ErrorMessage = "Campo UF é obrigatório.")]
         public string Uf { get; set; }
 
-        [Display(Name = "Número do Endereço")]
+        [Display(Name = "Nº")]
         [Range(0, int.MaxValue, ErrorMessage = "Campo Número do Endereço é inválido")]
         [StringLength(2, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
         public int? NumeroEndereco { get; set; }

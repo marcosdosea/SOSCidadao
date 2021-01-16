@@ -25,7 +25,7 @@ namespace SoSCidadaoWeb.Controllers
         {
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            ViewBag.isBannerHidden = 0;
+            ViewBag.isBannerHidden = false;
             return View(listaPessoasModel);
         }
 
@@ -40,7 +40,8 @@ namespace SoSCidadaoWeb.Controllers
         // GET: Pessoa/Create
         public ActionResult Create()
         {
-            ViewBag.isBannerHidden = 0;
+            ViewBag.isBannerHidden = false;
+            ViewBag.isBannerFull = true;
             return View();
         }
 
@@ -68,6 +69,7 @@ namespace SoSCidadaoWeb.Controllers
         // GET: Pessoa/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.isBannerHidden = false;
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);

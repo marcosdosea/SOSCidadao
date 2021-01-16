@@ -11,22 +11,20 @@
 </head>
 <body>
 
-    @await Html.PartialAsync("_HeaderPrimary.cshtml")
-
-    <div class="container-fluid mt-5 pt-3 p-5">
+  
+    <h1>DASHBOARD</h1>
+    <div class="container mt-6 pt-5">
         <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    @await Html.PartialAsync("_Footer.cshtml")
-
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/criar_conta.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

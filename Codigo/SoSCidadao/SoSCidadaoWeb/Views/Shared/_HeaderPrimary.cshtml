@@ -1,5 +1,5 @@
 ﻿<header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-inverse  navbar-customize">
+    <nav class="navbar  navbar-expand-lg navbar-light bg-inverse  navbar-customize">
         <a class="navbar-brand logo" href="#">
             <span class="text-green-secundary">S.O.S</span> <span>Cidadão</span>
         </a>
@@ -34,8 +34,7 @@
     </nav>
 </header>
 
-
-@if (ViewBag.isBannerHidden == 0)
+@if (ViewBag.isBannerHidden)
 {
     <div class="container-fluid bg-main-blue">
     </div>
@@ -43,5 +42,13 @@
     </div>
 
 }
+else if (ViewBag.isBannerFull)
+{
+    <div class="container-fluid bg-main-blue-full">
+    </div>
+    <div class="container-fluid banner-img-full">
+    </div>
+}
+
 
 

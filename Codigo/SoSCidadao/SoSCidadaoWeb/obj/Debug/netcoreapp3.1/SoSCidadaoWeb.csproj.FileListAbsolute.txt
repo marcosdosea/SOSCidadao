@@ -191,3 +191,4 @@ C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadao
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderPrimary.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderSecondary.cshtml.g.cs
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutDashboard.cshtml.g.cs
