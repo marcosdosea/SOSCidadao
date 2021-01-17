@@ -171,7 +171,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                               
+
                             </ul>
                         </div>
 
@@ -344,14 +344,13 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                   SOS Cidadão - &copy; 2020
+                    SOS Cidadão - &copy; 2020
                 </div>
                 <div class="clearfix"></div>
             </footer>
             <!-- /footer content -->
         </div>
     </div>
-
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -360,8 +359,10 @@
     <script src="~/lib/gentelella/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="~/lib/gentelella/vendors/nprogress/nprogress.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="~/lib/gentelella/build/js/custom.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

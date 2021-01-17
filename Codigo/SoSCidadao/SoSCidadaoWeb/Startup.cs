@@ -1,15 +1,20 @@
+using AutoMapper;
+using Core;
+using Core.Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
-namespace SoSCidadaoWeb
+namespace SosCidadaoWeb
 {
     public class Startup
     {
@@ -23,8 +28,15 @@ namespace SoSCidadaoWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
+            services.AddDbContext<SosCidadaoContext>(options =>
+                options.UseMySQL(
+                    Configuration.GetConnectionString("SosCidadaoDatabase")));
+
+            services.AddTransient<ITipopertenceService, TipopertenceService>();
+            services.AddTransient<IPertenceService, PertenceService>();
+            services.AddAutoMapper(typeof(Startup).Assembly);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
