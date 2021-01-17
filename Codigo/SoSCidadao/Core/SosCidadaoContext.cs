@@ -33,8 +33,8 @@ namespace Core
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseMySQL(
-                    ConfigurationManager.ConnectionStrings["SosCidadaoConnection"].ConnectionString
-                  );
+                  ConfigurationManager.ConnectionStrings["SosCidadaoConnection"].ConnectionString
+                );
             }
         }
 
@@ -50,6 +50,9 @@ namespace Core
                 entity.HasIndex(e => e.IdOcorrencia)
                     .HasName("fk_Anexo_Ocorrencia_idx");
 
+                entity.HasIndex(e => e.IdPessoa)
+                    .HasName("fk_Anexo_Pessoa1_idx");
+
                 entity.Property(e => e.IdAnexoPertence)
                     .HasColumnName("idAnexoPertence")
                     .HasColumnType("int(11)");
@@ -58,6 +61,10 @@ namespace Core
 
                 entity.Property(e => e.IdOcorrencia)
                     .HasColumnName("idOcorrencia")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdPessoa)
+                    .HasColumnName("idPessoa")
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Nome)
@@ -77,6 +84,12 @@ namespace Core
                     .HasForeignKey(d => d.IdOcorrencia)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Anexo_Ocorrencia");
+
+                entity.HasOne(d => d.IdPessoaNavigation)
+                    .WithMany(p => p.Anexo)
+                    .HasForeignKey(d => d.IdPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Anexo_Pessoa1");
             });
 
             modelBuilder.Entity<Atendimentoocorrencia>(entity =>
@@ -129,6 +142,9 @@ namespace Core
                 entity.HasIndex(e => e.IdOcorrencia)
                     .HasName("fk_Comentario_Ocorrencia1_idx");
 
+                entity.HasIndex(e => e.IidPessoa)
+                    .HasName("fk_Comentario_Pessoa1_idx");
+
                 entity.Property(e => e.IdComentario)
                     .HasColumnName("idComentario")
                     .HasColumnType("int(11)");
@@ -143,11 +159,21 @@ namespace Core
                     .HasColumnName("idOcorrencia")
                     .HasColumnType("int(11)");
 
+                entity.Property(e => e.IidPessoa)
+                    .HasColumnName("iidPessoa")
+                    .HasColumnType("int(11)");
+
                 entity.HasOne(d => d.IdOcorrenciaNavigation)
                     .WithMany(p => p.Comentario)
                     .HasForeignKey(d => d.IdOcorrencia)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Comentario_Ocorrencia1");
+
+                entity.HasOne(d => d.IidPessoaNavigation)
+                    .WithMany(p => p.Comentario)
+                    .HasForeignKey(d => d.IidPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Comentario_Pessoa1");
             });
 
             modelBuilder.Entity<Local>(entity =>
@@ -166,7 +192,7 @@ namespace Core
 
                 entity.Property(e => e.Bairro)
                     .HasColumnName("bairro")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
@@ -176,7 +202,7 @@ namespace Core
 
                 entity.Property(e => e.Cidade)
                     .HasColumnName("cidade")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.IdOrganizacao)
@@ -202,7 +228,7 @@ namespace Core
 
                 entity.Property(e => e.Rua)
                     .HasColumnName("rua")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Uf)
@@ -318,6 +344,10 @@ namespace Core
 
                 entity.ToTable("organizacao");
 
+                entity.HasIndex(e => e.Cnpj)
+                    .HasName("cpj_UNIQUE")
+                    .IsUnique();
+
                 entity.HasIndex(e => e.IdPessoa)
                     .HasName("fk_Organizacao_Pessoa1_idx");
 
@@ -328,7 +358,7 @@ namespace Core
                 entity.Property(e => e.Bairro)
                     .IsRequired()
                     .HasColumnName("bairro")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
@@ -340,16 +370,16 @@ namespace Core
                 entity.Property(e => e.Cidade)
                     .IsRequired()
                     .HasColumnName("cidade")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Cnpj)
+                    .IsRequired()
+                    .HasColumnName("cnpj")
+                    .HasMaxLength(14)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DataRegistro).HasColumnName("dataRegistro");
-
-                entity.Property(e => e.Estado)
-                    .IsRequired()
-                    .HasColumnName("estado")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.IdPessoa)
                     .HasColumnName("idPessoa")
@@ -374,7 +404,7 @@ namespace Core
                 entity.Property(e => e.Rua)
                     .IsRequired()
                     .HasColumnName("rua")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Uf)
@@ -386,7 +416,6 @@ namespace Core
                 entity.HasOne(d => d.IdPessoaNavigation)
                     .WithMany(p => p.Organizacao)
                     .HasForeignKey(d => d.IdPessoa)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Organizacao_Pessoa1");
             });
 
@@ -464,10 +493,6 @@ namespace Core
                     .HasName("login_UNIQUE")
                     .IsUnique();
 
-                entity.HasIndex(e => e.Rg)
-                    .HasName("rgPessoa_UNIQUE")
-                    .IsUnique();
-
                 entity.Property(e => e.IdPessoa)
                     .HasColumnName("idPessoa")
                     .HasColumnType("int(11)");
@@ -475,19 +500,19 @@ namespace Core
                 entity.Property(e => e.Bairro)
                     .IsRequired()
                     .HasColumnName("bairro")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .IsRequired()
                     .HasColumnName("cep")
-                    .HasMaxLength(45)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .IsRequired()
                     .HasColumnName("cidade")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
@@ -503,7 +528,7 @@ namespace Core
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasColumnName("email")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.IdOrganizacao)
@@ -513,7 +538,7 @@ namespace Core
                 entity.Property(e => e.Login)
                     .IsRequired()
                     .HasColumnName("login")
-                    .HasMaxLength(20)
+                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
@@ -526,16 +551,10 @@ namespace Core
                     .HasColumnName("numeroEndereco")
                     .HasColumnType("int(11)");
 
-                entity.Property(e => e.Rg)
-                    .IsRequired()
-                    .HasColumnName("rg")
-                    .HasMaxLength(14)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Rua)
                     .IsRequired()
                     .HasColumnName("rua")
-                    .HasMaxLength(45)
+                    .HasMaxLength(250)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Senha)
@@ -545,7 +564,8 @@ namespace Core
                 entity.Property(e => e.Sexo)
                     .IsRequired()
                     .HasColumnName("sexo")
-                    .HasColumnType("enum('F','M')");
+                    .HasColumnType("enum('F','M')")
+                    .HasDefaultValueSql("'M'");
 
                 entity.Property(e => e.StatusPessoa)
                     .IsRequired()
@@ -554,7 +574,6 @@ namespace Core
                     .HasDefaultValueSql("'Ativo'");
 
                 entity.Property(e => e.Telefone)
-                    .IsRequired()
                     .HasColumnName("telefone")
                     .HasMaxLength(16)
                     .IsUnicode(false);
@@ -574,7 +593,6 @@ namespace Core
                 entity.HasOne(d => d.IdOrganizacaoNavigation)
                     .WithMany(p => p.Pessoa)
                     .HasForeignKey(d => d.IdOrganizacao)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Pessoa_Organizacao1");
             });
 
@@ -585,6 +603,9 @@ namespace Core
 
                 entity.ToTable("tipoocorrencia");
 
+                entity.HasIndex(e => e.IdOrganizacao)
+                    .HasName("fk_TipoOcorrencia_Organizacao1_idx");
+
                 entity.HasIndex(e => e.Nome)
                     .HasName("nome_UNIQUE")
                     .IsUnique();
@@ -593,11 +614,21 @@ namespace Core
                     .HasColumnName("idTipoOcorrencia")
                     .HasColumnType("int(11)");
 
+                entity.Property(e => e.IdOrganizacao)
+                    .HasColumnName("idOrganizacao")
+                    .HasColumnType("int(11)");
+
                 entity.Property(e => e.Nome)
                     .IsRequired()
                     .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdOrganizacaoNavigation)
+                    .WithMany(p => p.Tipoocorrencia)
+                    .HasForeignKey(d => d.IdOrganizacao)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TipoOcorrencia_Organizacao1");
             });
 
             modelBuilder.Entity<Tipopertence>(entity =>
@@ -607,8 +638,15 @@ namespace Core
 
                 entity.ToTable("tipopertence");
 
+                entity.HasIndex(e => e.IdOrganizacao)
+                    .HasName("fk_TipoPertence_Organizacao1_idx");
+
                 entity.Property(e => e.IdTipoPertence)
                     .HasColumnName("idTipoPertence")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdOrganizacao)
+                    .HasColumnName("idOrganizacao")
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Nome)
@@ -616,6 +654,12 @@ namespace Core
                     .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.IdOrganizacaoNavigation)
+                    .WithMany(p => p.Tipopertence)
+                    .HasForeignKey(d => d.IdOrganizacao)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_TipoPertence_Organizacao1");
             });
 
             OnModelCreatingPartial(modelBuilder);
