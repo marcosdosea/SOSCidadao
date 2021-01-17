@@ -6473,11 +6473,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Service\\Service.csproj",
+      "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj",
       "packagesPath": "C:\\Users\\MAGAZINE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Service\\obj\\",
+      "outputPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6497,8 +6497,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Core\\Core.csproj"
+            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj"
             }
           }
         }

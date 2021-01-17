@@ -34,7 +34,6 @@ namespace SosCidadaoWeb
                     Configuration.GetConnectionString("SosCidadaoDatabase")));
 
             services.AddTransient<ITipopertenceService, TipopertenceService>();
-            services.AddTransient<IPertenceService, PertenceService>();
             services.AddAutoMapper(typeof(Startup).Assembly);
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }

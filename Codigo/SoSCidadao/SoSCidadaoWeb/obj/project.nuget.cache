@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/BA+sU49B+FNQ8O9MB6j0c062eGoThWl9Q7XZITB/dTH4j3V6J7KVQtjZYLz0gaNNWebeVuqhrFXCzzQRaVLvQ==",
+  "dgSpecHash": "5ny+h+HbIiNwV7S0BUJqOyadDWRILa69mGii+2rFaUO+np1Hd8WlPBc4SzaGBW7FTJUhI9dLYLLssjlLlIm+wA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
+  "projectFilePath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MAGAZINE\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\MAGAZINE\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

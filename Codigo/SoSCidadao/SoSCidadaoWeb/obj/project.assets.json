@@ -8065,11 +8065,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
+      "projectUniqueName": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
       "projectName": "SosCidadaoWeb",
-      "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
+      "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
       "packagesPath": "C:\\Users\\MAGAZINE\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\SosCidadaoWeb\\obj\\",
+      "outputPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\SosCidadaoWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8089,11 +8089,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Core\\Core.csproj"
+            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Core\\Core.csproj"
             },
-            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SosCidadao\\Service\\Service.csproj"
+            "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\MAGAZINE\\Documents\\SOSCidadao\\Codigo\\SoSCidadao\\Service\\Service.csproj"
             }
           }
         }
