@@ -70,3 +70,4 @@ C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadao
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.pdb
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.genruntimeconfig.cache
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.csproj.CopyComplete
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutDashboard.cshtml.g.cs
