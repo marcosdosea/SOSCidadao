@@ -8,4 +8,3 @@ C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.c
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.dll
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.pdb
 C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.genruntimeconfig.cache
-C:\SOSCidadao\Codigo\SoSCidadao\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache

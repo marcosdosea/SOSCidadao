@@ -12,7 +12,7 @@
                 <h4 id="step">Etapa 1</h4>
                 <hr />
             </div>
-            <form asp-action="Create" class="container">
+            <form asp-action="Create" class="container" id="form-create">
                 <div class="row" id="data-personal">
                     <div class="col-6">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -52,8 +52,8 @@
                                 <label asp-for="Sexo" class="control-label"></label>
                                 <select asp-for="Sexo" class="form-control">
                                     <option value="">Selecione uma opção</option>
-                                    <option value="F">Feminino</option>
-                                    <option value="M">Masculino</option>
+                                    <option value="0">Feminino</option>
+                                    <option value="1">Masculino</option>
                                 </select>
                                 <span asp-validation-for="Sexo" class="text-danger"></span>
                             </div>

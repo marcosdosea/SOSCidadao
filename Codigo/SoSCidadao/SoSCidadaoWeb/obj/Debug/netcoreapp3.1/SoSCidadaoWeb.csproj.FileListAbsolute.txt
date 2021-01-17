@@ -175,7 +175,11 @@ C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\View
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Pessoa\Edit.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Pessoa\Index.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderPrimary.cshtml.g.cs
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderSecondary.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutDashboard.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -188,7 +192,3 @@ C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\staticweba
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.dll
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.pdb
 C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\SoSCidadaoWeb.genruntimeconfig.cache
-C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
-C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderPrimary.cshtml.g.cs
-C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_HeaderSecondary.cshtml.g.cs
-C:\SOSCidadao\Codigo\SoSCidadao\SoSCidadaoWeb\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutDashboard.cshtml.g.cs

@@ -23,6 +23,8 @@ namespace SoSCidadaoWeb.Controllers
         // GET: Pessoa
         public ActionResult Index()
         {
+            ViewBag.isBannerHidden = false;
+            ViewBag.isBannerFull = true;
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
             ViewBag.isBannerHidden = false;
@@ -50,20 +52,19 @@ namespace SoSCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PessoaModel pessoaModel)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                    _pessoaService.Inserir(pessoa);
+            pessoaModel.StatusPessoa = "Ativo";
+            pessoaModel.TipoPessoa = "Pessoa";
+            pessoaModel.IdOrganizacao = 1;
 
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            var pessoa = _mapper.Map<Pessoa>(pessoaModel);
+                _pessoaService.Inserir(pessoa);
+
+            
+
+            return RedirectToAction(nameof(Index));
+            
+   
         }
 
         // GET: Pessoa/Edit/5

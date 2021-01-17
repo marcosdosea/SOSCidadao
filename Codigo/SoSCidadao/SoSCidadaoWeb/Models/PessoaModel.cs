@@ -9,10 +9,7 @@ namespace SoSCidadaoWeb.Models
     public class PessoaModel
     {
 
-        [Display(Name = "Número cadastral")]
-        [Key]
-        [Required(ErrorMessage = "Não foi possivel identificar o número cadastral da pessoa")]
-        public int idPessoa { get; set; }
+        public int idPessoa = 0;
 
         [Display(Name = "Nome Completo")]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
@@ -54,13 +51,13 @@ namespace SoSCidadaoWeb.Models
 
         [Display(Name = "Senha")]
         [DataType(DataType.Password)]
-        [StringLength(30, ErrorMessage = "Campo senha dever possuir no mínimo {1} caracteres", MinimumLength = 6)]
+        [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
         [Required(ErrorMessage = "Campo Senha é obrigatório.")]
         public string Senha { get; set; }
 
         [Display(Name = "Repetir Senha")]
         [DataType(DataType.Password)]
-        [StringLength(30, ErrorMessage = "Campo senha dever possuir no mínimo {1} caracteres", MinimumLength = 6)]
+        [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
         [Required(ErrorMessage = "Campo Repetir Senha é obrigatório.")]
         [Compare("Senha", ErrorMessage = "A senhas informadas não são iguais.")]
         public string ConrfirmaSenha { get; set; }
@@ -86,13 +83,12 @@ namespace SoSCidadaoWeb.Models
         public string Cidade { get; set; }
 
         [Display(Name = "UF")]
-        [StringLength(2, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
+        [StringLength(3, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
         [Required(ErrorMessage = "Campo UF é obrigatório.")]
         public string Uf { get; set; }
 
         [Display(Name = "Nº")]
         [Range(0, int.MaxValue, ErrorMessage = "Campo Número do Endereço é inválido")]
-        [StringLength(2, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
         public int? NumeroEndereco { get; set; }
 
         [Display(Name = "Tipo Pessoa")]

@@ -7,9 +7,11 @@ $(document).ready(function () {
 
             $('#data-personal').toggle();
             $('#data-user').removeClass('d-none');
-            
+
             $('#step').html('Etapa 2');
             $(this).html('Finalizar')
+        } else if ($(this).html().trim() == 'Finalizar') {
+            $('#form-create').submit();
         }
     });
     $('#btn_back').click(function (e) {
