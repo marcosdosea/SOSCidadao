@@ -28,6 +28,11 @@ html, body {
 }
 
 
+/*============= Classes genéricas ==================*/
+.pointer{
+    cursor:pointer;
+}
+
 /*============= Margens ==================*/
 
 .mt-6{

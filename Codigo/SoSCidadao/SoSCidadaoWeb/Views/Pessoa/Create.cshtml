@@ -1,7 +1,7 @@
 ﻿@model SoSCidadaoWeb.Models.PessoaModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar Conta";
 }
 
     <div class="d-flex justify-content-center">
@@ -164,15 +164,14 @@
                 <div class="row mt-5">
                     <div class="col-6">
                         <div class="form-group">
-                    
-                            <span id="btn_back" asp-action="" class="btn btn-outline-danger">
+                            <a id="btn_back" asp-controller="Home" asp-action="Index" class="btn btn-outline-danger pointer">
                                 Voltar 
-                            </span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
                         <div class="form-group">
-                            <div id="bt_create" class="btn btn-primary">
+                            <div id="bt_create" class="btn btn-primary pointer">
                                 Continuar
                             </div>
                         </div>
