@@ -1,5 +1,7 @@
 # Arquivo gerado pelo WorkBench
 *.bak
 *.tmp
-bin/
 *.vs
+
+obj/*
+bin/*

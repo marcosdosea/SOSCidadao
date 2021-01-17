@@ -7,7 +7,9 @@ namespace Core
     {
         public Pessoa()
         {
+            Anexo = new HashSet<Anexo>();
             Atendimentoocorrencia = new HashSet<Atendimentoocorrencia>();
+            Comentario = new HashSet<Comentario>();
             Ocorrencia = new HashSet<Ocorrencia>();
             Organizacao = new HashSet<Organizacao>();
         }
@@ -16,7 +18,6 @@ namespace Core
         public string Nome { get; set; }
         public string Sexo { get; set; }
         public string Cpf { get; set; }
-        public string Rg { get; set; }
         public string Telefone { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
@@ -31,10 +32,12 @@ namespace Core
         public string TipoPessoa { get; set; }
         public string StatusPessoa { get; set; }
         public DateTime DataCadastro { get; set; }
-        public int IdOrganizacao { get; set; }
+        public int? IdOrganizacao { get; set; }
 
         public virtual Organizacao IdOrganizacaoNavigation { get; set; }
+        public virtual ICollection<Anexo> Anexo { get; set; }
         public virtual ICollection<Atendimentoocorrencia> Atendimentoocorrencia { get; set; }
+        public virtual ICollection<Comentario> Comentario { get; set; }
         public virtual ICollection<Ocorrencia> Ocorrencia { get; set; }
         public virtual ICollection<Organizacao> Organizacao { get; set; }
     }
