@@ -1,0 +1,15 @@
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Service.runtimeconfig.json
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Service.runtimeconfig.dev.json
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\bin\Debug\netcoreapp3.1\Core.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.csprojAssemblyReference.cache
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.pdb
+C:\Users\Luiz Carlos Moitinho\Documents\SosCidadao\Service\obj\Debug\netcoreapp3.1\Service.genruntimeconfig.cache
