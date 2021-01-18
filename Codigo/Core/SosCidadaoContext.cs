@@ -1,6 +1,6 @@
-﻿
-using System.Configuration;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Core
 {
@@ -31,10 +31,8 @@ namespace Core
         {
             if (!optionsBuilder.IsConfigured)
             {
-               
+                //codigo
             }
-
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
