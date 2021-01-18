@@ -1,5 +1,6 @@
 using AutoMapper;
 using Core;
+using Core.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,10 +35,9 @@ namespace SosCidadaoWeb
                 options.UseMySQL(
                     Configuration.GetConnectionString("SosCidadaoConnection")));
 
+            services.AddTransient<ITipopertenceService, TipopertenceService>();
 
-            //services.AddTransient<IPessoaService, PessoaService>();
-
-            //services.AddAutoMapper(typeof(Startup).Assembly);
+            services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
