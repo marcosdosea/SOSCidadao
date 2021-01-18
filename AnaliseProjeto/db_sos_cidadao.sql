@@ -1,5 +1,5 @@
 -- MySQL Workbench Synchronization
--- Generated: 2021-01-11 22:46
+-- Generated: 2021-01-18 10:54
 -- Model: New Model
 -- Version: 1.0
 -- Project: Name of the project
@@ -59,26 +59,24 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Pessoa` (
   `idPessoa` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NOT NULL,
-  `sexo` ENUM('F', 'M') NOT NULL,
+  `sexo` ENUM('F', 'M') NOT NULL DEFAULT 'M',
   `cpf` VARCHAR(15) NOT NULL,
-  `rg` VARCHAR(14) NOT NULL,
-  `telefone` VARCHAR(16) NOT NULL,
+  `telefone` VARCHAR(16) NULL DEFAULT NULL,
   `dataNascimento` DATETIME NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `login` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(250) NOT NULL,
+  `login` VARCHAR(30) NOT NULL,
   `senha` TEXT NOT NULL,
-  `cep` VARCHAR(45) NOT NULL,
-  `rua` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
+  `cep` VARCHAR(10) NOT NULL,
+  `rua` VARCHAR(250) NOT NULL,
+  `bairro` VARCHAR(250) NOT NULL,
+  `cidade` VARCHAR(250) NOT NULL,
   `uf` CHAR(2) NOT NULL,
   `numeroEndereco` INT(11) NULL DEFAULT NULL,
   `tipoPessoa` ENUM('Pessoa', 'Agente', 'Administrador') NOT NULL DEFAULT 'Pessoa',
   `statusPessoa` ENUM('Ativo', 'Inativo', 'Excluido') NOT NULL DEFAULT 'Ativo',
   `dataCadastro` DATETIME NOT NULL,
-  `idOrganizacao` INT(11) NOT NULL,
+  `idOrganizacao` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idPessoa`),
-  UNIQUE INDEX `rgPessoa_UNIQUE` (`rg` ASC) VISIBLE,
   UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE,
@@ -138,7 +136,14 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`TipoPertence` (
   `idTipoPertence` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idTipoPertence`))
+  `idOrganizacao` INT(11) NOT NULL,
+  PRIMARY KEY (`idTipoPertence`),
+  INDEX `fk_TipoPertence_Organizacao1_idx` (`idOrganizacao` ASC) VISIBLE,
+  CONSTRAINT `fk_TipoPertence_Organizacao1`
+    FOREIGN KEY (`idOrganizacao`)
+    REFERENCES `sos_cidadao`.`Organizacao` (`idOrganizacao`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -147,11 +152,18 @@ CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Comentario` (
   `dataCadastro` DATETIME NOT NULL,
   `descricao` TEXT NOT NULL,
   `idOcorrencia` INT(11) NOT NULL,
+  `iidPessoa` INT(11) NOT NULL,
   PRIMARY KEY (`idComentario`),
   INDEX `fk_Comentario_Ocorrencia1_idx` (`idOcorrencia` ASC) VISIBLE,
+  INDEX `fk_Comentario_Pessoa1_idx` (`iidPessoa` ASC) VISIBLE,
   CONSTRAINT `fk_Comentario_Ocorrencia1`
     FOREIGN KEY (`idOcorrencia`)
     REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Comentario_Pessoa1`
+    FOREIGN KEY (`iidPessoa`)
+    REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -163,39 +175,54 @@ CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Anexo` (
   `urlArquivo` VARCHAR(250) NOT NULL,
   `dataCadastro` DATETIME NULL DEFAULT NULL,
   `idOcorrencia` INT(11) NOT NULL,
+  `idPessoa` INT(11) NOT NULL,
   PRIMARY KEY (`idAnexoPertence`),
   INDEX `fk_Anexo_Ocorrencia_idx` (`idOcorrencia` ASC) VISIBLE,
+  INDEX `fk_Anexo_Pessoa1_idx` (`idPessoa` ASC) VISIBLE,
   CONSTRAINT `fk_Anexo_Ocorrencia`
     FOREIGN KEY (`idOcorrencia`)
     REFERENCES `sos_cidadao`.`Ocorrencia` (`idOcorrencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Anexo_Pessoa1`
+    FOREIGN KEY (`idPessoa`)
+    REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`TipoOcorrencia` (
-  `idTipoOcorrencia` INT(11) NOT NULL,
+  `idTipoOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
+  `idOrganizacao` INT(11) NOT NULL,
   PRIMARY KEY (`idTipoOcorrencia`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE)
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE,
+  INDEX `fk_TipoOcorrencia_Organizacao1_idx` (`idOrganizacao` ASC) VISIBLE,
+  CONSTRAINT `fk_TipoOcorrencia_Organizacao1`
+    FOREIGN KEY (`idOrganizacao`)
+    REFERENCES `sos_cidadao`.`Organizacao` (`idOrganizacao`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Organizacao` (
-  `idOrganizacao` INT(11) NOT NULL,
+  `idOrganizacao` INT(11) NOT NULL AUTO_INCREMENT,
+  `cnpj` VARCHAR(14) NOT NULL,
   `nomeRazao` VARCHAR(250) NOT NULL,
   `nomeFantasia` VARCHAR(250) NOT NULL,
   `cep` VARCHAR(10) NOT NULL,
-  `rua` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
-  `estado` VARCHAR(45) NOT NULL,
+  `rua` VARCHAR(250) NOT NULL,
+  `bairro` VARCHAR(250) NOT NULL,
+  `cidade` VARCHAR(250) NOT NULL,
   `uf` CHAR(2) NOT NULL,
   `numeroEndereco` INT(11) NULL DEFAULT NULL,
   `dataRegistro` DATETIME NOT NULL,
-  `idPessoa` INT(11) NOT NULL,
+  `idPessoa` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idOrganizacao`),
   INDEX `fk_Organizacao_Pessoa1_idx` (`idPessoa` ASC) VISIBLE,
+  UNIQUE INDEX `cpj_UNIQUE` (`cnpj` ASC) VISIBLE,
   CONSTRAINT `fk_Organizacao_Pessoa1`
     FOREIGN KEY (`idPessoa`)
     REFERENCES `sos_cidadao`.`Pessoa` (`idPessoa`)
@@ -205,14 +232,14 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Local` (
-  `idLocal` INT(11) NOT NULL,
+  `idLocal` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NULL DEFAULT NULL,
   `latitude` DECIMAL NULL DEFAULT NULL,
   `longitude` DECIMAL NULL DEFAULT NULL,
   `cep` VARCHAR(10) NULL DEFAULT NULL,
-  `rua` VARCHAR(45) NULL DEFAULT NULL,
-  `bairro` VARCHAR(45) NULL DEFAULT NULL,
-  `cidade` VARCHAR(45) NULL DEFAULT NULL,
+  `rua` VARCHAR(250) NULL DEFAULT NULL,
+  `bairro` VARCHAR(250) NULL DEFAULT NULL,
+  `cidade` VARCHAR(250) NULL DEFAULT NULL,
   `uf` CHAR(2) NULL DEFAULT NULL,
   `numeroEndereco` INT(11) NULL DEFAULT NULL,
   `idOrganizacao` INT(11) NOT NULL,
