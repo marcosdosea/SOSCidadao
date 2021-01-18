@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Service
 {
-    class TipoocorrenciaService : ITipoocorrenciaService
+    public class TipoocorrenciaService : ITipoocorrenciaService
     {
         private readonly SosCidadaoContext _context;
         public TipoocorrenciaService(SosCidadaoContext context)
