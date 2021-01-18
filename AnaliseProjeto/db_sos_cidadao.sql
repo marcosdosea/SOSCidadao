@@ -1,5 +1,5 @@
 -- MySQL Workbench Synchronization
--- Generated: 2021-01-17 17:38
+-- Generated: 2021-01-18 10:54
 -- Model: New Model
 -- Version: 1.0
 -- Project: Name of the project
@@ -193,7 +193,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`TipoOcorrencia` (
-  `idTipoOcorrencia` INT(11) NOT NULL,
+  `idTipoOcorrencia` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `idOrganizacao` INT(11) NOT NULL,
   PRIMARY KEY (`idTipoOcorrencia`),
@@ -208,7 +208,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Organizacao` (
-  `idOrganizacao` INT(11) NOT NULL,
+  `idOrganizacao` INT(11) NOT NULL AUTO_INCREMENT,
   `cnpj` VARCHAR(14) NOT NULL,
   `nomeRazao` VARCHAR(250) NOT NULL,
   `nomeFantasia` VARCHAR(250) NOT NULL,
@@ -232,7 +232,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `sos_cidadao`.`Local` (
-  `idLocal` INT(11) NOT NULL,
+  `idLocal` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NULL DEFAULT NULL,
   `latitude` DECIMAL NULL DEFAULT NULL,
   `longitude` DECIMAL NULL DEFAULT NULL,
