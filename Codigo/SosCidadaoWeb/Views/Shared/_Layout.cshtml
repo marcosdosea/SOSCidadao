@@ -1,36 +1,77 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Inicio</title>
+    <title>@ViewData["Title"] - S.O.S Cidadao - Inicio</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/sos_cidadao_root.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg  navbar-light bg-inverse  navbar-customize">
+            <a class="navbar-brand logo" href="#">
+                <span class="text-green-secundary">S.O.S</span> <span>Cidadão</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    @await Html.PartialAsync("_HeaderPrimary.cshtml")
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-links  ">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nós</a>
+                    </li>
+                    <!-- Trocar Cadastrar por Criar conta-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cadastrar</a>
+                    </li>
+                    <!-- Trocar login por Entrar-->
+                    <li class="nav-item mt-2">
+                        <a class="btn btn-login" href="#">
+                            Login
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="btn btn-danger btn-emergency" href="#">+ Emergência </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid" id="bg-main-blue">
 
-    <div class="container-fluid mt-5 pt-3 p-5">
-        <main role="main">
+    </div>
+    <div class="container-fluid" id="banner-img">
+
+    </div>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Denúncie</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer  text-muted bg-dark">
-        <div class="container text-info">
+    <footer class="border-top footer text-muted">
+        <div class="container">
             &copy; 2020 - SoSCidadaoWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/criar_conta.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

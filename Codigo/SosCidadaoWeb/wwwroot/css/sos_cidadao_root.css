@@ -17,28 +17,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    z-index:5 !important
 }
 
 html, body {
     width: 100%;
-
+    height: 100%;
     font-family:'Roboto', sans-serif;
-    background-color: var(--color-white-primary) !important;
+    background-color: var(--color-white-light);
 }
-
-
-/*============= Classes genéricas ==================*/
-.pointer{
-    cursor:pointer;
-}
-
-/*============= Margens ==================*/
-
-.mt-6{
-    margin-top:6em;
-}
-
 
 
 /*============= DEFAULT ==================*/
@@ -70,57 +56,33 @@ a:active {
     color: #fff !important;
 }
 
-.nav-links li a {
-    color: #fff !important;
-}
+    .nav-links li a {
+        color: #fff !important;
+    }
 
 .navbar-customize {
     padding-left: 5%;
     padding-right: 5%;
-    z-index: 4 ;
+    z-index: 4;
     background-color: rgba(0, 0, 0, 0);
 }
 
-.bg-main-blue {
+#bg-main-blue {
     background-color: #17a3b8bf;
-    height: 45vw;
-    z-index: 1 !important;
+    height: 70%;
+    z-index: 3;
     position: absolute;
     top: 0;
 }
 
-
-.banner-img {
+#banner-img {
     background-image: url('../img/home/bg.jpg');
-    background-repeat: no-repeat, repeat-y;
-    background-attachment: scroll;
-    height: 45vw;
-    z-index: 0 !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.bg-main-blue-full {
-    background-color: #17a3b8bf;
-    height: 100%;
-    z-index: 1 !important;
+    background-repeat: no-repeat;
+    height: 70%;
+    z-index: 2;
     position: absolute;
     top: 0;
 }
-
-
-.banner-img-full {
-    background-image: url('../img/home/bg.jpg');
-    background-repeat: no-repeat, repeat-y;
-    background-attachment: scroll;
-    height: 100%;
-    z-index: 0 !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 
 .logo {
     font-size: 2em;
@@ -151,5 +113,3 @@ a:active {
 .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-
-

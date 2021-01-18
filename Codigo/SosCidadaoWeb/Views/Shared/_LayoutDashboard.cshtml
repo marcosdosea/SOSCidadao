@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Font Awesome -->
     <link href="~/lib/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress --
-    <link href="~/lib/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet"> -->
+    <!-- NProgress -->
+    <link href="~/lib/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="~/lib/gentelella/build/css/custom.css" rel="stylesheet">
@@ -135,6 +135,42 @@
                                         <li><a href="profile.html">Profile</a></li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="page_403.html">403 Error</a></li>
+                                        <li><a href="page_404.html">404 Error</a></li>
+                                        <li><a href="page_500.html">500 Error</a></li>
+                                        <li><a href="plain_page.html">Plain Page</a></li>
+                                        <li><a href="login.html">Login Page</a></li>
+                                        <li><a href="pricing_tables.html">Pricing Tables</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+                                            <a href="#level1_1">Level One</a>
+                                        </li>
+                                        <li>
+                                            <a>Level One<span class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li class="sub_menu">
+                                                    <a href="level2.html">Level Two</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#level2_1">Level Two</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#level2_2">Level Two</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#level1_2">Level One</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
                             </ul>
                         </div>
@@ -191,7 +227,7 @@
                                 <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"></span>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -203,7 +239,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"></span>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -215,7 +251,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -227,7 +263,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="" alt="Profile Image" /></span>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
                                                 <span class="time">3 mins ago</span>
@@ -319,13 +355,13 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FastClick
+    <!-- FastClick -->
     <script src="~/lib/gentelella/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress
-    <script src="~/lib/gentelella/vendors/nprogress/nprogress.js"></script>-->
+    <!-- NProgress -->
+    <script src="~/lib/gentelella/vendors/nprogress/nprogress.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/lib/gentelella/build/js/custom.min.js"></script>
-    <script src="~/js/criar_conta.js"></script>
+
     @RenderSection("Scripts", required: false)
 
 </body>

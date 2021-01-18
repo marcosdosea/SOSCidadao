@@ -2,6 +2,5 @@
 *.bak
 *.tmp
 *.vs
-
-obj/*
-bin/*
+/bin
+/obj
