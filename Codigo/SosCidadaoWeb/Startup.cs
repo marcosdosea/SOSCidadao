@@ -1,6 +1,5 @@
 using AutoMapper;
 using Core;
-using Core.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,9 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Service;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,11 +31,12 @@ namespace SosCidadaoWeb
             services.AddControllersWithViews();
             services.AddDbContext<SosCidadaoContext>(options =>
                 options.UseMySQL(
-                    Configuration.GetConnectionString("SosCidadaoDatabase")));
+                    Configuration.GetConnectionString("SosCidadaoConnection")));
 
-            services.AddTransient<ITipopertenceService, TipopertenceService>();
-            services.AddAutoMapper(typeof(Startup).Assembly);
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            //services.AddTransient<IPessoaService, PessoaService>();
+
+            //services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

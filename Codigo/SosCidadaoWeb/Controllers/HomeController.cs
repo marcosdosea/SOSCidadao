@@ -20,6 +20,8 @@ namespace SosCidadaoWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.isBannerFull = true;
+            ViewBag.isBannerHidden = false;
             return View();
         }
 

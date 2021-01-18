@@ -1,7 +1,6 @@
-﻿using System;
+﻿
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Core
 {
@@ -32,10 +31,10 @@ namespace Core
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL(
-                  ConfigurationManager.ConnectionStrings["SosCidadaoConnection"].ConnectionString
-                );
+               
             }
+
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
