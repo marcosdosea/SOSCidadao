@@ -77,7 +77,6 @@ namespace SosCidadaoWeb.Controllers
   
                 var comentario = _mapper.Map<Comentario>(comentarioModel);
                 comentarioModel.idComentario = id;
-                comentario.IdOcorrencia = 0;
                 comentario.DataCadastro = DateTime.Now;
 
                 _comentarioService.Atualizar(comentario);
