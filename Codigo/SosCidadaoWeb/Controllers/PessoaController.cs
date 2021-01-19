@@ -54,18 +54,16 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PessoaModel pessoaModel)
         {
-            pessoaModel.StatusPessoa = "Ativo";
-            pessoaModel.TipoPessoa = "Pessoa";
-            pessoaModel.IdOrganizacao = 1;
+            if (ModelState.IsValid)
+            {
+                var pessoa = _mapper.Map<Pessoa>(pessoaModel);
+                pessoa.StatusPessoa = "Ativo";
+                pessoa.TipoPessoa = "Pessoa";
+                pessoa.IdOrganizacao = 1;
 
-
-            var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-            _pessoaService.Inserir(pessoa);
-
-
-
+                _pessoaService.Inserir(pessoa);
+            }
             return RedirectToAction(nameof(Index));
-
 
         }
 
