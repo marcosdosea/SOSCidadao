@@ -52,7 +52,6 @@ namespace SosCidadaoWeb.Controllers
         
                 var comentario = _mapper.Map<Comentario>(comentarioModel);
                 comentario.IdComentario = 0;
-                comentario.IdOcorrencia = 3;
                 comentario.DataCadastro = DateTime.Now;
                 _comentarioService.Inserir(comentario);
 
