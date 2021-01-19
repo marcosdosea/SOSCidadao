@@ -35,6 +35,8 @@ namespace SosCidadaoWeb
                 options.UseMySQL(
                     Configuration.GetConnectionString("SosCidadaoConnection")));
 
+            services.AddTransient<IComentarioService, ComentarioService>();
+
             services.AddTransient<ITipopertenceService, TipopertenceService>();
 
             services.AddTransient<IPessoaService, PessoaService>();

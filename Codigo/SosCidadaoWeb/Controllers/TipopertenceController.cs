@@ -13,8 +13,8 @@ namespace SosCidadaoWeb.Controllers
 {
     public class TipopertenceController : Controller
     {
-        ITipopertenceService _tipopertenceService;
-        IMapper _mapper;
+        private readonly ITipopertenceService _tipopertenceService;
+        private readonly IMapper _mapper;
 
         public TipopertenceController(ITipopertenceService tipopertenceService, IMapper mapper)
         {

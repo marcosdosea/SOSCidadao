@@ -13,8 +13,8 @@ namespace SosCidadaoWeb.Controllers
     public class PessoaController : Controller
     {
 
-        IPessoaService _pessoaService;
-        IMapper _mapper;
+        private readonly IPessoaService _pessoaService;
+        private readonly IMapper _mapper;
 
         public PessoaController(IPessoaService pessoaService, IMapper mapper)
         {
