@@ -58,7 +58,8 @@ namespace Service
 
         public int Remover(int id)
         {
-            _context.Remove(id);
+            var _comentario = _context.Comentario.Find(id);
+            _context.Remove(_comentario);
             return _context.SaveChanges();
 
         }

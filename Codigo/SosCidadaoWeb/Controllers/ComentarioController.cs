@@ -74,11 +74,9 @@ namespace SosCidadaoWeb.Controllers
         {
             try
             {
-  
                 var comentario = _mapper.Map<Comentario>(comentarioModel);
                 comentarioModel.idComentario = id;
                 comentario.DataCadastro = DateTime.Now;
-
                 _comentarioService.Atualizar(comentario);
 
                 return RedirectToAction(nameof(Index));
@@ -100,7 +98,7 @@ namespace SosCidadaoWeb.Controllers
         // POST: ComentarioController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ComentarioModel comentario)
         {
             try
             {
