@@ -43,6 +43,8 @@ namespace SosCidadaoWeb
 
             services.AddTransient<IPertenceService, PertenceService>();
 
+            services.AddTransient<ILocalService, ILocalService>();
+
             services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
