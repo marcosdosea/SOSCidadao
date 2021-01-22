@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Service
 {
-    class LocalService : ILocalService
+    public class LocalService : ILocalService
     {
         private readonly SosCidadaoContext _context;
 
