@@ -45,12 +45,12 @@ namespace SosCidadaoWeb.Models
         public string Nome { get; set; }
 
         [Display(Name = "Lat")]
-        [Range(0, int.MaxValue, ErrorMessage = "Campo Número de Latitude é inválido")]
+        [Range(double.MinValue, double.MaxValue, ErrorMessage = "Campo Número de Latitude é inválido")]
         public decimal? Latitude { get; set; }
 
 
         [Display(Name = "Long")]
-        [Range(0, int.MaxValue, ErrorMessage = "Campo Número de Longitude é inválido")]
+        [Range(double.MinValue, double.MaxValue, ErrorMessage = "Campo Número de Longitude é inválido")]
         public decimal? Longitude { get; set; }
     }
 }
