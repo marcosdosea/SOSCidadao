@@ -76,6 +76,7 @@ namespace SosCidadaoWeb.Controllers
             {
                 var local = _mapper.Map<Local>(localModel);
                 local.IdLocal = id;
+                local.IdOrganizacao = 1;
                 _localService.Atualizar(local);
 
             }
