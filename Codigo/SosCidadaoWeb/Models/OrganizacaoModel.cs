@@ -62,10 +62,7 @@ namespace SosCidadaoWeb.Models
         public int? IdPessoa { get; set; }
 
 
+
+
     }
 }
-
-
-
-public DateTime DataRegistro { get; set; }
-public int IdPessoa { get; set; }

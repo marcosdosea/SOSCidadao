@@ -11,9 +11,9 @@ namespace Core.Service
         Organizacao Obter(int IdOrganizacao);
         IEnumerable<Organizacao> ObterTodos();
         void Atualizar(Organizacao organizacao);
-        void Remover(Organizacao IdOrganizacao);
+        void Remover(int IdOrganizacao);
 
         IEnumerable<OrganizacaoDTO> ObterPorNomeOrdenadoDescending(string NomeFantasia);
-
+        
     }
 }
