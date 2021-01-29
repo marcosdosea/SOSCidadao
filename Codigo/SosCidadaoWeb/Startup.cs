@@ -35,11 +35,15 @@ namespace SosCidadaoWeb
                 options.UseMySQL(
                     Configuration.GetConnectionString("SosCidadaoConnection")));
 
+            services.AddTransient<IComentarioService, ComentarioService>();
+
             services.AddTransient<ITipopertenceService, TipopertenceService>();
 
             services.AddTransient<ITipoocorrenciaService, TipoocorrenciaService>();
 
             services.AddTransient<IPessoaService, PessoaService>();
+
+            services.AddTransient<IPertenceService, PertenceService>();
 
             services.AddAutoMapper(typeof(Startup).Assembly);
         }

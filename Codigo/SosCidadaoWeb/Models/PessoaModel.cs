@@ -24,8 +24,6 @@ namespace SosCidadaoWeb.Models
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Campo CPF deve possuir no mínimo 11 digitos.")]
         public string Cpf { get; set; }
 
-
-
         public string Telefone { get; set; }
 
         [Display(Name = "Data de Nascimento")]

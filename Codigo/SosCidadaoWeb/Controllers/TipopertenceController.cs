@@ -13,15 +13,15 @@ namespace SosCidadaoWeb.Controllers
 {
     public class TipopertenceController : Controller
     {
-        ITipopertenceService _tipopertenceService;
-        IMapper _mapper;
+        private readonly ITipopertenceService _tipopertenceService;
+        private readonly IMapper _mapper;
 
         public TipopertenceController(ITipopertenceService tipopertenceService, IMapper mapper)
         {
             _tipopertenceService = tipopertenceService;
             _mapper = mapper;
         }
-        // GET: TipopertenceController
+        // GET: Tipopertence
         public ActionResult Index()
         {
             var listaTipopertence = _tipopertenceService.ObterTodos();
@@ -29,7 +29,7 @@ namespace SosCidadaoWeb.Controllers
             return View(listaTipopertenceModel);
         }
 
-        // GET: TipopertenceController/Details/5
+        // GET: Tipopertence/Details/5
         public ActionResult Details(int id)
         {
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
@@ -37,13 +37,13 @@ namespace SosCidadaoWeb.Controllers
             return View(tipopertenceModel);
         }
 
-        // GET: TipopertenceController/Create
+        // GET: Tipopertence/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipopertenceController/Create
+        // POST: Tipopertence/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TipopertenceModel tipopertenceModel)
@@ -51,12 +51,14 @@ namespace SosCidadaoWeb.Controllers
              if (ModelState.IsValid)
              {
                 var tipopertence = _mapper.Map<Tipopertence>(tipopertenceModel);
+
+                tipopertence.IdOrganizacao = 1;
                  _tipopertenceService.Inserir(tipopertence);
              }
              return RedirectToAction(nameof(Index));
         }
 
-        // GET: TipopertenceController/Edit/5
+        // GET: Tipopertence/Edit/5
         public ActionResult Edit(int id)
         {
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
@@ -64,21 +66,22 @@ namespace SosCidadaoWeb.Controllers
             return View(tipopertenceModel);
         }
 
-        // POST: TipopertenceController/Edit/5
+        // POST: Tipopertence/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, TipopertenceModel tipopertenceModel)
         {
             if (ModelState.IsValid)
             {
-                 var tipopertence = _mapper.Map<Tipopertence>(tipopertenceModel);
-                 _tipopertenceService.Atualizar(tipopertence);
+                var tipopertence = _mapper.Map<Tipopertence>(tipopertenceModel);
+                tipopertence.IdTipoPertence = id;
+                _tipopertenceService.Atualizar(tipopertence);
             }
             return RedirectToAction(nameof(Index));
 
         }
 
-        // GET: TipopertenceController/Delete/5
+        // GET: Tipopertence/Delete/5
         public ActionResult Delete(int id)
         {
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
@@ -86,7 +89,7 @@ namespace SosCidadaoWeb.Controllers
             return View(tipopertenceModel);
         }
 
-        // POST: TipopertenceController/Delete/5
+        // POST: Tipopertence/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, TipopertenceModel tipopertenceModel)
