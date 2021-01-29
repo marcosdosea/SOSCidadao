@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SosCidadaoWeb.Models.TipoocorrenciaModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoOcorrencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganizacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoOcorrencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrganizacao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdTipoOcorrencia  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.IdTipoOcorrencia }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdTipoOcorrencia })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

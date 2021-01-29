@@ -39,6 +39,8 @@ namespace SosCidadaoWeb
 
             services.AddTransient<ITipopertenceService, TipopertenceService>();
 
+            services.AddTransient<ITipoocorrenciaService, TipoocorrenciaService>();
+
             services.AddTransient<IPessoaService, PessoaService>();
 
             services.AddTransient<IPertenceService, PertenceService>();
