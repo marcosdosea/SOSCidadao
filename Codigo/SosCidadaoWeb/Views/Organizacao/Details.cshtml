@@ -1,13 +1,13 @@
 ﻿@model SosCidadaoWeb.Models.OrganizacaoModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes da Organização";
 }
 
-<h1>Details</h1>
+<h1>Detalhes</h1>
 
 <div>
-    <h4>OrganizacaoModel</h4>
+    <h4>Organizacões</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -86,5 +86,5 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new {  id = Model.IdOrganizacao }) |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a Lista de organizações</a>
 </div>

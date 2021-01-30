@@ -1,14 +1,14 @@
 ﻿@model SosCidadaoWeb.Models.OrganizacaoModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Deletar Organização";
 }
 
-<h1>Delete</h1>
+<h1>Deletar Organização</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza de que deseja apagar organização?</h3>
 <div>
-    <h4>OrganizacaoModel</h4>
+    <h4>Organizações</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -87,6 +87,6 @@
     
     <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">Voltar para lista de organizações</a>
     </form>
 </div>
