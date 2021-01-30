@@ -31,10 +31,11 @@ namespace SosCidadaoWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //injeção dependência DBContext
             services.AddDbContext<SosCidadaoContext>(options =>
                 options.UseMySQL(
                     Configuration.GetConnectionString("SosCidadaoConnection")));
-
+            //injeção de dependencia de serviços
             services.AddTransient<IComentarioService, ComentarioService>();
 
             services.AddTransient<ITipopertenceService, TipopertenceService>();
@@ -45,6 +46,9 @@ namespace SosCidadaoWeb
 
             services.AddTransient<IPertenceService, PertenceService>();
 
+            services.AddTransient<IOrganizacaoService, OrganizacaoService>();
+
+            //injeção de dependencia mappers
             services.AddAutoMapper(typeof(Startup).Assembly);
         }
 

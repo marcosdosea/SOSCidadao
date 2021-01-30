@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Service
 {
-    class OrganizacaoService : IOrganizacaoService
+    public class OrganizacaoService : IOrganizacaoService
     {
         private readonly SosCidadaoContext _context;
 
@@ -29,14 +29,7 @@ namespace Service
             _context.Update(organizacao);
             _context.SaveChanges();
         }
-
-        public void Remover(Organizacao IdOrganizacao)
-        {
-            var _organizacao = _context.Organizacao.Find(IdOrganizacao);
-            _context.Organizacao.Remove(_organizacao);
-            _context.SaveChanges();
-        }
-
+        
         private IQueryable<Organizacao> GetQuery()
         {
             IQueryable<Organizacao> tb_organizacao = _context.Organizacao;
@@ -67,6 +60,13 @@ namespace Service
         public IEnumerable<Organizacao> ObterTodos()
         {
             return GetQuery();
+        }
+
+        public void Remover(int IdOrganizacao)
+        {
+            var _organizacao = _context.Organizacao.Find(IdOrganizacao);
+            _context.Organizacao.Remove(_organizacao);
+            _context.SaveChanges();
         }
     }
 }
