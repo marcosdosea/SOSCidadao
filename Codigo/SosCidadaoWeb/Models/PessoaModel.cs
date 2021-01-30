@@ -94,7 +94,6 @@ namespace SosCidadaoWeb.Models
         public DateTime DataCadastro { get; set; }
 
         [Display(Name = "Organização")]
-        [Range(1, int.MaxValue, ErrorMessage = "Campo Tipo Pessoa  é inválido")]
-        public int IdOrganizacao { get; set; }
+        public int? IdOrganizacao { get; set; }
     }
 }

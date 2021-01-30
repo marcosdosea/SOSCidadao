@@ -59,7 +59,6 @@ namespace SosCidadaoWeb.Controllers
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);
                 pessoa.StatusPessoa = "Ativo";
                 pessoa.TipoPessoa = "Pessoa";
-                pessoa.IdOrganizacao = 1;
 
                 _pessoaService.Inserir(pessoa);
             }

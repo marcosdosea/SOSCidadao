@@ -24,6 +24,8 @@ namespace SosCidadaoWeb.Controllers
         // GET: Tipopertence
         public ActionResult Index()
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence";
             var listaTipopertence = _tipopertenceService.ObterTodos();
             var listaTipopertenceModel = _mapper.Map<List<TipopertenceModel>>(listaTipopertence);
             return View(listaTipopertenceModel);
@@ -32,6 +34,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Tipopertence/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence / Detalhes";
+
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
             TipopertenceModel tipopertenceModel = _mapper.Map<TipopertenceModel>(tipopertence);
             return View(tipopertenceModel);
@@ -40,6 +45,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Tipopertence/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence / Criar";
+
             return View();
         }
 
@@ -61,6 +69,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Tipopertence/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence / Editar";
+
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
             TipopertenceModel tipopertenceModel = _mapper.Map<TipopertenceModel>(tipopertence);
             return View(tipopertenceModel);
@@ -84,6 +95,8 @@ namespace SosCidadaoWeb.Controllers
         // GET: Tipopertence/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence / Remover";
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
             TipopertenceModel tipopertenceModel = _mapper.Map<TipopertenceModel>(tipopertence);
             return View(tipopertenceModel);

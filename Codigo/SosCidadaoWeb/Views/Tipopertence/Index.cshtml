@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<SosCidadaoWeb.Models.TipopertenceModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tipo Pertence";
     Layout = "_LayoutDashboard";
 }
 
-<h1>Index</h1>
+<h1> </h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -37,10 +34,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IdOrganizacao)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdTipoPertence }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdTipoPertence }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdTipoPertence })
+            <td>    
+                @Html.ActionLink("Editar", "Edit", new { id=item.IdTipoPertence }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdTipoPertence }) |
+                @Html.ActionLink("Remover", "Delete", new { id = item.IdTipoPertence })
             </td>
         </tr>
 }
