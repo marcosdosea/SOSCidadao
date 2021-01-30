@@ -26,6 +26,7 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Tipo Pertence";
             ViewBag.path = "Início / Tipo Pertence";
+
             var listaTipopertence = _tipopertenceService.ObterTodos();
             var listaTipopertenceModel = _mapper.Map<List<TipopertenceModel>>(listaTipopertence);
             return View(listaTipopertenceModel);
@@ -97,6 +98,7 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Tipo Pertence";
             ViewBag.path = "Início / Tipo Pertence / Remover";
+
             Tipopertence tipopertence = _tipopertenceService.Obter(id);
             TipopertenceModel tipopertenceModel = _mapper.Map<TipopertenceModel>(tipopertence);
             return View(tipopertenceModel);

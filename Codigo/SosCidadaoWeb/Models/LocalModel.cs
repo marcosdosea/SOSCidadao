@@ -8,7 +8,8 @@ namespace SosCidadaoWeb.Models
 {
     public class LocalModel
     {
-        public int IdLocal = 0;
+        [Display(Name = "Nº Cadastral")]
+        public int? IdLocal { get; set; }
 
         [Display(Name = "CEP")]
         [StringLength(8, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 8)]
@@ -44,13 +45,17 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
 
-        [Display(Name = "Lat")]
+        [Display(Name = "Latitude")]
         [Range(double.MinValue, double.MaxValue, ErrorMessage = "Campo Número de Latitude é inválido")]
         public decimal? Latitude { get; set; }
 
-
-        [Display(Name = "Long")]
+        [Display(Name = "Longitude")]
         [Range(double.MinValue, double.MaxValue, ErrorMessage = "Campo Número de Longitude é inválido")]
         public decimal? Longitude { get; set; }
+        
+        [Display(Name = "Organização")]
+        [Required(ErrorMessage = "Campo Organização é obrigatório.")]
+        public int IdOrganizacao { get; set; }
+
     }
 }
