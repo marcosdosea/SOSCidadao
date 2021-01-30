@@ -8,7 +8,7 @@ namespace SosCidadaoWeb.Models
 {
     public class TipoocorrenciaModel
     {
-
+        [Display(Name = "Nº Cadastral")]
         public int? IdTipoOcorrencia { get; set; }
 
         [Display(Name = "Nome")]

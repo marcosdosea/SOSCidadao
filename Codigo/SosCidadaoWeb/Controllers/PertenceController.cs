@@ -27,6 +27,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence
         public ActionResult Index()
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence";
+
             var listaPertence = _pertenceService.ObterTodos();
             var listaPertenceModel = _mapper.Map<List<PertenceModel>>(listaPertence);
             return View(listaPertenceModel);
