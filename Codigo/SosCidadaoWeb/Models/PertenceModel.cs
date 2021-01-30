@@ -8,26 +8,28 @@ namespace SosCidadaoWeb.Models
 {
     public class PertenceModel
     {
-        public int IdPertence = 0;
+        [Display(Name = "Nº Cadastral")]
+        public int? IdPertence { get; set; }
 
-        [Display(Name = "Nome do Pertence")]
+        [Display(Name = "Nome ")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Nome é obrigatório.")] 
         public string Nome { get; set; }
 
-        [Display(Name = "Descrição sobre o Pertence")]
+        [Display(Name = "Descrição")]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Descricao deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Status")]
         public string StatusPertence { get; set; }
 
-        [Display(Name = "IdOcorrencia")]
+        [Display(Name = "Ocorrênca")]
         [Key]
         [Required(ErrorMessage = "Campo IdOcorrencia é obrigatório.")]
         public int IdOcorrencia { get; set; }
         
-        [Display(Name = "IdTipoPertence")]
+        [Display(Name = "Tipo")]
         [Key]
         [Required(ErrorMessage = "Campo IdTipoPertence é obrigatório.")] 
         public int IdTipoPertence { get; set; }
