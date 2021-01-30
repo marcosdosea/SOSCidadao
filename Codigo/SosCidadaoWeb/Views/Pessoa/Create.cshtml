@@ -144,9 +144,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="ConrfirmaSenha" class="control-label"></label>
-                                <input asp-for="ConrfirmaSenha" class="form-control col-12" />
-                                <span asp-validation-for="ConrfirmaSenha" class="text-danger"></span>
+                                <label asp-for="ConfirmaSenha" class="control-label"></label>
+                                <input asp-for="ConfirmaSenha" class="form-control col-12" />
+                                <span asp-validation-for="ConfirmaSenha" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -178,8 +178,6 @@
     </div>
 </div>
 
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-

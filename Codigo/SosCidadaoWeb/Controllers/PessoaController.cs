@@ -25,17 +25,24 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa
         public ActionResult Index()
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa";
+
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;
+
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            ViewBag.isBannerHidden = false;
+            
             return View(listaPessoasModel);
         }
 
         // GET: Pessoa/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa";
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);
@@ -44,6 +51,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa";
+
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;    
             return View();
@@ -69,6 +79,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa";
+
             ViewBag.isBannerHidden = false;
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
@@ -86,10 +99,9 @@ namespace SosCidadaoWeb.Controllers
                 if (ModelState.IsValid)
                 {
                     var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-     
+                    pessoa.IdPessoa = id;
                     pessoa.StatusPessoa = "Ativo";
                     pessoa.TipoPessoa = "Pessoa";
-                   
 
                     _pessoaService.Atualizar(pessoa);
                 }
