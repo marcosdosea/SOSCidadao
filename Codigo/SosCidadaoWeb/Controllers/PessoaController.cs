@@ -86,10 +86,10 @@ namespace SosCidadaoWeb.Controllers
                 if (ModelState.IsValid)
                 {
                     var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                    pessoa.IdPessoa = id;
+     
                     pessoa.StatusPessoa = "Ativo";
                     pessoa.TipoPessoa = "Pessoa";
-                    pessoa.IdOrganizacao = 1;
+                   
 
                     _pessoaService.Atualizar(pessoa);
                 }
