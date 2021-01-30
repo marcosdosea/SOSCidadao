@@ -1,15 +1,11 @@
 ﻿@model IEnumerable<SosCidadaoWeb.Models.LocalModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listar Local";
     Layout = "_LayoutDashboard";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -44,41 +40,50 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Uf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroEndereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Latitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdLocal }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IdLocal }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IdLocal })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroEndereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Latitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Longitude)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdLocal }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdLocal }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdLocal })
+                </td>
+            </tr>
+        }
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="6" class=" text-center">
+                    <h4 class="p-5">Não foram encontrados registros no momento.</h4>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

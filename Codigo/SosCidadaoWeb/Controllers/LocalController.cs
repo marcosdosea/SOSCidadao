@@ -25,6 +25,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: LocalController1
         public ActionResult Index()
         {
+            ViewBag.title_page = "Local";
+            ViewBag.path = "Início / Local";
+
             var listaLocal = _localService.ObterTodos();
             var listalocalModel = _mapper.Map<List<LocalModel>>(listaLocal);
             return View(listalocalModel);
@@ -33,6 +36,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: LocalController1/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Local";
+            ViewBag.path = "Início / Local / Detaçhes";
+
             Local local = _localService.Obter(id);
             LocalModel localModel = _mapper.Map<LocalModel>(local);
             return View(localModel);
@@ -41,6 +47,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: LocalController1/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Local";
+            ViewBag.path = "Início / Local / Criar";
+
             return View();
         }
 
@@ -62,6 +71,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: LocalController1/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Local";
+            ViewBag.path = "Início / Local / Editar";
+
             Local local = _localService.Obter(id);
             LocalModel localModel = _mapper.Map<LocalModel>(local);
             return View(localModel);
@@ -86,6 +98,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: LocalController1/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Local";
+            ViewBag.path = "Início / Local / Remover";
+
             Local local = _localService.Obter(id);
             LocalModel localModel = _mapper.Map<LocalModel>(local);
             return View(localModel);

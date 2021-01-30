@@ -1,15 +1,12 @@
 ﻿@model SosCidadaoWeb.Models.LocalModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes Local";
     Layout = "_LayoutDashboard";
 }
 
-<h1>Details</h1>
 
 <div>
-    <h4>LocalModel</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Cep)
@@ -68,6 +65,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLocal }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdLocal }) |
+    <a asp-action="Index">Listar</a>
 </div>
