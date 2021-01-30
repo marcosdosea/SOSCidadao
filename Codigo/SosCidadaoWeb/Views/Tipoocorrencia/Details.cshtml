@@ -1,0 +1,37 @@
+﻿@model SosCidadaoWeb.Models.TipoocorrenciaModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TipoocorrenciaModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdTipoOcorrencia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdTipoOcorrencia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdOrganizacao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdOrganizacao)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTipoOcorrencia }) |
+    <a asp-action="Index">Back to List</a>
+</div>

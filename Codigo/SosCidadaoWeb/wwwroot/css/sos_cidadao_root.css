@@ -1,13 +1,9 @@
-﻿:root {
-    
+﻿﻿:root {
     --color-gren-secundary: #DDF312;
-
     --color-gray-primary: #999999;
     --color-gray-light: #dacfcf;
-    
-    --color-white-light: rgb(242, 237, 237); 
+    --color-white-light: rgb(242, 237, 237);
     --color-white-primary: #fff;
-
     --color-black-opacity: #0000005d;
 }
 
@@ -17,14 +13,27 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    z-index: 5 !important
 }
 
 html, body {
     width: 100%;
-    height: 100%;
-    font-family:'Roboto', sans-serif;
-    background-color: var(--color-white-light);
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-white-primary) !important;
 }
+
+
+/*============= Classes genéricas ==================*/
+.pointer {
+    cursor: pointer;
+}
+
+/*============= Margens ==================*/
+
+.mt-6 {
+    margin-top: 6em;
+}
+
 
 
 /*============= DEFAULT ==================*/
@@ -35,10 +44,10 @@ a {
 }
 
 
-a:active {
-    text-decoration: none;
-    color: #CCC
-}
+    a:active {
+        text-decoration: none;
+        color: #CCC
+    }
 
 .text-green-secundary {
     color: var(--color-gren-secundary);
@@ -67,22 +76,46 @@ a:active {
     background-color: rgba(0, 0, 0, 0);
 }
 
-#bg-main-blue {
+.bg-main-blue {
     background-color: #17a3b8bf;
-    height: 70%;
-    z-index: 3;
+    height: 45vw;
+    z-index: 1 !important;
     position: absolute;
     top: 0;
 }
 
-#banner-img {
+
+.banner-img {
     background-image: url('../img/home/bg.jpg');
-    background-repeat: no-repeat;
-    height: 70%;
-    z-index: 2;
+    background-repeat: no-repeat, repeat-y;
+    background-attachment: scroll;
+    height: 45vw;
+    z-index: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg-main-blue-full {
+    background-color: #17a3b8bf;
+    height: 100%;
+    z-index: 1 !important;
     position: absolute;
     top: 0;
 }
+
+
+.banner-img-full {
+    background-image: url('../img/home/bg.jpg');
+    background-repeat: no-repeat, repeat-y;
+    background-attachment: scroll;
+    height: 100%;
+    z-index: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 
 .logo {
     font-size: 2em;
