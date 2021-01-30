@@ -8,17 +8,17 @@ namespace SosCidadaoWeb.Models
 {
     public class TipoocorrenciaModel
     {
-        [Display(Name = "Número cadastral")]
+        [Display(Name = "Nº Cadastral")]
         [Key]
         [Required(ErrorMessage = "Não foi possivel identificar o número cadastral do tipo")]
         public int IdTipoOcorrencia { get; set; }
 
-        [Display(Name = "Nome do Tipo da Ocorrência")]
+        [Display(Name = "Nome")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
 
-        [Display(Name = "Número IdOrganizacao")]
+        [Display(Name = "Organização")]
         [Key]
         [Required(ErrorMessage = "Não foi possivel identificar o IdOrganizacao")]
         public int IdOrganizacao { get; set; }

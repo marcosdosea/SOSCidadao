@@ -24,6 +24,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController
         public ActionResult Index()
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência";
+
             var listaTipoocorrencia = _tipoocorrenciaService.ObterTodos();
             var listaTipoocorrenciaModel = _mapper.Map<List<TipoocorrenciaModel>>(listaTipoocorrencia);
             return View(listaTipoocorrenciaModel);
@@ -32,6 +35,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência / Detalhes";
+
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
             return View(tipoocorrenciaModel);
@@ -40,6 +46,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência/ Criar ";
+
             return View();
         }
 
@@ -50,6 +59,7 @@ namespace SosCidadaoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var tipoocorrencia = _mapper.Map<Tipoocorrencia>(tipoocorrenciaModel);
                 _tipoocorrenciaService.Inserir(tipoocorrencia);
             }
@@ -59,6 +69,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência / Editar";
+
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
             return View(tipoocorrenciaModel);
