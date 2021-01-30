@@ -45,7 +45,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Create()
         {
             ViewBag.isBannerHidden = false;
-            ViewBag.isBannerFull = true;
+            ViewBag.isBannerFull = true;    
             return View();
         }
 
