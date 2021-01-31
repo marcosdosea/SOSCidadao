@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Service;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,29 @@ namespace Service
             var _tipoocorrencia = _context.Tipoocorrencia.Find(idTipoocorrencia);
             _context.Tipoocorrencia.Remove(_tipoocorrencia);
             _context.SaveChanges();
+        }
+
+
+        /// <summary>
+        /// Obtém o número os itens de acervo de cada livro
+        /// </summary>
+        public IEnumerable<TipoocorrenciaDTO> TipoOcorrenciaOrganizacao()
+        {
+           //IQueryable<Tipoocorrencia> tb_tipo_ocorrencia = _context.Tipoocorrencia;
+
+            var query = from tipo_ocorrencia in _context.Tipoocorrencia
+                        join organizacao in  _context.Organizacao
+                        on tipo_ocorrencia.IdOrganizacao equals organizacao.IdOrganizacao
+                        orderby tipo_ocorrencia.Nome
+                        select new TipoocorrenciaDTO
+                        {
+                            IdTipoOcorrencia = tipo_ocorrencia.IdTipoOcorrencia,
+                            Nome = tipo_ocorrencia.Nome,
+                            Organizacao = organizacao.NomeFantasia,
+                        };
+
+            return query.ToList();
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +25,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController
         public ActionResult Index()
         {
-            var listaTipoocorrencia = _tipoocorrenciaService.ObterTodos();
-            var listaTipoocorrenciaModel = _mapper.Map<List<TipoocorrenciaModel>>(listaTipoocorrencia);
-            return View(listaTipoocorrenciaModel);
+            var listaTipoocorrencia = _tipoocorrenciaService.TipoOcorrenciaOrganizacao();
+            var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
+            return View("./Index_DTO", listaTipoocorrenciaDTO);
         }
 
         // GET: TipoocorrenciaController/Details/5

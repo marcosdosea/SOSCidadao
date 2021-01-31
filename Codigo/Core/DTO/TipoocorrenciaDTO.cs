@@ -8,6 +8,7 @@ namespace Core.DTO
     {
         public int IdTipoOcorrencia { get; set; }
         public string Nome { get; set; }
-        public int IdOrganizacao { get; set; }
+        public string Organizacao { get; set; }
+
     }
 }
