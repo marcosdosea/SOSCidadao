@@ -115,9 +115,15 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Delete/5
         public ActionResult Delete(int id)
         {
+
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
-            TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
-            return View(tipoocorrenciaModel);
+            TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
+
+            Organizacao organizacao = _organizacaoService.Obter(tipoocorrenciaDTO.IdOrganizacao);
+
+            tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
+
+            return View("./Delete_DTO",tipoocorrenciaDTO);
         }
 
         // POST: TipoocorrenciaController/Delete/5
