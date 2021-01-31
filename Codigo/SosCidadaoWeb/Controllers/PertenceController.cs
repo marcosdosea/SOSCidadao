@@ -32,11 +32,6 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence";
 
-
-            //var listaTipoocorrencia = _tipoocorrenciaService.ObterTodosComNomeOrganizacao();
-            //var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
-            //return View("./Index_DTO", listaTipoocorrenciaDTO);
-
             var listaPertence = _pertenceService.ObterTodosDTO();
             var listaPertenceDTO = _mapper.Map<List<PertenceDTO>>(listaPertence);
 
