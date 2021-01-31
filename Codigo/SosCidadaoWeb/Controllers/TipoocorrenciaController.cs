@@ -59,7 +59,6 @@ namespace SosCidadaoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 var tipoocorrencia = _mapper.Map<Tipoocorrencia>(tipoocorrenciaModel);
                 _tipoocorrenciaService.Inserir(tipoocorrencia);
             }
@@ -85,6 +84,8 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var tipoocorrencia = _mapper.Map<Tipoocorrencia>(tipoocorrenciaModel);
+
+                tipoocorrencia.IdTipoOcorrencia = id;
                 _tipoocorrenciaService.Atualizar(tipoocorrencia);
             }
             return RedirectToAction(nameof(Index));
