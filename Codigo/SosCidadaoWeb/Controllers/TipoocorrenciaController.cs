@@ -4,6 +4,7 @@ using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,15 @@ namespace SosCidadaoWeb.Controllers
 {
     public class TipoocorrenciaController : Controller
     {
-        ITipoocorrenciaService _tipoocorrenciaService;
-        IMapper _mapper;
-        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService, IMapper mapper)
+        private readonly ITipoocorrenciaService _tipoocorrenciaService;
+        private readonly IOrganizacaoService _organizacaoService;
+
+        private readonly IMapper _mapper;
+        
+        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService,  IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _tipoocorrenciaService = tipoocorrenciaService;
+            _organizacaoService = organizacaoService;
             _mapper = mapper;
         }
 
@@ -44,6 +49,8 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Create
         public ActionResult Create()
         {
+            IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
+            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", null);
             return View();
         }
 
@@ -63,8 +70,13 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Edit/5
         public ActionResult Edit(int id)
         {
+      
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
+
+            IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
+            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", tipoocorrenciaModel.IdOrganizacao );
+
             return View(tipoocorrenciaModel);
         }
 
@@ -76,6 +88,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var tipoocorrencia = _mapper.Map<Tipoocorrencia>(tipoocorrenciaModel);
+                tipoocorrencia.IdTipoOcorrencia = id;
                 _tipoocorrenciaService.Atualizar(tipoocorrencia);
             }
             return RedirectToAction(nameof(Index));
