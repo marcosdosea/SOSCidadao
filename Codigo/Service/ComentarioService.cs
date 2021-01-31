@@ -20,7 +20,6 @@ namespace Service
         {
             _context.Update(comentario);
             return _context.SaveChanges();
-
         }
 
         public int Inserir(Comentario comentario)

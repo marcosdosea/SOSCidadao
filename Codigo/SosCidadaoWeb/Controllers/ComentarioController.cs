@@ -55,14 +55,12 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ComentarioModel comentarioModel)
         {
-        
-                var comentario = _mapper.Map<Comentario>(comentarioModel);
-                comentario.IdComentario = 0;
-                comentario.DataCadastro = DateTime.Now;
-                _comentarioService.Inserir(comentario);
+            var comentario = _mapper.Map<Comentario>(comentarioModel);
+            comentario.IdComentario = 0;
+            comentario.DataCadastro = DateTime.Now;
+            _comentarioService.Inserir(comentario);
 
-                return RedirectToAction(nameof(Index));
-           
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ComentarioController/Edit/5
@@ -83,7 +81,7 @@ namespace SosCidadaoWeb.Controllers
         {
             var comentario = _mapper.Map<Comentario>(comentarioModel);
 
-            comentarioModel.idComentario = id;
+            comentarioModel.IdComentario = id;
             comentario.DataCadastro = DateTime.Now;
             _comentarioService.Atualizar(comentario);
 
