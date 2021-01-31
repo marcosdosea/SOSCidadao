@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,7 @@ namespace SosCidadaoWeb.Controllers
             _pertenceService = pertenceService;
             _tipopertenceService = tipopertenceService;
             _mapper = mapper;
+
         }
         // GET: Pertence
         public ActionResult Index()
@@ -30,9 +32,15 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence";
 
-            var listaPertence = _pertenceService.ObterTodos();
-            var listaPertenceModel = _mapper.Map<List<PertenceModel>>(listaPertence);
-            return View(listaPertenceModel);
+
+            //var listaTipoocorrencia = _tipoocorrenciaService.ObterTodosComNomeOrganizacao();
+            //var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
+            //return View("./Index_DTO", listaTipoocorrenciaDTO);
+
+            var listaPertence = _pertenceService.ObterTodosDTO();
+            var listaPertenceDTO = _mapper.Map<List<PertenceDTO>>(listaPertence);
+
+            return View("./Index_DTO",listaPertenceDTO);
         }
 
         // GET: Pertence/Details/5

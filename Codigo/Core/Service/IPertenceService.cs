@@ -12,6 +12,8 @@ namespace Core.Service
 
         Pertence Obter(int idPertence);
 
+        IEnumerable<PertenceDTO> ObterTodosDTO();
+
         PertenceDTO ObterDto(int idPertence);
 
         IEnumerable<Pertence> ObterTodos();

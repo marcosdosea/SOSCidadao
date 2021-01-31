@@ -56,6 +56,28 @@ namespace Service
             return query.First();
         }
 
+        public IEnumerable<PertenceDTO> ObterTodosDTO()
+        {
+            var query = from pertence in _context.Pertence
+                        join tipo_pertence in _context.Tipopertence
+                        on pertence.IdTipoPertence equals tipo_pertence.IdTipoPertence
+                        orderby pertence.Nome
+                        select new PertenceDTO
+                        {
+                            IdPertence = pertence.IdPertence,
+                            Nome = pertence.Nome,
+                            Descricao = pertence.Descricao,
+                            StatusPertence = pertence.StatusPertence,
+                            IdOcorrencia = pertence.IdOcorrencia,
+                            IdTipoPertence = tipo_pertence.IdTipoPertence,
+                            NomePertence = tipo_pertence.Nome
+                        }
+                        ;
+
+            return query.ToList();
+
+        }
+
         public IEnumerable<Pertence> ObterTodos()
         {
             return GetQuery();
