@@ -41,7 +41,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Details(int id)
         {
             ViewBag.title_page = "Pessoa";
-            ViewBag.path = "Início / Pessoa";
+            ViewBag.path = "Início / Pessoa / Detalhes";
 
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
@@ -52,7 +52,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Create()
         {
             ViewBag.title_page = "Pessoa";
-            ViewBag.path = "Início / Pessoa";
+            ViewBag.path = "Início / Pessoa / Criar";
 
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;    
@@ -80,7 +80,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Edit(int id)
         {
             ViewBag.title_page = "Pessoa";
-            ViewBag.path = "Início / Pessoa";
+            ViewBag.path = "Início / Pessoa / Editar";
 
             ViewBag.isBannerHidden = false;
             Pessoa pessoa = _pessoaService.Obter(id);
@@ -94,29 +94,26 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PessoaModel pessoaModel)
         {
-            try
+            
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                    pessoa.IdPessoa = id;
-                    pessoa.StatusPessoa = "Ativo";
-                    pessoa.TipoPessoa = "Pessoa";
+                var pessoa = _mapper.Map<Pessoa>(pessoaModel);
+                pessoa.IdPessoa = id;
+                pessoa.StatusPessoa = "Ativo";
+                pessoa.TipoPessoa = "Pessoa";
 
-                    _pessoaService.Atualizar(pessoa);
-                }
+                _pessoaService.Atualizar(pessoa);
+            }
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Pessoa/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa / Remover";
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);
@@ -127,15 +124,8 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, PessoaModel pessoaModel)
         {
-            try
-            {
-                _pessoaService.Remover(id);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _pessoaService.Remover(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

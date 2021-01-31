@@ -61,8 +61,8 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo CEP é obrigatório.")]
         public string Cep { get; set; }
 
-        [Display(Name = "Rua/Avenida")]
-        [StringLength(45, ErrorMessage = "Campo Rua/Avenida não permite mais que 45 caracteres")]
+        [Display(Name = "Logradouro")]
+        [StringLength(45, ErrorMessage = "Campo Logradouro não permite mais que 45 caracteres")]
         [Required(ErrorMessage = "Campo Rua/Avenida é obrigatório.")]
         public string Rua { get; set; }
 
@@ -86,9 +86,7 @@ namespace SosCidadaoWeb.Models
         public int? NumeroEndereco { get; set; }
 
         [Display(Name = "Tipo Pessoa")]
-        [Range(1, int.MaxValue, ErrorMessage = "Campo Tipo Pessoa  é inválido")]
         public string TipoPessoa { get; set; }
-
         public string StatusPessoa { get; set; }
         public DateTime DataCadastro { get; set; }
 
