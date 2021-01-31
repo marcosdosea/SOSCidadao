@@ -110,9 +110,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence / Remover";
 
-            Pertence pertence = _pertenceService.Obter(id);
-            PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
-            return View(pertenceModel);
+            PertenceDTO pertenceDto = _pertenceService.ObterDto(id);
+
+            return View("./Delete_DTO", pertenceDto);
         }
 
         // POST: Pertence/Delete/5
