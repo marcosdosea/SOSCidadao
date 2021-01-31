@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Core.DTO.TipoocorrenciaDTO>
+
+@{
+    ViewData["Title"] = "Detalhes Tipo Ocorrência";
+    Layout = "_LayoutDashboard";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Nº Cadastral
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Organização
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTipoOcorrencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeFantasiaOrganizacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdTipoOcorrencia  }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdTipoOcorrencia }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdTipoOcorrencia })
+                </td>
+            </tr>
+        }
+    </tbody>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="4" class=" text-center">
+                <h4 class="p-5">Não foram encontrados registros no momento.</h4>
+            </td>
+        </tr>
+    }
+</table>
