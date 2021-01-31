@@ -45,7 +45,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Create()
         {
             ViewBag.isBannerHidden = false;
-            ViewBag.isBannerFull = true;
+            ViewBag.isBannerFull = true;    
             return View();
         }
 
@@ -87,10 +87,10 @@ namespace SosCidadaoWeb.Controllers
                 if (ModelState.IsValid)
                 {
                     var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                    pessoa.IdPessoa = id;
+     
                     pessoa.StatusPessoa = "Ativo";
                     pessoa.TipoPessoa = "Pessoa";
-                    pessoa.IdOrganizacao = 1;
+                   
 
                     _pessoaService.Atualizar(pessoa);
                 }

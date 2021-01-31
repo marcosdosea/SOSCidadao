@@ -3,6 +3,7 @@ using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace SosCidadaoWeb.Controllers
     public class PertenceController : Controller
     {
         IPertenceService _pertenceService;
+        ITipopertenceService _tipopertenceService;
         IMapper _mapper;
 
-        public PertenceController(IPertenceService pertenceService, IMapper mapper)
+        public PertenceController(IPertenceService pertenceService, ITipopertenceService tipopertenceService, IMapper mapper)
         {
             _pertenceService = pertenceService;
+            _tipopertenceService = tipopertenceService;
             _mapper = mapper;
         }
         // GET: Pertence
@@ -40,6 +43,8 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Create
         public ActionResult Create()
         {
+            IEnumerable<Tipopertence> listaTipoPertence = _tipopertenceService.ObterTodos();
+            ViewBag.idTipoPertence = new SelectList(listaTipoPertence, "IdTipoPertence", "Nome", null);
             return View();
         }
 
@@ -61,6 +66,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Edit/5
         public ActionResult Edit(int id)
         {
+            IEnumerable<Tipopertence> listaTipoPertence = _tipopertenceService.ObterTodos();
+            ViewBag.idTipoPertence = new SelectList(listaTipoPertence, "IdTipoPertence", "Nome", null);
+
             Pertence pertence = _pertenceService.Obter(id);
             PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
             return View(pertenceModel);

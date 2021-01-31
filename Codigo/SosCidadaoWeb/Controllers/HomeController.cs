@@ -24,6 +24,12 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.isBannerHidden = false;
             return View();
         }
+        public IActionResult IndexSystem()
+        {
+            ViewBag.isBannerFull = true;
+            ViewBag.isBannerHidden = false;
+            return View();
+        }
 
         public IActionResult Privacy()
         {

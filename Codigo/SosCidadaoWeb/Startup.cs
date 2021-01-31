@@ -35,20 +35,17 @@ namespace SosCidadaoWeb
             services.AddDbContext<SosCidadaoContext>(options =>
                 options.UseMySQL(
                     Configuration.GetConnectionString("SosCidadaoConnection")));
+
             //injeção de dependencia de serviços
             services.AddTransient<IComentarioService, ComentarioService>();
-
             services.AddTransient<ITipopertenceService, TipopertenceService>();
-
             services.AddTransient<ITipoocorrenciaService, TipoocorrenciaService>();
-
             services.AddTransient<IPessoaService, PessoaService>();
-
             services.AddTransient<IPertenceService, PertenceService>();
-
             services.AddTransient<IOrganizacaoService, OrganizacaoService>();
+            services.AddTransient<ILocalService, LocalService>();
 
-            //injeção de dependencia mappers
+
             services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
