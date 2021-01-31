@@ -25,6 +25,7 @@ namespace Service
 
         public Tipoocorrencia Obter(int idTipoocorrencia)
         {
+
             var tipoocorrencia = _context.Tipoocorrencia.Find(idTipoocorrencia);
             return tipoocorrencia;
         }
@@ -56,12 +57,10 @@ namespace Service
 
 
         /// <summary>
-        /// Obtém o número os itens de acervo de cada livro
+        /// Obtém lista de todas os Tipo Ocorrências Com as Organizações
         /// </summary>
         public IEnumerable<TipoocorrenciaDTO> TipoOcorrenciaOrganizacao()
         {
-           //IQueryable<Tipoocorrencia> tb_tipo_ocorrencia = _context.Tipoocorrencia;
-
             var query = from tipo_ocorrencia in _context.Tipoocorrencia
                         join organizacao in  _context.Organizacao
                         on tipo_ocorrencia.IdOrganizacao equals organizacao.IdOrganizacao
