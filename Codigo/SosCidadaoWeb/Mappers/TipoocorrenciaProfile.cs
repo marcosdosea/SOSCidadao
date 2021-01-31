@@ -15,6 +15,7 @@ namespace SosCidadaoWeb.Mappers
         {
             CreateMap<TipoocorrenciaModel, Tipoocorrencia>().ReverseMap();
             CreateMap<TipoocorrenciaDTO, Tipoocorrencia>().ReverseMap();
+
         }
     }
 }
