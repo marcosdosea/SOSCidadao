@@ -25,6 +25,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController
         public ActionResult Index()
         {
+            ViewBag.title_page = "Tipo Pertence";
+            ViewBag.path = "Início / Tipo Pertence";
+
             var listaTipoocorrencia = _tipoocorrenciaService.TipoOcorrenciaOrganizacao();
             var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
             return View("./Index_DTO", listaTipoocorrenciaDTO);
