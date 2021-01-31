@@ -15,9 +15,9 @@ namespace SosCidadaoWeb.Controllers
 {
     public class PertenceController : Controller
     {
-        IPertenceService _pertenceService;
-        ITipopertenceService _tipopertenceService;
-        IMapper _mapper;
+        private readonly IPertenceService _pertenceService;
+        private readonly ITipopertenceService _tipopertenceService;
+        private readonly IMapper _mapper;
 
         public PertenceController(IPertenceService pertenceService, ITipopertenceService tipopertenceService, IMapper mapper)
         {
@@ -44,9 +44,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence / Detalhes";
 
-            Pertence pertence = _pertenceService.Obter(id);
-            PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
-            return View(pertenceModel);
+            PertenceDTO pertenceDto = _pertenceService.ObterDto(id);
+     
+            return View("./Details_DTO",pertenceDto);
         }
 
         // GET: Pertence/Create
