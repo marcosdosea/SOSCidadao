@@ -61,8 +61,6 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var local = _mapper.Map<Local>(localModel);
-
-                local.IdOrganizacao = 1;
                 _localService.Inserir(local);
             }
             return RedirectToAction(nameof(Index));
