@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@ViewData["Title"] | Início </title>
+    <title>SOS Cidadão - @ViewData["Title"] </title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -230,7 +230,17 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>@ViewBag.title_pag</h3>
+                            <h3> @ViewBag.title_page  </h3>
+                        </div>
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5   form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Go!</button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -240,7 +250,7 @@
                         <div class="col-md-12 col-sm-12  ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>@ViewBag.path</h2>
+                                    <h2> @ViewBag.path  </h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li>
                                             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -260,7 +270,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    SOS Cidadão - &copy; 2020
+                    SOS Cidadão - &copy; 2021
                 </div>
                 <div class="clearfix"></div>
             </footer>

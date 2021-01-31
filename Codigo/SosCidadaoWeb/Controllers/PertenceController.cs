@@ -27,6 +27,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence
         public ActionResult Index()
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence";
+
             var listaPertence = _pertenceService.ObterTodos();
             var listaPertenceModel = _mapper.Map<List<PertenceModel>>(listaPertence);
             return View(listaPertenceModel);
@@ -35,6 +38,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence / Detalhes";
+
             Pertence pertence = _pertenceService.Obter(id);
             PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
             return View(pertenceModel);
@@ -43,6 +49,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence / Criar";
+
             IEnumerable<Tipopertence> listaTipoPertence = _tipopertenceService.ObterTodos();
             ViewBag.idTipoPertence = new SelectList(listaTipoPertence, "IdTipoPertence", "Nome", null);
             return View();
@@ -66,6 +75,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence / Editar";
+
             IEnumerable<Tipopertence> listaTipoPertence = _tipopertenceService.ObterTodos();
             ViewBag.idTipoPertence = new SelectList(listaTipoPertence, "IdTipoPertence", "Nome", null);
 
@@ -92,6 +104,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence / Remover";
+
             Pertence pertence = _pertenceService.Obter(id);
             PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
             return View(pertenceModel);
@@ -104,7 +119,6 @@ namespace SosCidadaoWeb.Controllers
         {
             _pertenceService.Remover(id);
           return RedirectToAction(nameof(Index));
-        
         }
     }
 }

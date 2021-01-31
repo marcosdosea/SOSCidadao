@@ -18,6 +18,5 @@ namespace Core.Service
 
         int Remover(int id);
 
-
     }
 }

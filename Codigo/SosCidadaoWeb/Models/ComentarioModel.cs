@@ -8,7 +8,8 @@ namespace SosCidadaoWeb.Models
 {
     public class ComentarioModel
     {
-        public int idComentario = 0;
+        [Display(Name = "Nº Cadastral")]
+        public int? IdComentario { get; set; }
 
         [Display(Name = "Comentário")]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
@@ -20,11 +21,11 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Comentário é obrigatório.")]
         public string IidPessoa { get; set; }
 
+        public string DataCadastro { get; set; }
+
         [Display(Name = "Nº Cadastral Ocorrencia")]
         [Range(0, int.MaxValue, ErrorMessage = "Não foi possível identificar a Ocorrência")]
         [Required(ErrorMessage = "Campo Ocorrencia é obrigatório.")]
-        public string idOcorrencia { get; set; }
-
-
+        public string IdOcorrencia { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: ComentarioController
         public ActionResult Index()
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario";
+
             var listaComentarios = _comentarioService.ObterTodos();
             var listaComentariosModel = _mapper.Map<List<ComentarioModel>>(listaComentarios);
             return View(listaComentariosModel);
@@ -33,6 +36,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: ComentarioController/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario / Detalhes";
+
             Comentario comentario = _comentarioService.Obter(id);
             ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
             return View(comentarioModel);
@@ -41,6 +47,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: ComentarioController/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario / Criar";
+
             return View();
         }
 
@@ -49,19 +58,22 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ComentarioModel comentarioModel)
         {
-        
+            if (ModelState.IsValid)
+            {
                 var comentario = _mapper.Map<Comentario>(comentarioModel);
-                comentario.IdComentario = 0;
+
                 comentario.DataCadastro = DateTime.Now;
                 _comentarioService.Inserir(comentario);
-
-                return RedirectToAction(nameof(Index));
-           
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ComentarioController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario / Editar";
+
             Comentario comentario = _comentarioService.Obter(id);
             ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
             return View(comentarioModel);
@@ -72,24 +84,24 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ComentarioModel comentarioModel)
         {
-            try
+            if (ModelState.IsValid)
             {
                 var comentario = _mapper.Map<Comentario>(comentarioModel);
-                comentarioModel.idComentario = id;
+
+                comentario.IdComentario = id;
                 comentario.DataCadastro = DateTime.Now;
                 _comentarioService.Atualizar(comentario);
-
-                return RedirectToAction(nameof(Index));
+            
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ComentarioController/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario / Remover";
+
             Comentario comentario = _comentarioService.Obter(id);
             ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
             return View(comentarioModel);
@@ -100,15 +112,8 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, ComentarioModel comentario)
         {
-            try
-            {
-                _comentarioService.Remover(id);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _comentarioService.Remover(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

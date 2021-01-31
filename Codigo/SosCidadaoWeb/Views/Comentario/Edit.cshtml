@@ -1,14 +1,10 @@
 ﻿@model SosCidadaoWeb.Models.ComentarioModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Comentario";
     Layout = "_LayoutDashboard";
 }
 
-<h1>Edit</h1>
-
-<h4>ComentarioModel</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -24,19 +20,19 @@
                 <span asp-validation-for="IidPessoa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="idOcorrencia" class="control-label"></label>
-                <input asp-for="idOcorrencia" class="form-control" />
-                <span asp-validation-for="idOcorrencia" class="text-danger"></span>
+                <label asp-for="IdOcorrencia" class="control-label"></label>
+                <input asp-for="IdOcorrencia" class="form-control" />
+                <span asp-validation-for="IdOcorrencia" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
