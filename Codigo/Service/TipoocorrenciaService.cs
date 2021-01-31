@@ -59,7 +59,7 @@ namespace Service
         /// <summary>
         /// Obtém lista de todas os Tipo Ocorrências Com as Organizações
         /// </summary>
-        public IEnumerable<TipoocorrenciaDTO> TipoOcorrenciaOrganizacao()
+        public IEnumerable<TipoocorrenciaDTO> ObterTodosComNomeOrganizacao()
         {
             var query = from tipo_ocorrencia in _context.Tipoocorrencia
                         join organizacao in  _context.Organizacao
@@ -69,7 +69,8 @@ namespace Service
                         {
                             IdTipoOcorrencia = tipo_ocorrencia.IdTipoOcorrencia,
                             Nome = tipo_ocorrencia.Nome,
-                            Organizacao = organizacao.NomeFantasia,
+                            IdOrganizacao = organizacao.IdOrganizacao,
+                            NomeFantasiaOrganizacao = organizacao.NomeFantasia,
                         };
 
             return query.ToList();

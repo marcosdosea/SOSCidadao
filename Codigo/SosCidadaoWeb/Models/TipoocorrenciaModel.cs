@@ -18,7 +18,7 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
 
-        [Display(Name = "Número IdOrganizacao")]
+        [Display(Name = "Organização")]
         [Key]
         [Required(ErrorMessage = "Não foi possivel identificar o IdOrganizacao")]
         public int IdOrganizacao { get; set; }

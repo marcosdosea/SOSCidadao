@@ -30,10 +30,10 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController
         public ActionResult Index()
         {
-            ViewBag.title_page = "Tipo Pertence";
-            ViewBag.path = "Início / Tipo Pertence";
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência";
 
-            var listaTipoocorrencia = _tipoocorrenciaService.TipoOcorrenciaOrganizacao();
+            var listaTipoocorrencia = _tipoocorrenciaService.ObterTodosComNomeOrganizacao();
             var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
             return View("./Index_DTO", listaTipoocorrenciaDTO);
         }
@@ -42,8 +42,13 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Details(int id)
         {
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
-            TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
-            return View(tipoocorrenciaModel);
+            TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
+
+            Organizacao organizacao = _organizacaoService.Obter(tipoocorrenciaDTO.IdOrganizacao);
+
+            tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
+
+            return View("./Details_DTO",tipoocorrenciaDTO);
         }
 
         // GET: TipoocorrenciaController/Create

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Core.DTO.TipoocorrenciaDTO>
 
 @{
-    ViewData["Title"] = "Index_DTO";
+    ViewData["Title"] = "Detalhes Tipo Ocorrência";
     Layout = "_LayoutDashboard";
 }
 
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Organizacao)
+                @Html.DisplayNameFor(model => model.NomeFantasiaOrganizacao)
             </th>
             <th></th>
         </tr>
@@ -32,7 +32,7 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Organizacao)
+                    @Html.DisplayFor(modelItem => item.NomeFantasiaOrganizacao)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.IdTipoOcorrencia  }) |

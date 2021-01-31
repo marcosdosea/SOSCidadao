@@ -17,6 +17,8 @@ namespace Core.Service
 
         void Remover(int idTipoocorrencia);
 
-        IEnumerable<TipoocorrenciaDTO> TipoOcorrenciaOrganizacao();
+        IEnumerable<TipoocorrenciaDTO> ObterTodosComNomeOrganizacao();
+
+
     }
 }
