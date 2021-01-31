@@ -47,6 +47,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: ComentarioController/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Comentario";
+            ViewBag.path = "Início / Comentario / Criar";
+
             return View();
         }
 
@@ -55,11 +58,13 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ComentarioModel comentarioModel)
         {
-            var comentario = _mapper.Map<Comentario>(comentarioModel);
-            comentario.IdComentario = 0;
-            comentario.DataCadastro = DateTime.Now;
-            _comentarioService.Inserir(comentario);
+            if (ModelState.IsValid)
+            {
+                var comentario = _mapper.Map<Comentario>(comentarioModel);
 
+                comentario.DataCadastro = DateTime.Now;
+                _comentarioService.Inserir(comentario);
+            }
             return RedirectToAction(nameof(Index));
         }
 
@@ -79,12 +84,15 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ComentarioModel comentarioModel)
         {
-            var comentario = _mapper.Map<Comentario>(comentarioModel);
+            if (ModelState.IsValid)
+            {
+                var comentario = _mapper.Map<Comentario>(comentarioModel);
 
-            comentarioModel.IdComentario = id;
-            comentario.DataCadastro = DateTime.Now;
-            _comentarioService.Atualizar(comentario);
-
+                comentario.IdComentario = id;
+                comentario.DataCadastro = DateTime.Now;
+                _comentarioService.Atualizar(comentario);
+            
+            }
             return RedirectToAction(nameof(Index));
         }
 

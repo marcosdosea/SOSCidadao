@@ -40,6 +40,7 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence / Detalhes";
+
             Pertence pertence = _pertenceService.Obter(id);
             PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
             return View(pertenceModel);
@@ -50,6 +51,7 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Pertence";
             ViewBag.path = "Início / Pertence / Criar";
+
             IEnumerable<Tipopertence> listaTipoPertence = _tipopertenceService.ObterTodos();
             ViewBag.idTipoPertence = new SelectList(listaTipoPertence, "IdTipoPertence", "Nome", null);
             return View();
@@ -117,7 +119,6 @@ namespace SosCidadaoWeb.Controllers
         {
             _pertenceService.Remover(id);
           return RedirectToAction(nameof(Index));
-        
         }
     }
 }
