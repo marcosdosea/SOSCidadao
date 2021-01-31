@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SosCidadaoWeb.Models.OrganizacaoModel>
+
+@{
+    ViewData["Title"] = "Listar Organização";
+    Layout = "_LayoutDashboard";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOrganizacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeFantasia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdOrganizacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cnpj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeFantasia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdOrganizacao }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdOrganizacao }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdOrganizacao })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
