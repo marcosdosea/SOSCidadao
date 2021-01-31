@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<SosCidadaoWeb.Models.OrganizacaoModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listar Organização";
+    Layout = "_LayoutDashboard";
 }
 
-<h1>Organizações</h1>
-
-<p>
-    <a asp-action="Create">Criar Nova Organização</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -19,19 +15,10 @@
                 @Html.DisplayNameFor(model => model.Cnpj)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NomeRazao)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.NomeFantasia)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rua)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cidade)
@@ -39,63 +26,37 @@
             <th>
                 @Html.DisplayNameFor(model => model.Uf)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroEndereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdPessoa)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdOrganizacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cnpj)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeRazao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeFantasia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Uf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroEndereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPessoa)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdOrganizacao }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IdOrganizacao }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IdOrganizacao  })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdOrganizacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cnpj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeFantasia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdOrganizacao }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdOrganizacao }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdOrganizacao })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

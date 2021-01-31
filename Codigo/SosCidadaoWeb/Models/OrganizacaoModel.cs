@@ -9,27 +9,25 @@ namespace SosCidadaoWeb.Models
     public class OrganizacaoModel
     {
         
-        [Display(Name = "Código")]
-        [Key]
-        [Required(ErrorMessage = "Campo Código é obrigatório.")]
-        public int IdOrganizacao { get; set; }
+        public int? IdOrganizacao { get; set; }
 
-        [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
+        [Display(Name = "CNPJ")]
+        [StringLength(14, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Cnpj é obrigatório.")]
         public string Cnpj { get; set; }
 
-        [Display(Name = "Razao Social da Organização")]
+        [Display(Name = "Razao Social")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Razão Social é obrigatório.")]
         public string NomeRazao { get; set; }
 
-        [Display(Name = "Nome Fantasia da Organização")]
+        [Display(Name = "Nome Fantasia")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
         [Required(ErrorMessage = "Campo Nome Fantasia é obrigatório.")]
         public string NomeFantasia { get; set; }
 
         [Display(Name = "CEP")]
-        [StringLength(8, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 8)]
+        [StringLength(9, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 8)]
         [Required(ErrorMessage = "Campo CEP é obrigatório.")]
         public string Cep { get; set; }
 
@@ -57,12 +55,9 @@ namespace SosCidadaoWeb.Models
         [Range(0, int.MaxValue, ErrorMessage = "Campo Número do Endereço é inválido")]
         public int NumeroEndereco { get; set; }
 
-        public DateTime DataRegistro { get; set; }
+        public DateTime? DataRegistro { get; set; }
 
         public int? IdPessoa { get; set; }
-
-
-
 
     }
 }

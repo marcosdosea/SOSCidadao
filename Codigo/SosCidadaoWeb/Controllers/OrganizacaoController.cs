@@ -25,6 +25,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: OrganizacaoController
         public ActionResult Index()
         {
+            ViewBag.title_page = "Listar Organização";
+            ViewBag.path = "Início / Organização";
+
             var listaOrganizacoes = _organizacaoService.ObterTodos();
             var listaOrganizacoesModel = _mapper.Map<List<OrganizacaoModel>>(listaOrganizacoes);
             return View(listaOrganizacoesModel);
@@ -33,6 +36,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: OrganizacaoController/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Detalhes Organização";
+            ViewBag.path = "Início / Organização / Detalhes";
+
             Organizacao organizacao = _organizacaoService.Obter(id);
             OrganizacaoModel organizacaoModel = _mapper.Map<OrganizacaoModel>(organizacao);
             return View(organizacaoModel);
@@ -41,6 +47,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: OrganizacaoController/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Criar Organização";
+            ViewBag.path = "Início / Organização / Criar";
+
             return View();
         }
 
@@ -52,6 +61,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var organizacao = _mapper.Map<Organizacao>(organizacaoModel);
+                organizacao.DataRegistro = DateTime.Now;
                 _organizacaoService.Inserir(organizacao);
             }
             return RedirectToAction(nameof(Index));
@@ -60,6 +70,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: OrganizacaoController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Editar Organização";
+            ViewBag.path = "Início / Organização / Editar";
+
             Organizacao organizacao = _organizacaoService.Obter(id);
             OrganizacaoModel organizacaoModel = _mapper.Map<OrganizacaoModel>(organizacao);
             return View(organizacaoModel);
@@ -73,6 +86,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var organizacao = _mapper.Map<Organizacao>(organizacaoModel);
+                organizacao.IdOrganizacao = id;
                 _organizacaoService.Atualizar(organizacao);
             }
             return RedirectToAction(nameof(Index));
@@ -81,6 +95,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: OrganizacaoController/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Remover Organização";
+            ViewBag.path = "Início / Organização / Remover";
+
             Organizacao organizacao = _organizacaoService.Obter(id);
             OrganizacaoModel organizacaoModel = _mapper.Map < OrganizacaoModel>(organizacao);
             return View(organizacaoModel);

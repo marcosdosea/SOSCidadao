@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Detalhes da Organização";
+    Layout = "_LayoutDashboard";
 }
 
 <h1>Detalhes</h1>
@@ -85,6 +86,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.IdOrganizacao }) |
-    <a asp-action="Index">Voltar para a Lista de organizações</a>
+    @Html.ActionLink("Editar", "Edit", new {  id = Model.IdOrganizacao }) |
+    <a asp-action="Index">Voltar</a>
 </div>
