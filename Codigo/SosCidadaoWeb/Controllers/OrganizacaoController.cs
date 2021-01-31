@@ -86,6 +86,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var organizacao = _mapper.Map<Organizacao>(organizacaoModel);
+
                 organizacao.IdOrganizacao = id;
                 _organizacaoService.Atualizar(organizacao);
             }
