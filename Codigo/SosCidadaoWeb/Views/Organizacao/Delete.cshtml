@@ -2,14 +2,12 @@
 
 @{
     ViewData["Title"] = "Deletar Organização";
+    Layout = "_LayoutDashboard";
 }
 
-<h1>Deletar Organização</h1>
 
-<h3>Tem certeza de que deseja apagar organização?</h3>
 <div>
-    <h4>Organizações</h4>
-    <hr />
+
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdOrganizacao)
@@ -77,16 +75,10 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DataRegistro)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdPessoa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdPessoa)
-        </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar para lista de organizações</a>
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
     </form>
 </div>

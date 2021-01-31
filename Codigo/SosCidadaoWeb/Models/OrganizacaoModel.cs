@@ -8,7 +8,7 @@ namespace SosCidadaoWeb.Models
 {
     public class OrganizacaoModel
     {
-        
+        [Display(Name = "Nº Cadastral")]
         public int? IdOrganizacao { get; set; }
 
         [Display(Name = "CNPJ")]
