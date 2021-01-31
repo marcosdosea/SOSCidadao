@@ -9,6 +9,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.IdLocal)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Cep)
             </th>
             <th>
@@ -45,6 +48,9 @@
         @foreach (var item in Model)
         {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLocal)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cep)
             </td>

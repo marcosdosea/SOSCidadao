@@ -24,14 +24,14 @@ namespace SosCidadaoWeb.Models
         [Display(Name = "Status")]
         public string StatusPertence { get; set; }
 
-        [Display(Name = "Ocorrênca")]
+        [Display(Name = "Ocorrência")]
         [Key]
-        [Required(ErrorMessage = "Campo IdOcorrencia é obrigatório.")]
+        [Required(ErrorMessage = "Campo Ocorrência é obrigatório.")]
         public int IdOcorrencia { get; set; }
         
-        [Display(Name = "Tipo")]
+        [Display(Name = "Tipo do pertence")]
         [Key]
-        [Required(ErrorMessage = "Campo IdTipoPertence é obrigatório.")] 
+        [Required(ErrorMessage = "Campo Tipo do pertence é obrigatório.")] 
         public int IdTipoPertence { get; set; }
     }
 }

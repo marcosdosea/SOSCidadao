@@ -102,6 +102,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pertence/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Pertence";
+            ViewBag.path = "Início / Pertence / Remover";
+
             Pertence pertence = _pertenceService.Obter(id);
             PertenceModel pertenceModel = _mapper.Map<PertenceModel>(pertence);
             return View(pertenceModel);
