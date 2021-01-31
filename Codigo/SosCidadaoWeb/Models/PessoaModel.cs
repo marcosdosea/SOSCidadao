@@ -8,7 +8,8 @@ namespace SosCidadaoWeb.Models
 {
     public class PessoaModel
     {
-        public int idPessoa = 0;
+        [Display(Name = "Nº Cadastral")]
+        public int? idPessoa { get; set; }
 
         [Display(Name = "Nome Completo")]
         [StringLength(255, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
@@ -42,7 +43,6 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Usuário é obrigatório.")]
         public string Login { get; set; }
 
-
         [Display(Name = "Senha")]
         [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
@@ -54,15 +54,15 @@ namespace SosCidadaoWeb.Models
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
         [Required(ErrorMessage = "Campo Repetir Senha é obrigatório.")]
         [Compare("Senha", ErrorMessage = "A senhas informadas não são iguais.")]
-        public string ConrfirmaSenha { get; set; }
+        public string ConfirmaSenha { get; set; }
 
         [Display(Name = "CEP")]
         [StringLength(8, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 8)]
         [Required(ErrorMessage = "Campo CEP é obrigatório.")]
         public string Cep { get; set; }
 
-        [Display(Name = "Rua/Avenida")]
-        [StringLength(45, ErrorMessage = "Campo Rua/Avenida não permite mais que 45 caracteres")]
+        [Display(Name = "Logradouro")]
+        [StringLength(45, ErrorMessage = "Campo Logradouro não permite mais que 45 caracteres")]
         [Required(ErrorMessage = "Campo Rua/Avenida é obrigatório.")]
         public string Rua { get; set; }
 
@@ -77,7 +77,7 @@ namespace SosCidadaoWeb.Models
         public string Cidade { get; set; }
 
         [Display(Name = "UF")]
-        [StringLength(3, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
+        [StringLength(2, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
         [Required(ErrorMessage = "Campo UF é obrigatório.")]
         public string Uf { get; set; }
 
@@ -86,15 +86,11 @@ namespace SosCidadaoWeb.Models
         public int? NumeroEndereco { get; set; }
 
         [Display(Name = "Tipo Pessoa")]
-        [Range(1, int.MaxValue, ErrorMessage = "Campo Tipo Pessoa  é inválido")]
         public string TipoPessoa { get; set; }
-
-
         public string StatusPessoa { get; set; }
         public DateTime DataCadastro { get; set; }
 
         [Display(Name = "Organização")]
-        [Range(1, int.MaxValue, ErrorMessage = "Campo Tipo Pessoa  é inválido")]
-        public int IdOrganizacao { get; set; }
+        public int? IdOrganizacao { get; set; }
     }
 }

@@ -1,15 +1,11 @@
 ﻿@model SosCidadaoWeb.Models.TipopertenceModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes Tipo Pertence";
     Layout = "_LayoutDashboard";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>TipopertenceModel</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
@@ -26,6 +22,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTipoPertence }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdTipoPertence }) |
+    <a asp-action="Index">Voltar</a>
 </div>

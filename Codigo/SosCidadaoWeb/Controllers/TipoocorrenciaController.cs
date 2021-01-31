@@ -36,11 +36,16 @@ namespace SosCidadaoWeb.Controllers
             var listaTipoocorrencia = _tipoocorrenciaService.ObterTodosComNomeOrganizacao();
             var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
             return View("./Index_DTO", listaTipoocorrenciaDTO);
+
+
         }
 
         // GET: TipoocorrenciaController/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência / Detalhes";
+
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
 
@@ -54,8 +59,13 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência/ Criar ";
+
             IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
             ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", null);
+
+
             return View();
         }
 
@@ -75,7 +85,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Edit/5
         public ActionResult Edit(int id)
         {
-      
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência / Editar";
+
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
 
@@ -93,6 +105,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var tipoocorrencia = _mapper.Map<Tipoocorrencia>(tipoocorrenciaModel);
+
                 tipoocorrencia.IdTipoOcorrencia = id;
                 _tipoocorrenciaService.Atualizar(tipoocorrencia);
             }

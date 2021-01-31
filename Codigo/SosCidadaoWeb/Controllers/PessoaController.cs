@@ -25,17 +25,24 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa
         public ActionResult Index()
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa";
+
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;
+
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            ViewBag.isBannerHidden = false;
+            
             return View(listaPessoasModel);
         }
 
         // GET: Pessoa/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa / Detalhes";
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);
@@ -44,6 +51,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa/Create
         public ActionResult Create()
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa / Criar";
+
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;    
             return View();
@@ -59,7 +69,6 @@ namespace SosCidadaoWeb.Controllers
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);
                 pessoa.StatusPessoa = "Ativo";
                 pessoa.TipoPessoa = "Pessoa";
-                pessoa.IdOrganizacao = 1;
 
                 _pessoaService.Inserir(pessoa);
             }
@@ -70,6 +79,9 @@ namespace SosCidadaoWeb.Controllers
         // GET: Pessoa/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa / Editar";
+
             ViewBag.isBannerHidden = false;
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
@@ -82,30 +94,26 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PessoaModel pessoaModel)
         {
-            try
+            
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-     
-                    pessoa.StatusPessoa = "Ativo";
-                    pessoa.TipoPessoa = "Pessoa";
-                   
+                var pessoa = _mapper.Map<Pessoa>(pessoaModel);
+                pessoa.IdPessoa = id;
+                pessoa.StatusPessoa = "Ativo";
+                pessoa.TipoPessoa = "Pessoa";
 
-                    _pessoaService.Atualizar(pessoa);
-                }
+                _pessoaService.Atualizar(pessoa);
+            }
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Pessoa/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Pessoa";
+            ViewBag.path = "Início / Pessoa / Remover";
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);
@@ -116,15 +124,8 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, PessoaModel pessoaModel)
         {
-            try
-            {
-                _pessoaService.Remover(id);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _pessoaService.Remover(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
