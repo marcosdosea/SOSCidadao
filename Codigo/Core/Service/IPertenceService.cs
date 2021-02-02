@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,10 @@ namespace Core.Service
         int Inserir(Pertence pertence);
 
         Pertence Obter(int idPertence);
+
+        IEnumerable<PertenceDTO> ObterTodosDTO();
+
+        PertenceDTO ObterDto(int idPertence);
 
         IEnumerable<Pertence> ObterTodos();
 

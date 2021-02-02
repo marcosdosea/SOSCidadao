@@ -17,5 +17,9 @@ namespace Core.DTO
         public int IdOcorrencia { get; set; }
 
         public int IdTipoPertence { get; set; }
+
+        public string NomePertence { get; set; }
+
+
     }
 }
