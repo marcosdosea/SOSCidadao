@@ -1,13 +1,13 @@
 ﻿@model SosCidadaoWeb.Models.OrganizacaoModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar uma nova organização";
     Layout = "_LayoutDashboard";
  }
 
-<h1>Criar nova organização</h1>
+<h1>Criar nova Organização</h1>
 
-<h4>Organizações</h4>
+<h4>Inserir dados da Nova Organização</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -44,6 +44,11 @@
                 <span asp-validation-for="Rua" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="NumeroEndereco" class="control-label"></label>
+                <input asp-for="NumeroEndereco" class="form-control" />
+                <span asp-validation-for="NumeroEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Bairro" class="control-label"></label>
                 <input asp-for="Bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
@@ -58,11 +63,7 @@
                 <input asp-for="Uf" class="form-control" />
                 <span asp-validation-for="Uf" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NumeroEndereco" class="control-label"></label>
-                <input asp-for="NumeroEndereco" class="form-control" />
-                <span asp-validation-for="NumeroEndereco" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="DataRegistro" class="control-label"></label>
                 <input asp-for="DataRegistro" class="form-control" />
@@ -74,14 +75,14 @@
                 <span asp-validation-for="IdPessoa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar Organização" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Voltar para lista de organizações</a>
+    <a asp-action="Index">Voltar para lista de Organizações</a>
 </div>
 
 @section Scripts {

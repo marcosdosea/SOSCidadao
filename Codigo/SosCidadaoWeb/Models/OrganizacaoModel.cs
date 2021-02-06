@@ -36,6 +36,10 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Rua/Avenida é obrigatório.")]
         public string Rua { get; set; }
 
+        [Display(Name = "Número")]
+        [Range(0, int.MaxValue, ErrorMessage = "Campo Número do Endereço é inválido")]
+        public int NumeroEndereco { get; set; }
+
         [Display(Name = "Bairro")]
         [StringLength(45, ErrorMessage = "Campo Bairro não permite mais que 45 caracteres")]
         [Required(ErrorMessage = "Campo Bairro é obrigatório.")]
@@ -51,12 +55,10 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo UF é obrigatório.")]
         public string Uf { get; set; }
 
-        [Display(Name = "Nº")]
-        [Range(0, int.MaxValue, ErrorMessage = "Campo Número do Endereço é inválido")]
-        public int NumeroEndereco { get; set; }
-
+        [Display(Name = "Data de Registro")]
         public DateTime? DataRegistro { get; set; }
 
+        [Display(Name = "Código da Pessoa vinculada a Organização")]
         public int? IdPessoa { get; set; }
 
     }
