@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Service;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,51 @@ namespace Service
             var _pessoa = _context.Pessoa.Find(id);
             return _pessoa;
 
+        }
+        public PessoaDTO ObterDTO(int idPessoa)
+        {
+            var query = from pessoa in _context.Pessoa
+                        join organizacao in _context.Organizacao
+                        on pessoa.IdOrganizacao equals organizacao.IdOrganizacao
+                        where pessoa.IdPessoa == idPessoa
+                        select new PessoaDTO
+                        {
+                            IdPessoa = pessoa.IdPessoa,
+                            Nome = pessoa.Nome,
+                            Login = pessoa.Login,
+                            Email = pessoa.Email,
+                            TipoPessoa = pessoa.TipoPessoa,
+                            Senha = pessoa.Senha,
+                            StatusPessoa = pessoa.StatusPessoa,
+                            IdOrganizacao = organizacao.IdOrganizacao,
+                            NomeOrganizacao = organizacao.NomeFantasia
+
+                        };
+
+            return query.First();
+        }
+
+        public IEnumerable<PessoaDTO> ObterTodosDTO()
+        {
+            var query = from pessoa in _context.Pessoa
+                        join organizacao in _context.Organizacao
+                        on pessoa.IdOrganizacao equals organizacao.IdOrganizacao
+                        orderby pessoa.Nome
+                        select new PessoaDTO
+                        {
+                            IdPessoa = pessoa.IdPessoa,
+                            Nome = pessoa.Nome,
+                            Login = pessoa.Login,
+                            Email = pessoa.Email,
+                            TipoPessoa = pessoa.TipoPessoa,
+                            Senha = pessoa.Senha,
+                            StatusPessoa = pessoa.StatusPessoa,
+                            IdOrganizacao = organizacao.IdOrganizacao,
+                            NomeOrganizacao = organizacao.NomeFantasia
+
+                        };
+
+            return query.ToList();
         }
 
         public IEnumerable<Pessoa> ObterTodos()

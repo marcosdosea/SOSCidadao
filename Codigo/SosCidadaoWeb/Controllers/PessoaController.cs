@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,12 +16,14 @@ namespace SosCidadaoWeb.Controllers
     {
 
         private readonly IPessoaService _pessoaService;
+        private readonly IOrganizacaoService _organizacaoService;
         private readonly IMapper _mapper;
 
-        public PessoaController(IPessoaService pessoaService, IMapper mapper)
+        public PessoaController(IPessoaService pessoaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _pessoaService = pessoaService;
             _mapper = mapper;
+            _organizacaoService = organizacaoService;
         }
 
         // GET: Pessoa
@@ -31,10 +35,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;
 
-            var listaPessoas = _pessoaService.ObterTodos();
-            var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            
-            return View(listaPessoasModel);
+            var listaPessoas = _pessoaService.ObterTodosDTO();
+            var listaPessoasDTO = _mapper.Map<List<PessoaDTO>>(listaPessoas);
+
+            return View(listaPessoasDTO);
         }
 
         // GET: Pessoa/Details/5
@@ -43,9 +47,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pessoa";
             ViewBag.path = "Início / Pessoa / Detalhes";
 
-            Pessoa pessoa = _pessoaService.Obter(id);
-            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
-            return View(pessoaModel);
+            PessoaDTO pessoaDTO = _pessoaService.ObterDTO(id);
+
+            return View(pessoaDTO);
         }
 
         // GET: Pessoa/Create
@@ -55,7 +59,11 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Pessoa / Criar";
 
             ViewBag.isBannerHidden = false;
-            ViewBag.isBannerFull = true;    
+            ViewBag.isBannerFull = true;
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
+
             return View();
         }
 

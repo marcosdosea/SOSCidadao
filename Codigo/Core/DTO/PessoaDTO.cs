@@ -21,5 +21,7 @@ namespace Core.DTO
         public string StatusPessoa { get; set; }
 
         public int IdOrganizacao { get; set; }
+
+        public string NomeOrganizacao { get; set; }
     }
 }
