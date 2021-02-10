@@ -21,14 +21,15 @@
                     @Html.ActionLink("Criar Conta", "Create", "Pessoa")
                 </li>
                 <li class="nav-item mt-2">
-                    <a class="btn btn-login" asp-controller="Home" asp-action="indexsystem">
+                    <a class="btn btn-login" id="login" asp-area="Identity" asp-page="/Account/Login">
                         Entrar
                     </a>
                 </li>
                 <li class="nav-item mt-2">
                     <a class="btn btn-danger btn-emergency" href="#">+ Emergência </a>
                 </li>
-                <partial name="_LoginPartial" />
+                <!-- <partial name="_LoginPartial" /> -->
+
             </ul>
         </div>
     </nav>
