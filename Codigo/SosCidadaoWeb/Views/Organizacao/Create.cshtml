@@ -5,9 +5,6 @@
     Layout = "_LayoutDashboard";
  }
 
-<h1>Criar nova Organização</h1>
-
-<h4>Inserir dados da Nova Organização</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -75,14 +72,14 @@
                 <span asp-validation-for="IdPessoa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar Organização" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Voltar para lista de Organizações</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
