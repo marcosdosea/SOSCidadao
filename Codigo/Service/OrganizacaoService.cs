@@ -40,7 +40,7 @@ namespace Service
 
         public Organizacao Obter(int IdOrganizacao)
         {
-            var _organizacao= _context.Organizacao.Find(IdOrganizacao);
+            var _organizacao = _context.Organizacao.Find(IdOrganizacao);
             return _organizacao;
         }
         
