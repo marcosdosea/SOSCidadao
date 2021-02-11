@@ -22,8 +22,8 @@ namespace SosCidadaoWeb.Controllers
         public PessoaController(IPessoaService pessoaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _pessoaService = pessoaService;
-            _mapper = mapper;
             _organizacaoService = organizacaoService;
+            _mapper = mapper;
         }
 
         // GET: Pessoa
@@ -38,7 +38,7 @@ namespace SosCidadaoWeb.Controllers
             var listaPessoas = _pessoaService.ObterTodosDTO();
             var listaPessoasDTO = _mapper.Map<List<PessoaDTO>>(listaPessoas);
 
-            return View(listaPessoasDTO);
+            return View("./Index_DTO", listaPessoasDTO);
         }
 
         // GET: Pessoa/Details/5
@@ -49,7 +49,7 @@ namespace SosCidadaoWeb.Controllers
 
             PessoaDTO pessoaDTO = _pessoaService.ObterDTO(id);
 
-            return View(pessoaDTO);
+            return View("./Details_DTO", pessoaDTO);
         }
 
         // GET: Pessoa/Create
@@ -75,8 +75,9 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                pessoa.StatusPessoa = "Ativo";
                 pessoa.TipoPessoa = "Pessoa";
+                pessoa.StatusPessoa = "Ativo";
+                pessoa.DataCadastro = DateTime.Now;
 
                 _pessoaService.Inserir(pessoa);
             }
@@ -91,8 +92,12 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Pessoa / Editar";
 
             ViewBag.isBannerHidden = false;
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
 
             return View(pessoaModel);
         }
@@ -122,9 +127,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pessoa";
             ViewBag.path = "Início / Pessoa / Remover";
 
-            Pessoa pessoa = _pessoaService.Obter(id);
-            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
-            return View(pessoaModel);
+            PessoaDTO pessoaDTO = _pessoaService.ObterDTO(id);
+
+            return View("./Delete_DTO", pessoaDTO);
         }
 
         // POST: Pessoa/Delete/5

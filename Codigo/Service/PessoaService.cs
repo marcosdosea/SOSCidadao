@@ -47,14 +47,15 @@ namespace Service
                         {
                             IdPessoa = pessoa.IdPessoa,
                             Nome = pessoa.Nome,
-                            Login = pessoa.Login,
-                            Email = pessoa.Email,
+                            Sexo = pessoa.Sexo,
+                            Cpf = pessoa.Cpf,
+                            Telefone = pessoa.Telefone,
+                            DataNascimento = pessoa.DataNascimento,
+                            Cidade = pessoa.Cidade,
                             TipoPessoa = pessoa.TipoPessoa,
-                            Senha = pessoa.Senha,
                             StatusPessoa = pessoa.StatusPessoa,
-                            IdOrganizacao = organizacao.IdOrganizacao,
+                            DataCadastro = pessoa.DataCadastro,
                             NomeOrganizacao = organizacao.NomeFantasia
-
                         };
 
             return query.First();
@@ -70,14 +71,15 @@ namespace Service
                         {
                             IdPessoa = pessoa.IdPessoa,
                             Nome = pessoa.Nome,
-                            Login = pessoa.Login,
-                            Email = pessoa.Email,
+                            Sexo = pessoa.Sexo,
+                            Cpf = pessoa.Cpf,
+                            Telefone = pessoa.Telefone,
+                            DataNascimento = pessoa.DataNascimento,
+                            Cidade = pessoa.Cidade,
                             TipoPessoa = pessoa.TipoPessoa,
-                            Senha = pessoa.Senha,
                             StatusPessoa = pessoa.StatusPessoa,
-                            IdOrganizacao = organizacao.IdOrganizacao,
+                            DataCadastro = pessoa.DataCadastro,
                             NomeOrganizacao = organizacao.NomeFantasia
-
                         };
 
             return query.ToList();

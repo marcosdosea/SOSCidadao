@@ -9,19 +9,12 @@ namespace Core.Service
     {
 
         int Inserir(Pessoa pessoa);
-
         Pessoa Obter(int id);
-
         IEnumerable<PessoaDTO> ObterTodosDTO();
-
         PessoaDTO ObterDTO(int idPertence);
-
         IEnumerable<Pessoa> ObterTodos();
-
         int Atualizar(Pessoa pessoa);
-
         int Remover(int id);
-
         bool Validar(Pessoa pessoa);
     }
 }

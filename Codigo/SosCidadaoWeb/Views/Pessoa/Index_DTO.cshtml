@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SosCidadaoWeb.Models.PessoaModel>
+﻿@model IEnumerable<Core.DTO.PessoaDTO>
 
 @{
     ViewData["Title"] = "Listar Pessoa";
@@ -8,36 +8,37 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.idPessoa)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Cpf)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Cep)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.TipoPessoa)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.StatusPessoa)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.IdOrganizacao)
+            <th>
+                @Html.DisplayNameFor(model => model.IdPessoa)
             </th>
             <th>
-                Ações
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusPessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeOrganizacao)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -45,10 +46,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.idPessoa)
+                    @Html.DisplayFor(modelItem => item.IdPessoa)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Cpf)
@@ -57,10 +61,7 @@
                     @Html.DisplayFor(modelItem => item.Telefone)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cep)
+                    @Html.DisplayFor(modelItem => item.Cidade)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TipoPessoa)
@@ -69,12 +70,15 @@
                     @Html.DisplayFor(modelItem => item.StatusPessoa)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdOrganizacao)
+                    @Html.DisplayFor(modelItem => item.DataCadastro)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idPessoa }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.idPessoa }) |
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.idPessoa })
+                    @Html.DisplayFor(modelItem => item.NomeOrganizacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdPessoa }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdPessoa }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.IdPessoa })
                 </td>
             </tr>
         }
