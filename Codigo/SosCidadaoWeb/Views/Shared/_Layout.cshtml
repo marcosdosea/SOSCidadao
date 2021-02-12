@@ -13,8 +13,8 @@
 
     @await Html.PartialAsync("_HeaderPrimary.cshtml")
 
-    <div class="container-fluid mt-5 pt-3 p-5">
-        <main role="main">
+    <div class="container-fluid d-flex align-items-center justify-content-center" style="height:80vh">
+        <main role="main" class="w-100">
             @RenderBody()
         </main>
     </div>

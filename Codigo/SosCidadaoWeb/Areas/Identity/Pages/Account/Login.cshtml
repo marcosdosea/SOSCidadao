@@ -7,14 +7,14 @@
     ViewBag.isBannerFull = true;
 }
 
-<div class="d-flex justify-content-center mb-2">
-    <div class="col-4 p-3 bg-white align-content-center rounded shadow" id="box-main">
-        <section>
+<div class="d-flex justify-content-center align-self-center">
+    <div class="col-12 col-sm-8 col-md-7 col-lg-7 col-xl-4 pt-4 bg-white align-content-center rounded shadow" id="box-main">
+
             <form id="account" method="post">
                 <h4 class="text-center">Entrar</h4>
                 <hr />
                 <div class="d-flex justify-content-center">
-                    <div class="col-11">
+                    <div class="col-11 col-lg-9">
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group col-12">
                             <label asp-for="Input.Email">E-mail * </label>
@@ -41,7 +41,7 @@
                 </div>
                 <hr />
                 <div class="d-flex justify-content-center">
-                    <div class="col-11">
+                    <div class="col-11 col-lg-9">
                         <div>
                             Novo na plataforma? <a class="btn btn-link m-0 p-0" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cadastre-se aqui!</a>
                         </div>
@@ -51,10 +51,38 @@
                     </div>
                 </div>
             </form>
-        </section>
+       
     </div>
+</div>
 
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Recipient:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
