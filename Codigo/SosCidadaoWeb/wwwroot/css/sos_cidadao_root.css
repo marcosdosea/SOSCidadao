@@ -82,7 +82,7 @@ a {
     background-color: #17a3b8bf;
     height: 45vw;
     z-index: 1 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
 
@@ -93,7 +93,7 @@ a {
     background-attachment: scroll;
     height: 45vw;
     z-index: 0 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -102,7 +102,7 @@ a {
     background-color: #17a3b8bf;
     height: 100%;
     z-index: 1 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
 
@@ -113,7 +113,7 @@ a {
     background-attachment: scroll;
     height: 100%;
     z-index: 0 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
