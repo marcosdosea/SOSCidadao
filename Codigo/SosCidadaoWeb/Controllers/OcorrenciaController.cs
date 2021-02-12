@@ -18,7 +18,7 @@ namespace SosCidadaoWeb.Controllers
 
         public OcorrenciaController(IOcorrenciaService ocorrenciaService, IMapper mapper)
         {
-            _ocorrenciaService = _ocorrenciaService;
+            _ocorrenciaService = ocorrenciaService;
             _mapper = mapper;
         }
 

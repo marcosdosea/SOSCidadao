@@ -1,0 +1,55 @@
+﻿@model SosCidadaoWeb.Models.OcorrenciaModel
+
+@{
+    ViewData["Title"] = "Criar Ocorrência";
+    Layout = "_LayoutDashboard";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdOcorrencia" class="control-label"></label>
+                <input asp-for="IdOcorrencia" class="form-control" />
+                <span asp-validation-for="IdOcorrencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataOcorrencia" class="control-label"></label>
+                <input asp-for="DataOcorrencia" class="form-control" />
+                <span asp-validation-for="DataOcorrencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusOcorrencia" class="control-label"></label>
+                <input asp-for="StatusOcorrencia" class="form-control" />
+                <span asp-validation-for="StatusOcorrencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emergencia" class="control-label"></label>
+                <input asp-for="Emergencia" class="form-control" />
+                <span asp-validation-for="Emergencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
