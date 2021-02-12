@@ -37,6 +37,7 @@ namespace SosCidadaoWeb.Controllers
             var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
             return View("./Index_DTO", listaTipoocorrenciaDTO);
 
+
         }
 
         // GET: TipoocorrenciaController/Details/5
@@ -114,8 +115,6 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Delete/5
         public ActionResult Delete(int id)
         {
-            ViewBag.title_page = "Tipo Ocorrência";
-            ViewBag.path = "Início / Tipo Ocorrência / Remover";
 
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
