@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Service
 {
-    class OcorrenciaService : IOcorrenciaService
+    public class OcorrenciaService : IOcorrenciaService
     {
         private readonly SosCidadaoContext _context;
 
