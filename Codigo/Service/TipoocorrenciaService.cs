@@ -1,10 +1,8 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
@@ -62,7 +60,7 @@ namespace Service
         public IEnumerable<TipoocorrenciaDTO> ObterTodosComNomeOrganizacao()
         {
             var query = from tipo_ocorrencia in _context.Tipoocorrencia
-                        join organizacao in  _context.Organizacao
+                        join organizacao in _context.Organizacao
                         on tipo_ocorrencia.IdOrganizacao equals organizacao.IdOrganizacao
                         orderby tipo_ocorrencia.Nome
                         select new TipoocorrenciaDTO

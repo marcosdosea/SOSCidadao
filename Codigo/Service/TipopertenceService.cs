@@ -1,10 +1,7 @@
 ﻿using Core;
-using Core.DTO;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
@@ -47,7 +44,7 @@ namespace Service
 
         public void Remover(int idTipopertence)
         {
-            var _tipopertence  = _context.Tipopertence.Find(idTipopertence);
+            var _tipopertence = _context.Tipopertence.Find(idTipopertence);
             _context.Tipopertence.Remove(_tipopertence);
             _context.SaveChanges();
         }

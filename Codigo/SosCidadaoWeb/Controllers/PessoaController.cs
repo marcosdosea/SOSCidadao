@@ -3,10 +3,7 @@ using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using SosCidadaoWeb.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -33,7 +30,7 @@ namespace SosCidadaoWeb.Controllers
 
             var listaPessoas = _pessoaService.ObterTodos();
             var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            
+
             return View(listaPessoasModel);
         }
 
@@ -55,7 +52,7 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Pessoa / Criar";
 
             ViewBag.isBannerHidden = false;
-            ViewBag.isBannerFull = true;    
+            ViewBag.isBannerFull = true;
             return View();
         }
 
@@ -94,7 +91,7 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PessoaModel pessoaModel)
         {
-            
+
             if (ModelState.IsValid)
             {
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);

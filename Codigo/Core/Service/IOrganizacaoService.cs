@@ -1,7 +1,5 @@
 ﻿using Core.DTO;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Service
 {
@@ -14,6 +12,6 @@ namespace Core.Service
         void Remover(int IdOrganizacao);
 
         IEnumerable<OrganizacaoDTO> ObterPorNomeOrdenadoDescending(string NomeFantasia);
-        
+
     }
 }

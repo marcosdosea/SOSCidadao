@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Core
 {
@@ -486,9 +484,6 @@ namespace Core
                 entity.HasIndex(e => e.IdOrganizacao)
                     .HasName("fk_Pessoa_Organizacao1_idx");
 
-                entity.HasIndex(e => e.Login)
-                    .HasName("login_UNIQUE")
-                    .IsUnique();
 
                 entity.Property(e => e.IdPessoa)
                     .HasColumnName("idPessoa")
@@ -532,11 +527,6 @@ namespace Core
                     .HasColumnName("idOrganizacao")
                     .HasColumnType("int(11)");
 
-                entity.Property(e => e.Login)
-                    .IsRequired()
-                    .HasColumnName("login")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .IsRequired()
@@ -553,10 +543,6 @@ namespace Core
                     .HasColumnName("rua")
                     .HasMaxLength(250)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Senha)
-                    .IsRequired()
-                    .HasColumnName("senha");
 
                 entity.Property(e => e.Sexo)
                     .IsRequired()

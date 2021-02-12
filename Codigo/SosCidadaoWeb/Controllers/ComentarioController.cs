@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using Core;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -91,7 +88,7 @@ namespace SosCidadaoWeb.Controllers
                 comentario.IdComentario = id;
                 comentario.DataCadastro = DateTime.Now;
                 _comentarioService.Atualizar(comentario);
-            
+
             }
             return RedirectToAction(nameof(Index));
         }

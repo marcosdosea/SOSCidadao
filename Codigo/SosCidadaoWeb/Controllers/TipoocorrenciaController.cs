@@ -2,14 +2,10 @@
 using Core;
 using Core.DTO;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -19,8 +15,8 @@ namespace SosCidadaoWeb.Controllers
         private readonly IOrganizacaoService _organizacaoService;
 
         private readonly IMapper _mapper;
-        
-        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService,  IOrganizacaoService organizacaoService, IMapper mapper)
+
+        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _tipoocorrenciaService = tipoocorrenciaService;
             _organizacaoService = organizacaoService;
@@ -53,7 +49,7 @@ namespace SosCidadaoWeb.Controllers
 
             tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
 
-            return View("./Details_DTO",tipoocorrenciaDTO);
+            return View("./Details_DTO", tipoocorrenciaDTO);
         }
 
         // GET: TipoocorrenciaController/Create
@@ -92,7 +88,7 @@ namespace SosCidadaoWeb.Controllers
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
 
             IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
-            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", tipoocorrenciaModel.IdOrganizacao );
+            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", tipoocorrenciaModel.IdOrganizacao);
 
             return View(tipoocorrenciaModel);
         }
@@ -123,7 +119,7 @@ namespace SosCidadaoWeb.Controllers
 
             tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
 
-            return View("./Delete_DTO",tipoocorrenciaDTO);
+            return View("./Delete_DTO", tipoocorrenciaDTO);
         }
 
         // POST: TipoocorrenciaController/Delete/5

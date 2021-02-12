@@ -1,13 +1,11 @@
 ﻿using Core;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
-    public class ComentarioService : IComentarioService 
+    public class ComentarioService : IComentarioService
     {
         private readonly SosCidadaoContext _context;
 

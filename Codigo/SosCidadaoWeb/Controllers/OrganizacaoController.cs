@@ -5,14 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
     public class OrganizacaoController : Controller
     {
-        
+
         IOrganizacaoService _organizacaoService;
         IMapper _mapper;
 
@@ -81,7 +79,7 @@ namespace SosCidadaoWeb.Controllers
         // POST: OrganizacaoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit (int id, OrganizacaoModel organizacaoModel)
+        public ActionResult Edit(int id, OrganizacaoModel organizacaoModel)
         {
             if (ModelState.IsValid)
             {
@@ -100,14 +98,14 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Organização / Remover";
 
             Organizacao organizacao = _organizacaoService.Obter(id);
-            OrganizacaoModel organizacaoModel = _mapper.Map < OrganizacaoModel>(organizacao);
+            OrganizacaoModel organizacaoModel = _mapper.Map<OrganizacaoModel>(organizacao);
             return View(organizacaoModel);
         }
 
         // POST: OrganizacaoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete (int id, OrganizacaoModel organizacaoModel)
+        public ActionResult Delete(int id, OrganizacaoModel organizacaoModel)
         {
             _organizacaoService.Remover(id);
             return RedirectToAction(nameof(Index));

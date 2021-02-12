@@ -3,11 +3,10 @@ using Core.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
-    public class PessoaService: IPessoaService
+    public class PessoaService : IPessoaService
     {
         private readonly SosCidadaoContext _context;
 
@@ -63,11 +62,6 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public Pessoa Autenticar(Pessoa pessoa)
-        {
-            var _pessoa = _context.Pessoa.Find(pessoa.Login, pessoa.Senha);
-            return _pessoa;
 
-        }
     }
 }

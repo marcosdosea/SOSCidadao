@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Models
 {
@@ -52,7 +49,7 @@ namespace SosCidadaoWeb.Models
         [Display(Name = "Longitude")]
         [Range(double.MinValue, double.MaxValue, ErrorMessage = "Campo Número de Longitude é inválido")]
         public decimal? Longitude { get; set; }
-        
+
         [Display(Name = "Organização")]
         [Required(ErrorMessage = "Campo Organização é obrigatório.")]
         public int IdOrganizacao { get; set; }

@@ -1,10 +1,8 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
@@ -16,7 +14,7 @@ namespace Service
         {
             _context = context;
         }
-      
+
         public int Inserir(Organizacao organizacao)
         {
             _context.Add(organizacao);
@@ -29,7 +27,7 @@ namespace Service
             _context.Update(organizacao);
             _context.SaveChanges();
         }
-        
+
         private IQueryable<Organizacao> GetQuery()
         {
             IQueryable<Organizacao> tb_organizacao = _context.Organizacao;
@@ -40,10 +38,10 @@ namespace Service
 
         public Organizacao Obter(int IdOrganizacao)
         {
-            var _organizacao= _context.Organizacao.Find(IdOrganizacao);
+            var _organizacao = _context.Organizacao.Find(IdOrganizacao);
             return _organizacao;
         }
-        
+
         public IEnumerable<OrganizacaoDTO> ObterPorNomeOrdenadoDescending(string NomeFantasia)
         {
             IQueryable<Organizacao> tb_organizacao = _context.Organizacao;

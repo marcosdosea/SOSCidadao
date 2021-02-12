@@ -1,12 +1,11 @@
-using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SosCidadaoWeb.Areas.Identity.Data;
+using System;
 
 [assembly: HostingStartup(typeof(SosCidadaoWeb.Areas.Identity.IdentityHostingStartup))]
 namespace SosCidadaoWeb.Areas.Identity
@@ -15,12 +14,13 @@ namespace SosCidadaoWeb.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
                 services.AddDbContext<IdentityContext>(options =>
                     options.UseMySQL(
                         context.Configuration.GetConnectionString("SosCidadaoConnection")));
 
-     
+
                 services.AddDefaultIdentity<Usuario>(options =>
                 {
                     // Configurações para SignIn
@@ -38,7 +38,7 @@ namespace SosCidadaoWeb.Areas.Identity
                     // Configurações do Usuário 
                     options.User.AllowedUserNameCharacters =
                             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                    options.User.RequireUniqueEmail = true;
+                    options.User.RequireUniqueEmail = false;
 
                     // Configurações de Bloqueio do usuário
                     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);

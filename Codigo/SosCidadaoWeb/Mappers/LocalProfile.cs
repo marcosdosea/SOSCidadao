@@ -4,7 +4,7 @@ using SosCidadaoWeb.Models;
 
 namespace SosCidadaoWeb.Mappers
 {
-    public class LocalProfile: Profile
+    public class LocalProfile : Profile
     {
         public LocalProfile()
         {
