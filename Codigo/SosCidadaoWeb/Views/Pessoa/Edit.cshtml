@@ -16,7 +16,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Sexo" class="control-label"></label>
-                <input asp-for="Sexo" class="form-control" />
+                <select asp-for="Sexo" class="form-control">
+                    <option value="">Selecione uma opção</option>
+                    <option value="1">Feminino</option>
+                    <option value="2">Masculino</option>
+                </select>
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,31 +32,6 @@
                 <label asp-for="Telefone" class="control-label"></label>
                 <input asp-for="Telefone" class="form-control" />
                 <span asp-validation-for="Telefone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" />
-                <span asp-validation-for="DataNascimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmaSenha" class="control-label"></label>
-                <input asp-for="ConfirmaSenha" class="form-control" />
-                <span asp-validation-for="ConfirmaSenha" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cep" class="control-label"></label>
@@ -93,11 +72,6 @@
                 <label asp-for="StatusPessoa" class="control-label"></label>
                 <input asp-for="StatusPessoa" class="form-control" />
                 <span asp-validation-for="StatusPessoa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataCadastro" class="control-label"></label>
-                <input asp-for="DataCadastro" class="form-control" />
-                <span asp-validation-for="DataCadastro" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdOrganizacao" class="control-label"></label>

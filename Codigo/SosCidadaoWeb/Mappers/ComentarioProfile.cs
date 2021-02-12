@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace SosCidadaoWeb.Mappers
         public ComentarioProfile()
         {
             CreateMap<ComentarioModel, Comentario>().ReverseMap();
+            CreateMap<ComentarioDTO, Comentario>().ReverseMap();
         }
     }
 }

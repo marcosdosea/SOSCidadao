@@ -20,6 +20,5 @@ namespace Core.DTO
 
         public string NomePertence { get; set; }
 
-
     }
 }

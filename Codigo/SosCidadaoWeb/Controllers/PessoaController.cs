@@ -35,10 +35,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;
 
-            var listaPessoas = _pessoaService.ObterTodosDTO();
-            var listaPessoasDTO = _mapper.Map<List<PessoaDTO>>(listaPessoas);
+            var listaPessoa = _pessoaService.ObterTodosDTO();
+            var listaPessoaDTO = _mapper.Map<List<PessoaDTO>>(listaPessoa);
 
-            return View("./Index_DTO", listaPessoasDTO);
+            return View("./Index_DTO", listaPessoaDTO);
         }
 
         // GET: Pessoa/Details/5

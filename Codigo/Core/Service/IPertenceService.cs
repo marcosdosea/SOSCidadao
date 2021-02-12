@@ -7,16 +7,15 @@ namespace Core.Service
 {
     public interface IPertenceService
     {
-
         int Inserir(Pertence pertence);
 
         Pertence Obter(int idPertence);
 
-        IEnumerable<PertenceDTO> ObterTodosDTO();
-
-        PertenceDTO ObterDto(int idPertence);
-
         IEnumerable<Pertence> ObterTodos();
+
+        PertenceDTO ObterDTO(int idPertence);
+
+        IEnumerable<PertenceDTO> ObterTodosDTO();
 
         void Atualizar(Pertence pertence);
 

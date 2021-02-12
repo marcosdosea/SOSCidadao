@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,16 +8,17 @@ namespace Core.Service
     public interface IComentarioService
     {
         int Inserir(Comentario comentario);
-        
-        Comentario Obter(int id);
 
-        IEnumerable<Comentario> ObterPorOcorrencia(int id);
+        Comentario Obter(int idComentario);
 
         IEnumerable<Comentario> ObterTodos();
 
-        int Atualizar(Comentario comentario);
+        ComentarioDTO ObterDTO(int idPertence);
 
-        int Remover(int id);
+        IEnumerable<ComentarioDTO> ObterTodosDTO();
 
+        void Atualizar(Comentario comentario);
+
+        void Remover(int idComentario);
     }
 }
