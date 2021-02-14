@@ -16,30 +16,24 @@ namespace Service
         {
             _context = context;
         }
-
         public int Inserir(Local local)
         {
             _context.Add(local);
             _context.SaveChanges();
             return local.IdLocal;
         }
-
         private IQueryable<Local> GetQuery()
         {
             IQueryable<Local> tb_local = _context.Local;
             var query = from local in tb_local
                         select local;
             return query;
-
         }
-
         public Local Obter(int id)
         {
             var _local = _context.Local.Find(id);
             return _local;
-
         }
-
         public IEnumerable<Local> ObterTodos()
         {
             return GetQuery();
@@ -92,14 +86,11 @@ namespace Service
 
             return query.ToList();
         }
-
         public void Atualizar(Local local)
         {
             _context.Update(local);
             _context.SaveChanges();
-
         }
-
         public void Remover(int id)
         {
             var _local = _context.Local.Find(id);

@@ -11,7 +11,5 @@ namespace Core.DTO
         public string Descricao { get; set; }
         public byte Emergencia { get; set; }
         public int IdLocal { get; set; }
-
-
     }
 }

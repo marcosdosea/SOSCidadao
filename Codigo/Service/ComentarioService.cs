@@ -38,7 +38,6 @@ namespace Service
         {
             return GetQuery();
         }
-
         public ComentarioDTO ObterDTO(int idComentario)
         {
             var query = from comentario in _context.Comentario

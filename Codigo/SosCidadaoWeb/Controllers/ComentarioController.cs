@@ -103,7 +103,6 @@ namespace SosCidadaoWeb.Controllers
                 comentario.IdComentario = id;
                 comentario.DataCadastro = DateTime.Now;
                 _comentarioService.Atualizar(comentario);
-            
             }
             return RedirectToAction(nameof(Index));
         }
