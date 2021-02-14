@@ -50,7 +50,7 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
             public string UserName { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 4)]
+            [StringLength(100, ErrorMessage = "A {0} deve ter pelo menos {2} e no máximo{1} caracteres.", MinimumLength = 4)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Password { get; set; }
@@ -59,6 +59,11 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
             [Display(Name = "Repita a senha")]
             [Compare("Password", ErrorMessage = "A senhas informadas não são iguais.")]
             public string ConfirmPassword { get; set; }
+
+            public Models.PessoaModel pessoa = new Models.PessoaModel();
+           
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -77,6 +82,8 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+
+
 
                     _logger.LogInformation("User created a new account with password.");
 
