@@ -56,7 +56,6 @@ namespace Service
                             IdOcorrencia =  pertence.IdOcorrencia,
                             IdTipoPertence = tipo_pertence.IdTipoPertence,
                             NomePertence = tipo_pertence.Nome
-                          
                         };
 
             return query.First();
