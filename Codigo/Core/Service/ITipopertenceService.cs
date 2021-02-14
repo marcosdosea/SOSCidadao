@@ -1,17 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using Core.DTO;
+using System.Collections.Generic;
 
 namespace Core.Service
 {
     public interface ITipopertenceService
     {
-        int Inserir(Tipopertence tipopertence);
 
-        Tipopertence Obter(int idTipopertence);
+        int Inserir(Tipopertence tipoPertence);
+
+        Tipopertence Obter(int idTipoPertence);
 
         IEnumerable<Tipopertence> ObterTodos();
 
-        void Atualizar(Tipopertence tipopertence);
+        TipopertenceDTO ObterDTO(int idTipoPertence);
 
-        void Remover(int idTipopertence);
+        IEnumerable<TipopertenceDTO> ObterTodosDTO();
+
+        void Atualizar(Tipopertence tipoPertence);
+
+        void Remover(int idTipoPertence);
+
     }
 }

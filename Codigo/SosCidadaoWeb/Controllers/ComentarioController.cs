@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -11,11 +13,13 @@ namespace SosCidadaoWeb.Controllers
     public class ComentarioController : Controller
     {
         private readonly IComentarioService _comentarioService;
+        private readonly IPessoaService _pessoaService;
         private readonly IMapper _mapper;
 
-        public ComentarioController(IComentarioService comentario, IMapper mapper)
+        public ComentarioController(IComentarioService comentario, IPessoaService pessoaService, IMapper mapper)
         {
             _comentarioService = comentario;
+            _pessoaService = pessoaService;
             _mapper = mapper;
         }
 
@@ -25,9 +29,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Comentario";
             ViewBag.path = "Início / Comentario";
 
-            var listaComentarios = _comentarioService.ObterTodos();
-            var listaComentariosModel = _mapper.Map<List<ComentarioModel>>(listaComentarios);
-            return View(listaComentariosModel);
+            var listaComentarios = _comentarioService.ObterTodosDTO();
+            var listaComentariosDTO = _mapper.Map<List<ComentarioDTO>>(listaComentarios);
+
+            return View("./Index_DTO", listaComentariosDTO);
         }
 
         // GET: ComentarioController/Details/5
@@ -36,9 +41,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Comentario";
             ViewBag.path = "Início / Comentario / Detalhes";
 
-            Comentario comentario = _comentarioService.Obter(id);
-            ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
-            return View(comentarioModel);
+            ComentarioDTO comentarioDTO = _comentarioService.ObterDTO(id);
+
+            return View("./Details_DTO", comentarioDTO);
         }
 
         // GET: ComentarioController/Create
@@ -46,6 +51,9 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Comentario";
             ViewBag.path = "Início / Comentario / Criar";
+
+            IEnumerable<Pessoa> listapessoas = _pessoaService.ObterTodos();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
 
             return View();
         }
@@ -71,8 +79,12 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Comentario";
             ViewBag.path = "Início / Comentario / Editar";
 
+            IEnumerable<Pessoa> listapessoas = _pessoaService.ObterTodos();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
+
             Comentario comentario = _comentarioService.Obter(id);
             ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
+
             return View(comentarioModel);
         }
 
@@ -99,9 +111,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Comentario";
             ViewBag.path = "Início / Comentario / Remover";
 
-            Comentario comentario = _comentarioService.Obter(id);
-            ComentarioModel comentarioModel = _mapper.Map<ComentarioModel>(comentario);
-            return View(comentarioModel);
+            ComentarioDTO comentarioDTO = _comentarioService.ObterDTO(id);
+
+            return View("./Delete_DTO", comentarioDTO);
         }
 
         // POST: ComentarioController/Delete/5

@@ -5,18 +5,12 @@ namespace Core.Service
 {
     public interface ITipoocorrenciaService
     {
-        int Inserir(Tipoocorrencia tipoocorrencia);
-
-        Tipoocorrencia Obter(int tipoocorrencia);
-
+        int Inserir(Tipoocorrencia tipoOcorrencia);
+        Tipoocorrencia Obter(int idtipoOcorrencia);
         IEnumerable<Tipoocorrencia> ObterTodos();
-
-        void Atualizar(Tipoocorrencia tipoocorrencia);
-
-        void Remover(int idTipoocorrencia);
-
-        IEnumerable<TipoocorrenciaDTO> ObterTodosComNomeOrganizacao();
-
-
+        TipoocorrenciaDTO ObterDTO(int idtipoOcorrencia);
+        IEnumerable<TipoocorrenciaDTO> ObterTodosDTO();
+        void Atualizar(Tipoocorrencia tipoOcorrencia);
+        void Remover(int idtipoOcorrencia);
     }
 }

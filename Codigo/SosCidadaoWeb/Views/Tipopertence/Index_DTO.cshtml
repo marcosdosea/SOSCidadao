@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Core.DTO.TipoocorrenciaDTO>
+﻿@model IEnumerable<Core.DTO.TipopertenceDTO>
 
 @{
-    ViewData["Title"] = "Listar Tipo Ocorrencia";
+    ViewData["Title"] = "Listar Tipo Pertence";
     Layout = "_LayoutDashboard";
 }
 
@@ -12,7 +12,7 @@
                 Nº Cadastral
             </th>
             <th>
-                Tipo Ocorrencia
+                Tipo Pertence
             </th>
             <th>
                 Nome Organizacao
@@ -27,7 +27,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdTipoOcorrencia)
+                    @Html.DisplayFor(modelItem => item.IdTipoPertence)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
@@ -36,9 +36,9 @@
                     @Html.DisplayFor(modelItem => item.NomeOrganizacao)
                 </td>
                 <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.IdTipoOcorrencia }) |
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdTipoOcorrencia }) |
-                    @Html.ActionLink("Remover", "Delete", new { id = item.IdTipoOcorrencia })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdTipoPertence }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdTipoPertence }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdTipoPertence })
                 </td>
             </tr>
         }

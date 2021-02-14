@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.DTO;
 using Core.Service;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,53 +14,75 @@ namespace Service
         {
             _context = context;
         }
-
-        public int Atualizar(Comentario comentario)
-        {
-            _context.Update(comentario);
-            return _context.SaveChanges();
-        }
-
         public int Inserir(Comentario comentario)
         {
             _context.Add(comentario);
             _context.SaveChanges();
             return comentario.IdComentario;
         }
-
-        public Comentario Obter(int id)
-        {
-            var _comentario = _context.Comentario.Find(id);
-            return _comentario;
-        }
-
-
-        public IEnumerable<Comentario> ObterTodos()
-        {
-            return GetQuery();
-        }
-
-        public IEnumerable<Comentario> ObterPorOcorrencia(int id)
-        {
-            return GetQuery();
-        }
-
         private IQueryable<Comentario> GetQuery()
         {
             IQueryable<Comentario> tb_comentario = _context.Comentario;
             var query = from comentario in tb_comentario
                         select comentario;
             return query;
-
         }
-
-        public int Remover(int id)
+        public Comentario Obter(int idComentario)
         {
-            var _comentario = _context.Comentario.Find(id);
-            _context.Remove(_comentario);
-            return _context.SaveChanges();
+            var _comentario = _context.Comentario.Find(idComentario);
+            return _comentario;
+        }
+        public IEnumerable<Comentario> ObterTodos()
+        {
+            return GetQuery();
+        }
+        public ComentarioDTO ObterDTO(int idComentario)
+        {
+            var query = from comentario in _context.Comentario
+                        join pessoa in _context.Pessoa
+                        on comentario.IidPessoa equals pessoa.IdPessoa
+                        where comentario.IdComentario == idComentario
+
+                        select new ComentarioDTO
+                        {
+                            IdComentario = comentario.IdComentario,
+                            DataCadastro = comentario.DataCadastro,
+                            Descricao = comentario.Descricao,
+                            IdOcorrencia = comentario.IdOcorrencia,
+                            NomePessoa = pessoa.Nome,
+                        };
+
+            return query.First();
+        }
+        public IEnumerable<ComentarioDTO> ObterTodosDTO()
+        {
+            var query = from comentario in _context.Comentario
+                        join pessoa in _context.Pessoa
+                        on comentario.IidPessoa equals pessoa.IdPessoa
+                        orderby comentario.IdComentario
+
+                        select new ComentarioDTO
+                        {
+                            IdComentario = comentario.IdComentario,
+                            DataCadastro = comentario.DataCadastro,
+                            Descricao = comentario.Descricao,
+                            IdOcorrencia = comentario.IdOcorrencia,
+                            NomePessoa = pessoa.Nome,
+                        };
+
+            return query.ToList();
+        }
+        public void Atualizar(Comentario comentario)
+        {
+            _context.Update(comentario);
+            _context.SaveChanges();
 
         }
-
+        public void Remover(int idComentario)
+        {
+            var _comentario = _context.Comentario.Find(idComentario);
+            _context.Remove(_comentario);
+            _context.SaveChanges();
+        }
     }
 }
