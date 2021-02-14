@@ -21,6 +21,7 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Comentário é obrigatório.")]
         public string IidPessoa { get; set; }
 
+        [Display(Name = "Data Cadastro")]
         public string DataCadastro { get; set; }
 
         [Display(Name = "Nº Cadastral Ocorrencia")]

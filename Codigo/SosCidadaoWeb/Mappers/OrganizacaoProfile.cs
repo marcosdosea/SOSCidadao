@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Core;
+using Core.DTO;
 using SosCidadaoWeb.Models;
 
 namespace SosCidadaoWeb.Mappers
@@ -13,6 +14,7 @@ namespace SosCidadaoWeb.Mappers
         public OrganizacaoProfile()
         {
             CreateMap<OrganizacaoModel, Organizacao>().ReverseMap();
+            CreateMap<OrganizacaoDTO, Organizacao>().ReverseMap();
         }
 
     }

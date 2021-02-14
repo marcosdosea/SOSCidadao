@@ -1,0 +1,82 @@
+﻿@model Core.DTO.OrganizacaoDTO
+
+@{
+    ViewData["Title"] = "Deletar Organização";
+    Layout = "_LayoutDashboard";
+}
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            CNPJ
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+        <dt class="col-sm-2">
+            Nome Razao
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeRazao)
+        </dd>
+        <dt class="col-sm-2">
+            Nome Fantasia
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomeFantasia)
+        </dd>
+        <dt class="col-sm-2">
+            CEP
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rua)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rua)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt class="col-sm-2">
+            Estado
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Uf)
+        </dd>
+        <dt class="col-sm-2">
+            Numero
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroEndereco)
+        </dd>
+        <dt class="col-sm-2">
+            Data Registro
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataRegistro)
+        </dd>
+        <dt class="col-sm-2">
+            Responsavel
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NomePessoa)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

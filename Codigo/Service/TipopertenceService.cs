@@ -39,6 +39,40 @@ namespace Service
             return GetQuery();
         }
 
+        public TipopertenceDTO ObterDTO(int idTipoPertence)
+        {
+            var query = from tipopertence in _context.Tipopertence
+                        join organizacao in _context.Organizacao
+                        on tipopertence.IdOrganizacao equals organizacao.IdOrganizacao
+                        where tipopertence.IdTipoPertence == idTipoPertence
+
+                        select new TipopertenceDTO
+                        {
+                            IdTipoPertence = tipopertence.IdTipoPertence,
+                            Nome = tipopertence.Nome,
+                            IdOrganizacao = organizacao.IdOrganizacao,
+                            NomeOrganizacao = organizacao.NomeFantasia
+                        };
+
+            return query.First();
+        }
+        public IEnumerable<TipopertenceDTO> ObterTodosDTO()
+        {
+            var query = from tipopertence in _context.Tipopertence
+                        join organizacao in _context.Organizacao
+                        on tipopertence.IdOrganizacao equals organizacao.IdOrganizacao
+                        orderby tipopertence.Nome
+
+                        select new TipopertenceDTO
+                        {
+                            IdTipoPertence = tipopertence.IdTipoPertence,
+                            Nome = tipopertence.Nome,
+                            IdOrganizacao = organizacao.IdOrganizacao,
+                            NomeOrganizacao = organizacao.NomeFantasia
+                        };
+
+            return query.ToList();
+        }
         public void Atualizar(Tipopertence tipopertence)
         {
             _context.Update(tipopertence);
@@ -47,7 +81,7 @@ namespace Service
 
         public void Remover(int idTipopertence)
         {
-            var _tipopertence  = _context.Tipopertence.Find(idTipopertence);
+            var _tipopertence = _context.Tipopertence.Find(idTipopertence);
             _context.Tipopertence.Remove(_tipopertence);
             _context.SaveChanges();
         }

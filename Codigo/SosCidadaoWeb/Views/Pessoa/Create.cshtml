@@ -44,8 +44,8 @@
                             <label asp-for="Sexo" class="control-label"></label>
                             <select asp-for="Sexo" class="form-control">
                                 <option value="">Selecione uma opção</option>
-                                <option value="0">Feminino</option>
-                                <option value="1">Masculino</option>
+                                <option value="1">Feminino</option>
+                                <option value="2">Masculino</option>
                             </select>
                             <span asp-validation-for="Sexo" class="text-danger"></span>
                         </div>
@@ -121,7 +121,7 @@
                     <div class="row">
                         <div class="form-group col-9">
                             <label asp-for="IdOrganizacao" class="control-label"></label>
-                            <input asp-for="IdOrganizacao" class="form-control" />
+                            <select asp-for="IdOrganizacao" asp-items="ViewBag.IdOrganizacao" class="form-control"></select>
                             <span asp-validation-for="IdOrganizacao" class="text-danger"></span>
                         </div>
                     </div>
