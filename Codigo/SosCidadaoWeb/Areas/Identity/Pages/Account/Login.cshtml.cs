@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using SosCidadaoWeb.Areas.Identity.Data;
+using SosCidadaoWeb.Controllers;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -84,7 +85,7 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return RedirectToAction("IndexSystem","Home");
                 }
                 if (result.RequiresTwoFactor)
                 {
