@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Models
 {
-    public class RegisterModel
+    public class AccountModel
     {
 
         [Required]

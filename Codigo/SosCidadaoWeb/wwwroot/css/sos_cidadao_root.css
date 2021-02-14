@@ -24,10 +24,10 @@ html, body {
     background-color: var(--color-white-primary) !important;
 }
 
-b
+
 /*============= Classes genéricas ==================*/
 .pointer {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 /*============= Margens ==================*/
