@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SosCidadaoWeb.Areas.Identity.Data;
-using System;
 
 [assembly: HostingStartup(typeof(SosCidadaoWeb.Areas.Identity.IdentityHostingStartup))]
 namespace SosCidadaoWeb.Areas.Identity
@@ -14,12 +14,10 @@ namespace SosCidadaoWeb.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) =>
-            {
+            builder.ConfigureServices((context, services) => {
                 services.AddDbContext<IdentityContext>(options =>
                     options.UseMySQL(
                         context.Configuration.GetConnectionString("SosCidadaoConnection")));
-
 
                 services.AddDefaultIdentity<Usuario>(options =>
                 {
@@ -46,23 +44,9 @@ namespace SosCidadaoWeb.Areas.Identity
                     options.Lockout.AllowedForNewUsers = true;
 
                 }).AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<IdentityContext>();
+                        .AddEntityFrameworkStores<IdentityContext>();
 
-
-                services.ConfigureApplicationCookie(options =>
-                {
-                    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-                    options.Cookie.Name = "SosCidadaoCookieUsuario";
-                    options.Cookie.HttpOnly = true;
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-                    options.LoginPath = "/Identity/Account/Login";
-                    // ReturnUrlParameter requires 
-                    //using Microsoft.AspNetCore.Authentication.Cookies;
-                    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-                    options.SlidingExpiration = true;
-                });
             });
-
         }
     }
 }
