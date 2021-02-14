@@ -16,6 +16,6 @@ namespace Core.DTO
         public string Cidade { get; set; }
         public string Uf { get; set; }
         public int? NumeroEndereco { get; set; }
-        public int IdOrganizacao { get; set; }
+        public string NomeOrganizacao { get; set; }
     }
 }

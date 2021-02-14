@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,12 +9,16 @@ namespace Core.Service
     {
         int Inserir(Local local);
 
-        Local Obter(int id);
+        Local Obter(int idLocal);
 
         IEnumerable<Local> ObterTodos();
 
-        int Atualizar(Local local);
+        LocalDTO ObterDTO(int idLocal);
 
-        int Remover(int id);
+        IEnumerable<LocalDTO> ObterTodosDTO();
+
+        void Atualizar(Local local);
+
+        void Remover(int idLocal);
     }
 }
