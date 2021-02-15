@@ -17,8 +17,6 @@ namespace Core.Service
 
         void Atualizar(Organizacao organizacao);
 
-        IEnumerable<OrganizacaoDTO> ObterPorNomeOrdenadoDescending(string NomeFantasia);
-
         void Remover(int idorganizacao);
 
     }

@@ -12,9 +12,6 @@ namespace Core.Service
     {
         int Inserir(Comentario comentario);
 
-
-        IEnumerable<Comentario> ObterPorOcorrencia(int id);
-
         Comentario Obter(int idComentario);
 
         IEnumerable<Comentario> ObterTodos();
