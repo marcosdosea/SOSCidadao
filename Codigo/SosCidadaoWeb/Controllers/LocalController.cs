@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace SosCidadaoWeb.Controllers
     public class LocalController : Controller
     {
         private readonly ILocalService _localService;
+        private readonly IOrganizacaoService _organizacaoService;
         private readonly IMapper _mapper;
 
-        public LocalController(ILocalService localService, IMapper mapper)
+        public LocalController(ILocalService localService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _localService = localService;
+            _organizacaoService = organizacaoService;
             _mapper = mapper;
         }
 
@@ -28,9 +32,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Local";
             ViewBag.path = "Início / Local";
 
-            var listaLocal = _localService.ObterTodos();
-            var listalocalModel = _mapper.Map<List<LocalModel>>(listaLocal);
-            return View(listalocalModel);
+            var listaLocais = _localService.ObterTodosDTO();
+            var listaLocaisDTO = _mapper.Map<List<LocalDTO>>(listaLocais);
+
+            return View("./Index_DTO", listaLocaisDTO);
         }
 
         // GET: LocalController/Details/5
@@ -39,9 +44,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Local";
             ViewBag.path = "Início / Local / Detalhes";
 
-            Local local = _localService.Obter(id);
-            LocalModel localModel = _mapper.Map<LocalModel>(local);
-            return View(localModel);
+            LocalDTO localDTO = _localService.ObterDTO(id);
+
+            return View("./Details_DTO", localDTO);
         }
 
         // GET: LocalController/Create
@@ -49,6 +54,9 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Local";
             ViewBag.path = "Início / Local / Criar";
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
 
             return View();
         }
@@ -74,6 +82,10 @@ namespace SosCidadaoWeb.Controllers
 
             Local local = _localService.Obter(id);
             LocalModel localModel = _mapper.Map<LocalModel>(local);
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
+
             return View(localModel);
         }
 
@@ -98,9 +110,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Local";
             ViewBag.path = "Início / Local / Remover";
 
-            Local local = _localService.Obter(id);
-            LocalModel localModel = _mapper.Map<LocalModel>(local);
-            return View(localModel);
+            LocalDTO pessoaDTO = _localService.ObterDTO(id);
+
+            return View("./Delete_DTO", pessoaDTO);
         }
 
         // POST: LocalController/Delete/5

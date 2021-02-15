@@ -23,13 +23,6 @@ namespace Service
             return tipoocorrencia.IdTipoOcorrencia;
         }
 
-        public Tipoocorrencia Obter(int idTipoocorrencia)
-        {
-
-            var tipoocorrencia = _context.Tipoocorrencia.Find(idTipoocorrencia);
-            return tipoocorrencia;
-        }
-
         private IQueryable<Tipoocorrencia> GetQuery()
         {
             IQueryable<Tipoocorrencia> tipoocorrencia = _context.Tipoocorrencia;
@@ -38,9 +31,50 @@ namespace Service
             return query;
         }
 
+        public Tipoocorrencia Obter(int idTipoocorrencia)
+        {
+
+            var tipoocorrencia = _context.Tipoocorrencia.Find(idTipoocorrencia);
+            return tipoocorrencia;
+        }
+
         public IEnumerable<Tipoocorrencia> ObterTodos()
         {
             return GetQuery();
+        }
+        public TipoocorrenciaDTO ObterDTO(int idTipoOcorrencia)
+        {
+            var query = from tipoOcorrencia in _context.Tipoocorrencia
+                        join organizacao in _context.Organizacao
+                        on tipoOcorrencia.IdOrganizacao equals organizacao.IdOrganizacao
+                        where tipoOcorrencia.IdTipoOcorrencia == idTipoOcorrencia
+
+                        select new TipoocorrenciaDTO
+                        {
+                            IdTipoOcorrencia = tipoOcorrencia.IdTipoOcorrencia,
+                            IdOrganizacao = tipoOcorrencia.IdOrganizacao,
+                            Nome = tipoOcorrencia.Nome,
+                            NomeOrganizacao = organizacao.NomeFantasia
+                        };
+
+            return query.First();
+        }
+        public IEnumerable<TipoocorrenciaDTO> ObterTodosDTO()
+        {
+            var query = from tipoOcorrencia in _context.Tipoocorrencia
+                        join organizacao in _context.Organizacao
+                        on tipoOcorrencia.IdOrganizacao equals organizacao.IdOrganizacao
+                        orderby tipoOcorrencia.Nome
+
+                        select new TipoocorrenciaDTO
+                        {
+                            IdTipoOcorrencia = tipoOcorrencia.IdTipoOcorrencia,
+                            IdOrganizacao = tipoOcorrencia.IdOrganizacao,
+                            Nome = tipoOcorrencia.Nome,
+                            NomeOrganizacao = organizacao.NomeFantasia
+                        };
+
+            return query.ToList();
         }
         public void Atualizar(Tipoocorrencia tipoocorrencia)
         {
@@ -53,28 +87,6 @@ namespace Service
             var _tipoocorrencia = _context.Tipoocorrencia.Find(idTipoocorrencia);
             _context.Tipoocorrencia.Remove(_tipoocorrencia);
             _context.SaveChanges();
-        }
-
-
-        /// <summary>
-        /// Obtém lista de todas os Tipo Ocorrências Com as Organizações
-        /// </summary>
-        public IEnumerable<TipoocorrenciaDTO> ObterTodosComNomeOrganizacao()
-        {
-            var query = from tipo_ocorrencia in _context.Tipoocorrencia
-                        join organizacao in  _context.Organizacao
-                        on tipo_ocorrencia.IdOrganizacao equals organizacao.IdOrganizacao
-                        orderby tipo_ocorrencia.Nome
-                        select new TipoocorrenciaDTO
-                        {
-                            IdTipoOcorrencia = tipo_ocorrencia.IdTipoOcorrencia,
-                            Nome = tipo_ocorrencia.Nome,
-                            IdOrganizacao = organizacao.IdOrganizacao,
-                            NomeFantasiaOrganizacao = organizacao.NomeFantasia,
-                        };
-
-            return query.ToList();
-
         }
     }
 }

@@ -22,11 +22,7 @@ namespace Service
             _context.SaveChanges();
             return pertence.IdPertence;
         }
-        public Pertence Obter(int idPertence)
-        {
-            var pertence = _context.Pertence.Find(idPertence);
-            return pertence;
-        }
+
         private IQueryable<Pertence> GetQuery()
         {
             IQueryable<Pertence> pertence = _context.Pertence;
@@ -35,7 +31,17 @@ namespace Service
             return query;
         }
 
-        public PertenceDTO ObterDto(int idPertence)
+        public Pertence Obter(int idPertence)
+        {
+            var pertence = _context.Pertence.Find(idPertence);
+            return pertence;
+        }
+        public IEnumerable<Pertence> ObterTodos()
+        {
+            return GetQuery();
+        }
+
+        public PertenceDTO ObterDTO(int idPertence)
         {
             var query = from pertence in _context.Pertence
                         join tipo_pertence in _context.Tipopertence
@@ -50,7 +56,6 @@ namespace Service
                             IdOcorrencia =  pertence.IdOcorrencia,
                             IdTipoPertence = tipo_pertence.IdTipoPertence,
                             NomePertence = tipo_pertence.Nome
-                          
                         };
 
             return query.First();
@@ -75,12 +80,6 @@ namespace Service
                         ;
 
             return query.ToList();
-
-        }
-
-        public IEnumerable<Pertence> ObterTodos()
-        {
-            return GetQuery();
         }
 
         public void Atualizar(Pertence pertence)

@@ -33,11 +33,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Tipo Ocorrência";
             ViewBag.path = "Início / Tipo Ocorrência";
 
-            var listaTipoocorrencia = _tipoocorrenciaService.ObterTodosComNomeOrganizacao();
-            var listaTipoocorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoocorrencia);
-            return View("./Index_DTO", listaTipoocorrenciaDTO);
+            var listaTipoOcorrencia = _tipoocorrenciaService.ObterTodosDTO();
+            var listaTipoOcorrenciaDTO = _mapper.Map<List<TipoocorrenciaDTO>>(listaTipoOcorrencia);
 
-
+            return View("./Index_DTO", listaTipoOcorrenciaDTO);
         }
 
         // GET: TipoocorrenciaController/Details/5
@@ -46,14 +45,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Tipo Ocorrência";
             ViewBag.path = "Início / Tipo Ocorrência / Detalhes";
 
-            Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
-            TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
+            TipoocorrenciaDTO tipoocorrenciaDTO = _tipoocorrenciaService.ObterDTO(id);
 
-            Organizacao organizacao = _organizacaoService.Obter(tipoocorrenciaDTO.IdOrganizacao);
-
-            tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
-
-            return View("./Details_DTO",tipoocorrenciaDTO);
+            return View("./Details_DTO", tipoocorrenciaDTO);
         }
 
         // GET: TipoocorrenciaController/Create
@@ -62,9 +56,8 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Tipo Ocorrência";
             ViewBag.path = "Início / Tipo Ocorrência/ Criar ";
 
-            IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
-            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", null);
-
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
 
             return View();
         }
@@ -91,8 +84,8 @@ namespace SosCidadaoWeb.Controllers
             Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
             TipoocorrenciaModel tipoocorrenciaModel = _mapper.Map<TipoocorrenciaModel>(tipoocorrencia);
 
-            IEnumerable<Organizacao> listaOrganizacao = _organizacaoService.ObterTodos();
-            ViewBag.Organizacao = new SelectList(listaOrganizacao, "IdOrganizacao", "NomeFantasia", tipoocorrenciaModel.IdOrganizacao );
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
 
             return View(tipoocorrenciaModel);
         }
@@ -115,13 +108,10 @@ namespace SosCidadaoWeb.Controllers
         // GET: TipoocorrenciaController/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.title_page = "Tipo Ocorrência";
+            ViewBag.path = "Início / Tipo Ocorrência / Remover";
 
-            Tipoocorrencia tipoocorrencia = _tipoocorrenciaService.Obter(id);
-            TipoocorrenciaDTO tipoocorrenciaDTO = _mapper.Map<TipoocorrenciaDTO>(tipoocorrencia);
-
-            Organizacao organizacao = _organizacaoService.Obter(tipoocorrenciaDTO.IdOrganizacao);
-
-            tipoocorrenciaDTO.NomeFantasiaOrganizacao = organizacao.NomeFantasia;
+            TipoocorrenciaDTO tipoocorrenciaDTO = _tipoocorrenciaService.ObterDTO(id);
 
             return View("./Delete_DTO",tipoocorrenciaDTO);
         }
@@ -133,7 +123,6 @@ namespace SosCidadaoWeb.Controllers
         {
             _tipoocorrenciaService.Remover(id);
             return RedirectToAction(nameof(Index));
-
         }
     }
 }

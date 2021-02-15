@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace SosCidadaoWeb.Controllers
     {
         
         IOrganizacaoService _organizacaoService;
+        private readonly IPessoaService _pessoaService;
         IMapper _mapper;
 
-        public OrganizacaoController(IOrganizacaoService organizacaoService, IMapper mapper)
+        public OrganizacaoController(IOrganizacaoService organizacaoService, IPessoaService pessoaService, IMapper mapper)
         {
             _organizacaoService = organizacaoService;
+            _pessoaService = pessoaService;
             _mapper = mapper;
         }
 
@@ -28,9 +32,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Listar Organização";
             ViewBag.path = "Início / Organização";
 
-            var listaOrganizacoes = _organizacaoService.ObterTodos();
-            var listaOrganizacoesModel = _mapper.Map<List<OrganizacaoModel>>(listaOrganizacoes);
-            return View(listaOrganizacoesModel);
+            var listaOrganizacoes = _organizacaoService.ObterTodosDTO();
+            var listaOrganizacoesDTO = _mapper.Map<List<OrganizacaoDTO>>(listaOrganizacoes);
+
+            return View("./Index_DTO", listaOrganizacoesDTO);
         }
 
         // GET: OrganizacaoController/Details/5
@@ -39,9 +44,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Detalhes Organização";
             ViewBag.path = "Início / Organização / Detalhes";
 
-            Organizacao organizacao = _organizacaoService.Obter(id);
-            OrganizacaoModel organizacaoModel = _mapper.Map<OrganizacaoModel>(organizacao);
-            return View(organizacaoModel);
+            OrganizacaoDTO organizacaoDTO = _organizacaoService.ObterDTO(id);
+
+            return View("./Details_DTO", organizacaoDTO);
         }
 
         // GET: OrganizacaoController/Create
@@ -49,6 +54,9 @@ namespace SosCidadaoWeb.Controllers
         {
             ViewBag.title_page = "Criar Organização";
             ViewBag.path = "Início / Organização / Criar";
+
+            IEnumerable<Pessoa> listapessoas = _pessoaService.ObterTodos();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
 
             return View();
         }
@@ -61,6 +69,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var organizacao = _mapper.Map<Organizacao>(organizacaoModel);
+
                 organizacao.DataRegistro = DateTime.Now;
                 _organizacaoService.Inserir(organizacao);
             }
@@ -73,8 +82,12 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Editar Organização";
             ViewBag.path = "Início / Organização / Editar";
 
+            IEnumerable<Pessoa> listapessoas = _pessoaService.ObterTodos();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
+
             Organizacao organizacao = _organizacaoService.Obter(id);
             OrganizacaoModel organizacaoModel = _mapper.Map<OrganizacaoModel>(organizacao);
+
             return View(organizacaoModel);
         }
 
@@ -99,9 +112,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Remover Organização";
             ViewBag.path = "Início / Organização / Remover";
 
-            Organizacao organizacao = _organizacaoService.Obter(id);
-            OrganizacaoModel organizacaoModel = _mapper.Map < OrganizacaoModel>(organizacao);
-            return View(organizacaoModel);
+            OrganizacaoDTO organizacaoDTO = _organizacaoService.ObterDTO(id);
+
+            return View("./Delete_DTO", organizacaoDTO);
         }
 
         // POST: OrganizacaoController/Delete/5

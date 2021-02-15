@@ -1,28 +1,27 @@
-﻿@model Core.DTO.TipoocorrenciaDTO
+﻿@model Core.DTO.TipopertenceDTO
 
 @{
-    ViewData["Title"] = "Remover Tipo Ocorrencia";
+    ViewData["Title"] = "Detalhes Tipo Pertence";
     Layout = "_LayoutDashboard";
 }
 
 <div>
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
+            Tipo Pertence
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NomeOrganizacao)
+            Nome Organizacao
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NomeOrganizacao)
         </dd>
     </dl>
-
-    <form asp-action="Delete">
-        <input type="submit" value="Remover" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar</a>
-    </form>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdTipoPertence }) |
+    <a asp-action="Index">Voltar</a>
 </div>

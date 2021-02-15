@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Core;
+using Core.DTO;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace SosCidadaoWeb.Controllers
     {
 
         private readonly IPessoaService _pessoaService;
+        private readonly IOrganizacaoService _organizacaoService;
         private readonly IMapper _mapper;
 
-        public PessoaController(IPessoaService pessoaService, IMapper mapper)
+        public PessoaController(IPessoaService pessoaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _pessoaService = pessoaService;
+            _organizacaoService = organizacaoService;
             _mapper = mapper;
         }
 
@@ -31,10 +35,10 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.isBannerHidden = false;
             ViewBag.isBannerFull = true;
 
-            var listaPessoas = _pessoaService.ObterTodos();
-            var listaPessoasModel = _mapper.Map<List<PessoaModel>>(listaPessoas);
-            
-            return View(listaPessoasModel);
+            var listaPessoa = _pessoaService.ObterTodosDTO();
+            var listaPessoaDTO = _mapper.Map<List<PessoaDTO>>(listaPessoa);
+
+            return View("./Index_DTO", listaPessoaDTO);
         }
 
         // GET: Pessoa/Details/5
@@ -43,9 +47,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pessoa";
             ViewBag.path = "Início / Pessoa / Detalhes";
 
-            Pessoa pessoa = _pessoaService.Obter(id);
-            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
-            return View(pessoaModel);
+            PessoaDTO pessoaDTO = _pessoaService.ObterDTO(id);
+
+            return View("./Details_DTO", pessoaDTO);
         }
 
         // GET: Pessoa/Create
@@ -55,7 +59,11 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Pessoa / Criar";
 
             ViewBag.isBannerHidden = false;
-            ViewBag.isBannerFull = true;    
+            ViewBag.isBannerFull = true;
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
+
             return View();
         }
 
@@ -67,8 +75,9 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-                pessoa.StatusPessoa = "Ativo";
                 pessoa.TipoPessoa = "Pessoa";
+                pessoa.StatusPessoa = "Ativo";
+                pessoa.DataCadastro = DateTime.Now;
 
                 _pessoaService.Inserir(pessoa);
             }
@@ -83,8 +92,12 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.path = "Início / Pessoa / Editar";
 
             ViewBag.isBannerHidden = false;
+
             Pessoa pessoa = _pessoaService.Obter(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
+
+            IEnumerable<Organizacao> listaorganizacao = _organizacaoService.ObterTodos();
+            ViewBag.idOrganizacao = new SelectList(listaorganizacao, "IdOrganizacao", "NomeFantasia", null);
 
             return View(pessoaModel);
         }
@@ -114,9 +127,9 @@ namespace SosCidadaoWeb.Controllers
             ViewBag.title_page = "Pessoa";
             ViewBag.path = "Início / Pessoa / Remover";
 
-            Pessoa pessoa = _pessoaService.Obter(id);
-            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
-            return View(pessoaModel);
+            PessoaDTO pessoaDTO = _pessoaService.ObterDTO(id);
+
+            return View("./Delete_DTO", pessoaDTO);
         }
 
         // POST: Pessoa/Delete/5
