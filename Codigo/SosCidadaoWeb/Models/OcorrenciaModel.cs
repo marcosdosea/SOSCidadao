@@ -21,7 +21,7 @@ namespace SosCidadaoWeb.Models
         [Required(ErrorMessage = "Campo Descrição é obrigatório.")]
         public string Descricao { get; set; }
 
-       
+        [Display(Name = "Status")]
         public string StatusOcorrencia { get; set; }
 
         [Display(Name = "Telefone")]
