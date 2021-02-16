@@ -19,7 +19,7 @@
 
 <h2 align=center id="objetivo"> O que temos a oferecer? </h2>
 
-- Acesse de qualquer dipostivo: celulares, notebooks e tablets
+- Acesse de qualquer dipositivo: celulares, notebooks e tablets
 - Registre ocorrências de forma fácil, rápida, com precisão e maior acessibilidade. 
 - Acompanhe a evolução de uma ocorrência, anexos, comentários e pertences recuperados/perdidos
 
