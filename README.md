@@ -1,6 +1,27 @@
-# SOSCidadao
-**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
+# 
+<h1 align=center> SOS Cidadao - A sua plataforma de segurança. </h1>
+
+<h2 align=center> O que temos a oferecer? </h2>
+
+- Registre ocorrências de forma fácil, rápida, com precisão e maior acessibilidade. 
+- Acompanhe a evolução de uma ocorrência, anexos, comentários e pertences recuperados/perdidos
+
+- Alerta de emergência para casos onde o tempo é um fator muito importante. Um minuto pode salvar vidas!
+- Controle e atendimento de ocorrências abertas de forma automatizada
+
+- Gerencie da segurança de uma organização presente na plataforma
+- Obtenha métricas e haja de forma preventiva na sua organização
+
+- **Mantenha o nivel de segurança o mais alto possivel!** 
+
+
 ***
+
+<h2 align=center> Um pouco sobre a nossa solução </h2>
+
+***
+
+
 Sistema para registro e acompanhamento de ocorrências relacionados à segurança ou ações ilicitas, como também situações de emergências. Trazendo consigo uma maior acessibildidade, em relação aos meios tradicionais para registrar uma ocorrência, e controle das informações sobre os casos cadastrados na plataforma, possibilitando melhor gerenciamento do adanamento da suas aberturas de ocorrências, bem como permitir gerênciar, quantificar e realizar o controle das mesmas.
 
 <p align="center">
@@ -27,4 +48,7 @@ Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisõe
 <p align="center" >
    <img src="./utils-readme/gestor.png" width="650px" >
 </p>
+
+**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
+***
 
