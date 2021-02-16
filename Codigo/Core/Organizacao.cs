@@ -23,8 +23,8 @@ namespace Core
         public string Cidade { get; set; }
         public string Uf { get; set; }
         public int? NumeroEndereco { get; set; }
-        public DateTime DataRegistro { get; set; }
         public int? IdPessoa { get; set; }
+        public DateTime DataRegistro { get; set; }
 
         public virtual Pessoa IdPessoaNavigation { get; set; }
         public virtual ICollection<Local> Local { get; set; }
