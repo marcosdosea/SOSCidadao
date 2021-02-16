@@ -6,8 +6,8 @@
     Layout = "_Layout";
 }
 
-<div class="d-flex justify-content-center align-self-center">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9 pt-4 bg-white align-content-center rounded shadow mt-5" id="box-main">
+<div class="d-flex justify-content-center">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9 bg-white align-content-center rounded shadow p-2" id="box-main">
         <div class="row">
             <div class="col-md-12">
                 <h2>Criar Conta</h2>
@@ -20,7 +20,6 @@
                 <div class="row" id="data-personal">
                     <div class="col-6">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                         <div class="form-group ">
                             <label asp-for="Pessoa.Nome" class="control-label"></label>
                             <input asp-for="Pessoa.Nome" class="form-control" />
@@ -32,7 +31,6 @@
                             <input asp-for="Pessoa.Email" class="form-control" />
                             <span asp-validation-for="Pessoa.Email" class="text-danger"></span>
                         </div>
-
 
                         <div class="row">
                             <div class="form-group col-6">
@@ -129,52 +127,55 @@
 
                         </div>
                     </div>
+                </div>
 
-                    <div class="row d-none" id="data-user">
-                        <div class="col-12 d-flex justify-content-center">
-                            <div class="align-content-center">
-                                <div class="col-12">
+                <div class="row d-none" id="data-user">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="align-content-center">
+                            <div class="col-12">
 
-                                    <div class="form-group">
-                                        <label asp-for="Account.UserName"></label>
-                                        <input asp-for="Account.UserName" class="form-control" />
-                                        <span asp-validation-for="Account.UserName" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="Account.Password"></label>
-                                        <input asp-for="Account.Password" class="form-control" />
-                                        <span asp-validation-for="Account.Password" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="Account.ConfirmPassword"></label>
-                                        <input asp-for="Account.ConfirmPassword" class="form-control" />
-                                        <span asp-validation-for="Account.ConfirmPassword" class="text-danger"></span>
-                                    </div>
-
+                                <div class="form-group">
+                                    <label asp-for="Account.UserName"></label>
+                                    <input asp-for="Account.UserName" class="form-control" />
+                                    <span asp-validation-for="Account.UserName" class="text-danger"></span>
                                 </div>
+                                <div class="form-group">
+                                    <label asp-for="Account.Password"></label>
+                                    <input asp-for="Account.Password" class="form-control" />
+                                    <span asp-validation-for="Account.Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Account.ConfirmPassword"></label>
+                                    <input asp-for="Account.ConfirmPassword" class="form-control" />
+                                    <span asp-validation-for="Account.ConfirmPassword" class="text-danger"></span>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-12">
-                        <div class="row mt-5">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <a id="btn_back" asp-controller="Home" asp-action="Index" class="btn btn-outline-danger pointer">
-                                        Voltar
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-6 d-flex justify-content-end">
-                                <div class="form-group">
-                                    <div id="bt_create" class="btn btn-primary pointer">
-                                        Continuar
-                                    </div>
-                                </div>
-                            </div>
 
+                <div class="col-12">
+                    <div class="row mt-5">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <a id="btn_back" asp-controller="Home" asp-action="Index" class="btn btn-outline-danger pointer">
+                                    Voltar
+                                </a>
+                            </div>
                         </div>
+                        <div class="col-6 d-flex justify-content-end">
+                            <div class="form-group">
+                                <div id="btn_create" class="btn btn-primary pointer">
+                                    Continuar
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+
             </form>
         </div>
 

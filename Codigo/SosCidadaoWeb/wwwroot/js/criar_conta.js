@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-    $('#bt_create').click(function () {
+    $('#btn_create').click(function () {
         if ($(this).html().trim() == 'Continuar') {
             $('#box-main').removeClass('col-12');
             $('#box-main').addClass(['col-6', 'd-flex', 'justify-content-center', 'flex-column']);
