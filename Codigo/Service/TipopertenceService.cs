@@ -16,17 +16,19 @@ namespace Service
             _context = context;
         }
 
-        public int Inserir(Tipopertence tipopertence)
+        public int Inserir(Tipopertence tipoPertence)
         {
-            _context.Add(tipopertence);
+            _context.Add(tipoPertence);
             _context.SaveChanges();
-            return tipopertence.IdTipoPertence;
+            return tipoPertence.IdTipoPertence;
         }
-        public Tipopertence Obter(int idTipopertence)
+
+        public Tipopertence Obter(int idTipoPertence)
         {
-            var tipopertence = _context.Tipopertence.Find(idTipopertence);
+            var tipopertence = _context.Tipopertence.Find(idTipoPertence);
             return tipopertence;
         }
+
         private IQueryable<Tipopertence> GetQuery()
         {
             IQueryable<Tipopertence> tipopertence = _context.Tipopertence;
@@ -34,6 +36,7 @@ namespace Service
                         select nome;
             return query;
         }
+
         public IEnumerable<Tipopertence> ObterTodos()
         {
             return GetQuery();
@@ -42,46 +45,44 @@ namespace Service
         public TipopertenceDTO ObterDTO(int idTipoPertence)
         {
             var query = from tipopertence in _context.Tipopertence
-                        join organizacao in _context.Organizacao
-                        on tipopertence.IdOrganizacao equals organizacao.IdOrganizacao
                         where tipopertence.IdTipoPertence == idTipoPertence
 
                         select new TipopertenceDTO
                         {
                             IdTipoPertence = tipopertence.IdTipoPertence,
                             Nome = tipopertence.Nome,
-                            IdOrganizacao = organizacao.IdOrganizacao,
-                            NomeOrganizacao = organizacao.NomeFantasia
+                            IdOrganizacao = tipopertence.IdOrganizacaoNavigation.IdOrganizacao,
+                            NomeOrganizacao = tipopertence.IdOrganizacaoNavigation.NomeFantasia
                         };
 
             return query.First();
         }
+
         public IEnumerable<TipopertenceDTO> ObterTodosDTO()
         {
             var query = from tipopertence in _context.Tipopertence
-                        join organizacao in _context.Organizacao
-                        on tipopertence.IdOrganizacao equals organizacao.IdOrganizacao
                         orderby tipopertence.Nome
 
                         select new TipopertenceDTO
                         {
                             IdTipoPertence = tipopertence.IdTipoPertence,
                             Nome = tipopertence.Nome,
-                            IdOrganizacao = organizacao.IdOrganizacao,
-                            NomeOrganizacao = organizacao.NomeFantasia
+                            IdOrganizacao = tipopertence.IdOrganizacaoNavigation.IdOrganizacao,
+                            NomeOrganizacao = tipopertence.IdOrganizacaoNavigation.NomeFantasia
                         };
 
             return query.ToList();
         }
-        public void Atualizar(Tipopertence tipopertence)
+
+        public void Atualizar(Tipopertence tipoPertence)
         {
-            _context.Update(tipopertence);
+            _context.Update(tipoPertence);
             _context.SaveChanges();
         }
 
-        public void Remover(int idTipopertence)
+        public void Remover(int idTipoPertence)
         {
-            var _tipopertence = _context.Tipopertence.Find(idTipopertence);
+            var _tipopertence = _context.Tipopertence.Find(idTipoPertence);
             _context.Tipopertence.Remove(_tipopertence);
             _context.SaveChanges();
         }

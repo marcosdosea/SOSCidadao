@@ -10,7 +10,7 @@ namespace Core.Service
         int Inserir(Comentario comentario);
         Comentario Obter(int idComentario);
         IEnumerable<Comentario> ObterTodos();
-        ComentarioDTO ObterDTO(int idPertence);
+        ComentarioDTO ObterDTO(int idComentario);
         IEnumerable<ComentarioDTO> ObterTodosDTO();
         void Atualizar(Comentario comentario);
         void Remover(int idComentario);

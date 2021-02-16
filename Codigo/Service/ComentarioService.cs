@@ -16,12 +16,14 @@ namespace Service
         {
             _context = context;
         }
+
         public int Inserir(Comentario comentario)
         {
             _context.Add(comentario);
             _context.SaveChanges();
             return comentario.IdComentario;
         }
+
         private IQueryable<Comentario> GetQuery()
         {
             IQueryable<Comentario> tb_comentario = _context.Comentario;
@@ -29,20 +31,21 @@ namespace Service
                         select comentario;
             return query;
         }
+
         public Comentario Obter(int idComentario)
         {
             var _comentario = _context.Comentario.Find(idComentario);
             return _comentario;
         }
+
         public IEnumerable<Comentario> ObterTodos()
         {
             return GetQuery();
         }
+
         public ComentarioDTO ObterDTO(int idComentario)
         {
             var query = from comentario in _context.Comentario
-                        join pessoa in _context.Pessoa
-                        on comentario.IidPessoa equals pessoa.IdPessoa
                         where comentario.IdComentario == idComentario
 
                         select new ComentarioDTO
@@ -51,16 +54,15 @@ namespace Service
                             DataCadastro = comentario.DataCadastro,
                             Descricao = comentario.Descricao,
                             IdOcorrencia = comentario.IdOcorrencia,
-                            NomePessoa = pessoa.Nome,
+                            NomePessoa = comentario.IidPessoaNavigation.Nome,
                         };
 
             return query.First();
         }
+
         public IEnumerable<ComentarioDTO> ObterTodosDTO()
         {
             var query = from comentario in _context.Comentario
-                        join pessoa in _context.Pessoa
-                        on comentario.IidPessoa equals pessoa.IdPessoa
                         orderby comentario.IdComentario
 
                         select new ComentarioDTO
@@ -69,17 +71,19 @@ namespace Service
                             DataCadastro = comentario.DataCadastro,
                             Descricao = comentario.Descricao,
                             IdOcorrencia = comentario.IdOcorrencia,
-                            NomePessoa = pessoa.Nome,
+                            NomePessoa = comentario.IidPessoaNavigation.Nome,
                         };
 
             return query.ToList();
         }
+
         public void Atualizar(Comentario comentario)
         {
             _context.Update(comentario);
             _context.SaveChanges();
 
         }
+
         public void Remover(int idComentario)
         {
             var _comentario = _context.Comentario.Find(idComentario);
