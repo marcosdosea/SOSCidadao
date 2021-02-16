@@ -1,7 +1,16 @@
 # 
 <h1 align=center> SOS Cidadao - A sua plataforma de segurança. </h1>
 
-<h2 align=center> O que temos a oferecer? </h2>
+<p align="center">
+ <a href="#objetivo"> O que temos a oferecer? </a> |
+ <a href="#solucao"> Nossa solução </a> |
+ <a href="#usuarios">Usuários</a> |
+ <a href="#agentes">Agentes</a> |
+ <a href="#gestores">Gestores</a> |
+ <a href="#autor">Autores</a>
+</p>
+
+<h2 align=center id="objetivo"> O que temos a oferecer? </h2>
 
 - Registre ocorrências de forma fácil, rápida, com precisão e maior acessibilidade. 
 - Acompanhe a evolução de uma ocorrência, anexos, comentários e pertences recuperados/perdidos
@@ -17,7 +26,7 @@
 
 ***
 
-<h2 align=center> Um pouco sobre a nossa solução </h2>
+<h2 align=center id="solucao"> Um pouco sobre a nossa solução </h2>
 
 ***
 
@@ -28,27 +37,31 @@ Sistema para registro e acompanhamento de ocorrências relacionados à seguranç
    <img src="./utils-readme/home.png" width="650px" >
 </p>
 
-## Usuários
+<h2 id="usuarios">Usuários</h2>
 Os usuários podem realizar ações sem que precisem estar autenticados, como solicitar um emergência. Por outro lado, estando autenticado é possivel ter o gerenciamento de suas ocorrências registradas, acompanhar a sua evolução, pertences que foram encotrados e estão para serem entregues ao responsável, anexos de arquivos entre outras funcionalidades, a fim de propriciar informações necessárias para a solução do caso.
 <p align="center" >
    <img src="./utils-readme/login.png" width="650px" >
 </p>
 
+<h2 id="agentes">Agentes</h2>
 
-## Agentes
 Assim com é permitido uma pessoa que acessa o sistema realizar o registro de tais ocorrências, também, deve-se ter um outro ator que realiza o atendimento de tais solicitações, sendo eles profissionais capacitados para aquele tipo de situação, como agentes de segurança, vigilantes, bombeiros dentre outras especialidades disponíveis no sistema.
 Com isso, é permitido o acompanhamento de ocorrências em tempo reais, desdes as mais recentes até as mais antigas, com os diversos graus de emergência, visando sempre otimizar o trabalho e permitir a acompanhmento destes de forma rápida, ágil e eficaz.
 <p align="center" >
    <img src="./utils-readme/nova_ocorrencia.png" width="650px" >
 </p>
 
-
-## Gestores
+<h2 id="gestores">Gestores</h2>
 Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisões, preventivas e corretivas, com relação aos registros de ocorrências, permitindo saber quais pontos possuem maiores taxas de ocorrência, necessitam de novos agentes para reforçar uma determinada área. Além, de permitir gerenciar sub-locais dentro de uma instituição, como campus de universidades, clubes e eventos de grande porte.
 <p align="center" >
    <img src="./utils-readme/gestor.png" width="650px" >
 </p>
 
-**Colaboradores:** Dryele Alves, Luiz Moitinho, Marcos Dósea, Roberto Santana e Wedson Teixeira. 
+<h2 id="autor">Colaboradores</h2>
+ - Dryele Alves (Desenvolvedora)
+ - Luiz Moitinho (Desenvolvedor)
+ - Roberto Santana Desenvolvedor)
+ - Wedson Teixeira (Desenvolvedor)
+ - Marcos Dósea (Tutor)
 ***
 
