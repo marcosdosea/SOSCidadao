@@ -58,10 +58,12 @@ Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisõe
 </p>
 
 <h2 id="autor">Colaboradores</h2>
- - Dryele Alves (Desenvolvedora)
- - Luiz Moitinho (Desenvolvedor)
- - Roberto Santana Desenvolvedor)
- - Wedson Teixeira (Desenvolvedor)
- - Marcos Dósea (Tutor)
-***
+
+- Dryele Alves (Desenvolvedora)
+- Luiz Moitinho (Desenvolvedor)
+- Roberto Santana Desenvolvedor)
+- Wedson Teixeira (Desenvolvedor)
+- Marcos Dósea (Tutor)
+
+
 
