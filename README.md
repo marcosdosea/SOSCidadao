@@ -94,6 +94,6 @@ Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisõe
 
 ***
 <h3  align=center>Universidade Federal de Sergipe</h3>
-<h2 id="autor" align=center>Campus Porf. Alberto Carvalho</h2>
+<h4  align=center>Campus Porf. Alberto Carvalho</h4>
 
 
