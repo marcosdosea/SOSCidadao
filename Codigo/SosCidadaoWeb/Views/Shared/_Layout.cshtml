@@ -31,6 +31,33 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/criar_conta.js" asp-append-version="true"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            $('#busca_cep').click(function () {
+                var cep = $('#cep').val();
+                var base_url = `viacep.com.br/ws/${cep}/json`;
+
+                if (cep == '') {
+                    alert('Informe o Cep antes de continuar');
+                    $('#cep').focus();
+                    return false;
+                }
+
+                fetch(url)
+                    .then((response) => response.json())
+                    .then((response) => {
+                       console.log(response)
+                    });
+
+
+
+            });
+        });
+    </script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

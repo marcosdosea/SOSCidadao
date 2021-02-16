@@ -70,8 +70,8 @@
                             <label asp-for="Cep" class="control-label"></label>
                             <div class="col-12">
                                 <div class="row">
-                                    <input asp-for="Cep" class="form-control col-7" />
-                                    <span id="valida_cep" class="btn btn-success ml-2 col-3">
+                                    <input asp-for="Cep" id="cep" class="form-control col-7" />
+                                    <span id="busca_cep" class="btn btn-success ml-2 col-3">
                                         Buscar
                                     </span>
                                 </div>
@@ -85,12 +85,12 @@
                     <div class="row">
                         <div class="form-group col-4">
                             <label asp-for="Uf" class="control-label"></label>
-                            <input asp-for="Uf" class="form-control" />
+                            <input asp-for="Uf" id="uf" class="form-control" />
                             <span asp-validation-for="Uf" class="text-danger"></span>
                         </div>
                         <div class="form-group col-8">
                             <label asp-for="Cidade" class="control-label"></label>
-                            <input asp-for="Cidade" class="form-control" />
+                            <input asp-for="Cidade" id="cidade" class="form-control" />
                             <span asp-validation-for="Cidade" class="text-danger"></span>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                     <div class="row">
                         <div class="form-group col-9">
                             <label asp-for="Rua" class="control-label"></label>
-                            <input asp-for="Rua" class="form-control" />
+                            <input asp-for="Rua" id="rua" class="form-control" />
                             <span asp-validation-for="Rua" class="text-danger"></span>
                         </div>
 
@@ -112,7 +112,7 @@
                     <div class="row">
                         <div class="form-group col-9">
                             <label asp-for="Bairro" class="control-label"></label>
-                            <input asp-for="Bairro" class="form-control" />
+                            <input asp-for="Bairro" id="bairro" class="form-control" />
                             <span asp-validation-for="Bairro" class="text-danger"></span>
                         </div>
                     </div>
@@ -178,6 +178,8 @@
     </div>
 </div>
 
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
