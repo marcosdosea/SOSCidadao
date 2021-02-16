@@ -57,7 +57,7 @@ namespace SosCidadaoWeb.Models
         public string ConfirmaSenha { get; set; }
 
         [Display(Name = "CEP")]
-        [StringLength(8, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 8)]
+        [StringLength(9, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 9)]
         [Required(ErrorMessage = "Campo CEP é obrigatório.")]
         public string Cep { get; set; }
 
