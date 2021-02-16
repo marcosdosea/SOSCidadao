@@ -15,9 +15,11 @@ namespace Service
         {
             _context = context;
         }
-        public int Inserir(Pessoa pessoa)
+        public int Inserir(Pessoa pessoa, Aspnetusers aspnetusers)
         {
             _context.Add(pessoa);
+            aspnetusers.Id = pessoa.IdPessoa.ToString();
+            _context.Add(aspnetusers);
             _context.SaveChanges();
             return pessoa.IdPessoa;
         }

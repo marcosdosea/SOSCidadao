@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Models
 {
-    public class PessoaRegisterModel
+    public class PessoaAccountModel
     {
         public PessoaModel Pessoa { get; set; }
 
