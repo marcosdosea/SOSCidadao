@@ -1,6 +1,9 @@
 # 
 <h1 align=center> SOS Cidadao - A sua plataforma de segurança. </h1>
 
+
+
+<h3 align=center> Navegação </h1>
 <p align="center">
  <a href="#objetivo"> O que temos a oferecer? </a> |
  <a href="#solucao"> Nossa solução </a> |
@@ -9,6 +12,9 @@
  <a href="#gestores">Gestores</a> |
  <a href="#autor">Autores</a>
 </p>
+
+
+
 
 <h2 align=center id="objetivo"> O que temos a oferecer? </h2>
 
@@ -24,11 +30,12 @@
 - **Mantenha o nivel de segurança o mais alto possivel!** 
 
 
+
+
 ***
 
 <h2 align=center id="solucao"> Um pouco sobre a nossa solução </h2>
 
-***
 
 
 Sistema para registro e acompanhamento de ocorrências relacionados à segurança ou ações ilicitas, como também situações de emergências. Trazendo consigo uma maior acessibildidade, em relação aos meios tradicionais para registrar uma ocorrência, e controle das informações sobre os casos cadastrados na plataforma, possibilitando melhor gerenciamento do adanamento da suas aberturas de ocorrências, bem como permitir gerênciar, quantificar e realizar o controle das mesmas.
@@ -36,6 +43,10 @@ Sistema para registro e acompanhamento de ocorrências relacionados à seguranç
 <p align="center">
    <img src="./utils-readme/home.png" width="650px" >
 </p>
+
+
+
+
 
 <h2 id="usuarios">Usuários</h2>
 Os usuários podem realizar ações sem que precisem estar autenticados, como solicitar um emergência. Por outro lado, estando autenticado é possivel ter o gerenciamento de suas ocorrências registradas, acompanhar a sua evolução, pertences que foram encotrados e estão para serem entregues ao responsável, anexos de arquivos entre outras funcionalidades, a fim de propriciar informações necessárias para a solução do caso.
@@ -51,11 +62,17 @@ Com isso, é permitido o acompanhamento de ocorrências em tempo reais, desdes a
    <img src="./utils-readme/nova_ocorrencia.png" width="650px" >
 </p>
 
+
+
+
 <h2 id="gestores">Gestores</h2>
 Aos gestores possuem funcionalidades capazes de auxiliar nas tomadas de decisões, preventivas e corretivas, com relação aos registros de ocorrências, permitindo saber quais pontos possuem maiores taxas de ocorrência, necessitam de novos agentes para reforçar uma determinada área. Além, de permitir gerenciar sub-locais dentro de uma instituição, como campus de universidades, clubes e eventos de grande porte.
 <p align="center" >
    <img src="./utils-readme/gestor.png" width="650px" >
 </p>
+
+
+
 
 <h2 id="autor">Colaboradores</h2>
 
