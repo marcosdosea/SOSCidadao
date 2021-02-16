@@ -1,5 +1,5 @@
  
-<h1 align=center> :beginner: SOS Cidadao - A sua plataforma de segurança. </h1>
+<h1 align=center> :beginner: S.O.S Cidadão - A sua plataforma de segurança. </h1>
 
 
 <br><br><br>
