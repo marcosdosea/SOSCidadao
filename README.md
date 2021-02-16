@@ -48,7 +48,7 @@ Sistema para registro e acompanhamento de ocorrências relacionados à seguranç
 
 <br><br><br>
 
-<h2 id="usuarios"> :chart_with_upwards_trend: Usuários</h2>
+<h2 id="usuarios">  :raising_hand_man: Usuários</h2>
 Os usuários podem realizar ações sem que precisem estar autenticados, como solicitar um emergência. Por outro lado, estando autenticado é possivel ter o gerenciamento de suas ocorrências registradas, acompanhar a sua evolução, pertences que foram encotrados e estão para serem entregues ao responsável, anexos de arquivos entre outras funcionalidades, a fim de propriciar informações necessárias para a solução do caso.
 
 <br><br><br>
