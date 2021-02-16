@@ -9,6 +9,6 @@ namespace SosCidadaoWeb.Models
     {
         public PessoaModel Pessoa { get; set; }
 
-        public AccountModel Register { get; set; }
+        public AccountModel Account { get; set; }
     }
 }
