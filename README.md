@@ -26,7 +26,7 @@
 - Alerta de emergência para casos onde o tempo é um fator muito importante. Um minuto pode salvar vidas!
 - Controle e atendimento de ocorrências abertas de forma automatizada
 
-- Gerencie da segurança de uma organização presente na plataforma
+- Gerencie a segurança de uma organização presente na plataforma
 - Obtenha métricas e haja de forma preventiva na sua organização
 
 - **Mantenha o nivel de segurança o mais alto possivel!** 
