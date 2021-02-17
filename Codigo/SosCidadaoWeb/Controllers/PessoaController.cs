@@ -69,17 +69,17 @@ namespace SosCidadaoWeb.Controllers
         // POST: Pessoa/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PessoaAccountModel pessoaAccountModel )
-        { 
+        public ActionResult Create(PessoaModel pessoaModel)
+        {
             if (ModelState.IsValid)
             {
-                var pessoa = _mapper.Map<Pessoa>(pessoaAccountModel.Pessoa);
-                var account = _mapper.Map<Aspnetusers>(pessoaAccountModel.Account);
+                var pessoa = _mapper.Map<Pessoa>(pessoaModel);
                 pessoa.TipoPessoa = "Pessoa";
                 pessoa.StatusPessoa = "Ativo";
                 pessoa.DataCadastro = DateTime.Now;
 
-                _pessoaService.Inserir(pessoa, account);
+                _pessoaService.Inserir(pessoa);
+
             }
             return RedirectToAction(nameof(Index));
 

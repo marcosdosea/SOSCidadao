@@ -18,7 +18,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Criar Conta", "Create", "Pessoa")
+                 
+                    <a asp-area="Identity" asp-page="/Account/Register">
+                        "Criar Conta
+                    </a>
                 </li>
                 <li class="nav-item mt-2">
                     <a class="btn btn-login" id="login" asp-area="Identity" asp-page="/Account/Login">

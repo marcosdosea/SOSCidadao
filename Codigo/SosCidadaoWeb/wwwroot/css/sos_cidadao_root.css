@@ -168,3 +168,18 @@ a {
     border-color: #8EC4D2 !important;
     transition-duration:.25s
 }
+
+.btn-blue-secundary {
+    color: #8EC4D2 !important;
+    background-color: #fff !important;
+    border-radius: 130px !important;
+    border-color: #8EC4D2 !important;
+    transition-duration: .25s
+}
+
+.btn-blue-secundary:hover {
+    color: #FFF !important;
+    background-color: #8EC4D2 !important;
+    border-color: #8EC4D2 !important;
+    transition-duration: .25s
+}

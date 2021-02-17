@@ -1,9 +1,11 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace Service
 {
@@ -15,11 +17,9 @@ namespace Service
         {
             _context = context;
         }
-        public int Inserir(Pessoa pessoa, Aspnetusers aspnetusers)
+        public int Inserir(Pessoa pessoa)
         {
             _context.Add(pessoa);
-            aspnetusers.Id = pessoa.IdPessoa.ToString();
-            _context.Add(aspnetusers);
             _context.SaveChanges();
             return pessoa.IdPessoa;
         }

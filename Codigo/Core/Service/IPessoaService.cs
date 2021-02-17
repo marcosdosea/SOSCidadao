@@ -9,7 +9,7 @@ namespace Core.Service
 {
     public interface IPessoaService
     {
-        int Inserir(Pessoa pessoa, Aspnetusers aspnetusers);
+        int Inserir(Pessoa pessoa);
         Pessoa Obter(int idPessoa);
         IEnumerable<Pessoa> ObterTodos();
         PessoaDTO ObterDTO(int idPessoa);

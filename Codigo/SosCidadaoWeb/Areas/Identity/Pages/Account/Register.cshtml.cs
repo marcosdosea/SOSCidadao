@@ -37,11 +37,29 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public Models.AccountModel accountModel { get; set; }
+        public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        public class InputModel
+        {
+            [Required]
+            [Display(Name = "Usuário")]
+            public string UserName { get; set; }
+
+            [Required]
+            [StringLength(100, ErrorMessage = "A {0}deve ter pelo menos {2} deve ter pelo menos {1} caracteres.", MinimumLength = 4)]
+            [DataType(DataType.Password)]
+            [Display(Name = "Senha")]
+            public string Password { get; set; }
+
+            [DataType(DataType.Password)]
+            [Display(Name = "Repita a senha")]
+            [Compare("Password", ErrorMessage = "A senhas informadas não são iguais.")]
+            public string ConfirmPassword { get; set; }
+        }
 
 
 
@@ -58,8 +76,8 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var pessoa = new Core.Pessoa { };
-                var user = new Usuario { UserName = accountModel.UserName };
-                var result = await _userManager.CreateAsync(user, accountModel.Password);
+                var user = new Usuario { UserName = Input.UserName };
+                var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
 
@@ -73,12 +91,12 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(accountModel.UserName, "Confirm your UserName",
+                    await _emailSender.SendEmailAsync(Input.UserName, "Confirm your UserName",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { UserName = accountModel.UserName, returnUrl = returnUrl });
+                        return RedirectToPage("RegisterConfirmation", new { UserName = Input.UserName, returnUrl = returnUrl });
                     }
                     else
                     {

@@ -13,13 +13,13 @@
 
     @await Html.PartialAsync("_HeaderPrimary.cshtml")
 
-    <div class="container-fluid d-flex align-items-center justify-content-center " style="height:110%">
-        <main role="main" class="w-100">
+    <div class="container-fluid" style="height:100%">
+        <main role="main" class="w-100 mt-5">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer  text-muted bg-dark mt-5 " >
+    <footer class="border-top footer  text-muted bg-dark " >
         <div class="container text-info">
             &copy; 2020 - SoSCidadaoWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
