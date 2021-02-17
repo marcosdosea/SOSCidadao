@@ -19,7 +19,7 @@
             <form asp-route-returnUrl="@Model.ReturnUrl"  class="col-12" method="post">
                 <div class="col-12 d-flex justify-content-center">
                     <div class="align-content-center">
-                        <div asp-validation-summary="All" class="text-danger"></div>
+                        
                         <div class="form-group">
                             <label asp-for="Input.UserName"></label>
                             <input asp-for="Input.UserName" class="form-control" />
@@ -39,9 +39,12 @@
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-8 d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary btn-sm btn-block btn-blue-secundary col-3">Voltar</button>
-                        <button type="submit" class="btn btn-primary btn-sm btn-block btn-blue-default col-3 mt-0 ">Criar</button>
-                    </div>
+                       
+                        <div type="submit" class="btn btn-primary btn-sm btn-block btn-blue-secundary col-3">
+                            @Html.ActionLink("Voltar", "Index", "Home")
+                        </div>
+                            <button type="submit" class="btn btn-primary btn-sm btn-block btn-blue-default col-3 mt-0 ">Criar</button>
+                        </div>
                 </div>
             </form>
         </div>

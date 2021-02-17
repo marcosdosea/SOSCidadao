@@ -41,17 +41,20 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Campo Usuário é obrigatório.")]
             [Display(Name = "Usuário:")]
             public string UserName { get; set; }
 
-            [Required]
-            [Display(Name = "Senha:")]
+            [Required(ErrorMessage = "Campo Senha é obrigatório.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
             [Display(Name = "Lembrar-me?")]
             public bool RememberMe { get; set; }
+
+           
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)

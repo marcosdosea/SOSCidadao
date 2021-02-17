@@ -45,11 +45,11 @@ namespace SosCidadaoWeb.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Campo Usuário é obrigatório.")]
             [Display(Name = "Usuário")]
             public string UserName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Campo Senha é obrigatório.")]
             [StringLength(100, ErrorMessage = "A {0}deve ter pelo menos {2} deve ter pelo menos {1} caracteres.", MinimumLength = 4)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
