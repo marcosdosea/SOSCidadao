@@ -11,39 +11,45 @@
     </div>
     <div class="col-md-5">
         <div class="row d-flex justify-content-end">
-            <div class="form-group col-8">
+            <div class="form-group col-6">
                 <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" class="form-control" />
+                <div class="col-12">
+                    <div class="row">
+                        <input asp-for="Cep" class="form-control col-7" />
+                        <span id="valida_cep" class="btn btn-success ml-2 col-3">
+                            Buscar
+                        </span>
+                    </div>
+                </div>
                 <span asp-validation-for="Cep" class="text-danger"></span>
             </div>
         </div>
         <div class="row d-flex justify-content-end">
-            <div class="form-group col-8">
+            <div class="form-group col-6">
                 <label asp-for="Bairro" class="control-label"></label>
                 <input asp-for="Bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
         </div>
         <div class="row d-flex justify-content-end">
-            <div class="form-group col-8">
+            <div class="form-group col-6">
                 <label asp-for="Latitude" class="control-label"></label>
                 <input asp-for="Latitude" class="form-control" />
                 <span asp-validation-for="Latitude" class="text-danger"></span>
             </div>
         </div>
         <div class="row d-flex justify-content-end">
-            <div class="form-group col-8">
+            <div class="form-group col-6">
                 <label asp-for="Longitude" class="control-label"></label>
                 <input type="number" asp-for="Longitude" class="form-control" />
                 <span asp-validation-for="Longitude" class="text-danger"></span>
             </div>
         </div>
         <div class="row d-flex justify-content-end">
-            <div class="form-group col-8">
+            <div class="form-group col-6">
                 <a asp-action="Index" class="btn btn-outline-danger pointer">Voltar</a>
             </div>
         </div>
-
     </div>
     <div class="col-md-7">
         <div class="row d-flex justify-content-start">
