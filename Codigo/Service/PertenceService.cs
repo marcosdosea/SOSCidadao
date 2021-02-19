@@ -34,6 +34,7 @@ namespace Service
             var pertence = _context.Pertence.Find(idPertence);
             return pertence;
         }
+
         public IEnumerable<Pertence> ObterTodos()
         {
             return GetQuery();
@@ -42,19 +43,17 @@ namespace Service
         public PertenceDTO ObterDTO(int idPertence)
         {
             var query = from pertence in _context.Pertence
-                        join tipo_pertence in _context.Tipopertence
-                        on pertence.IdTipoPertence equals tipo_pertence.IdTipoPertence
                         where pertence.IdPertence == idPertence
+
                         select new PertenceDTO
                         {
                             IdPertence = pertence.IdPertence,
                             Nome = pertence.Nome,
                             Descricao = pertence.Descricao,
                             StatusPertence = pertence.StatusPertence,
-                            IdOcorrencia = pertence.IdOcorrencia,
-                            IdTipoPertence = tipo_pertence.IdTipoPertence,
-                            NomePertence = tipo_pertence.Nome
-
+                            IdOcorrencia =  pertence.IdOcorrencia,
+                            IdTipoPertence = pertence.IdTipoPertenceNavigation.IdTipoPertence,
+                            NomePertence = pertence.IdTipoPertenceNavigation.Nome
                         };
 
             return query.First();
@@ -63,9 +62,8 @@ namespace Service
         public IEnumerable<PertenceDTO> ObterTodosDTO()
         {
             var query = from pertence in _context.Pertence
-                        join tipo_pertence in _context.Tipopertence
-                        on pertence.IdTipoPertence equals tipo_pertence.IdTipoPertence
                         orderby pertence.Nome
+
                         select new PertenceDTO
                         {
                             IdPertence = pertence.IdPertence,
@@ -73,10 +71,9 @@ namespace Service
                             Descricao = pertence.Descricao,
                             StatusPertence = pertence.StatusPertence,
                             IdOcorrencia = pertence.IdOcorrencia,
-                            IdTipoPertence = tipo_pertence.IdTipoPertence,
-                            NomePertence = tipo_pertence.Nome
-                        }
-                        ;
+                            IdTipoPertence = pertence.IdTipoPertenceNavigation.IdTipoPertence,
+                            NomePertence = pertence.IdTipoPertenceNavigation.Nome
+                        };
 
             return query.ToList();
         }

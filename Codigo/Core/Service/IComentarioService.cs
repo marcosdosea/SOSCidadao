@@ -16,7 +16,7 @@ namespace Core.Service
 
         IEnumerable<Comentario> ObterTodos();
 
-        ComentarioDTO ObterDTO(int idPertence);
+        ComentarioDTO ObterDTO(int idComentario);
 
         IEnumerable<ComentarioDTO> ObterTodosDTO();
 

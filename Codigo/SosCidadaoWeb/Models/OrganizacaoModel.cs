@@ -44,7 +44,7 @@ namespace SosCidadaoWeb.Models
         public string Cidade { get; set; }
 
         [Display(Name = "UF")]
-        [StringLength(3, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
+        [StringLength(2, ErrorMessage = "Campo UF não permite mais que 2 caracteres")]
         [Required(ErrorMessage = "Campo UF é obrigatório.")]
         public string Uf { get; set; }
 
