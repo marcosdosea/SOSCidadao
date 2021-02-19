@@ -35,7 +35,9 @@
 
 
 <h2 align=center id="solucao"> Um pouco sobre a nossa solução </h2>
-
+<p align=center>
+ <a  target="_blank" href="https://drive.google.com/file/d/13EsQKnnGLES3rkpiOg4IGv2dusqQLS2w/view?usp=sharing"> :mag_right: Video com Demonstração</a>
+ </p>
 Sistema para registro e acompanhamento de ocorrências relacionados à segurança ou ações ilicitas, como também situações de emergências. Trazendo consigo uma maior acessibildidade, em relação aos meios tradicionais para registrar uma ocorrência, e controle das informações sobre os casos cadastrados na plataforma, possibilitando melhor gerenciamento do adanamento da suas aberturas de ocorrências, bem como permitir gerênciar, quantificar e realizar o controle das mesmas.
 
 <br><br><br>
