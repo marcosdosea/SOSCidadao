@@ -7,14 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
     public class OrganizacaoController : Controller
     {
-        
+
         IOrganizacaoService _organizacaoService;
         private readonly IPessoaService _pessoaService;
         IMapper _mapper;
@@ -94,7 +92,7 @@ namespace SosCidadaoWeb.Controllers
         // POST: OrganizacaoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit (int id, OrganizacaoModel organizacaoModel)
+        public ActionResult Edit(int id, OrganizacaoModel organizacaoModel)
         {
             if (ModelState.IsValid)
             {
@@ -115,12 +113,13 @@ namespace SosCidadaoWeb.Controllers
             OrganizacaoDTO organizacaoDTO = _organizacaoService.ObterDTO(id);
 
             return View("./Delete_DTO", organizacaoDTO);
+
         }
 
         // POST: OrganizacaoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete (int id, OrganizacaoModel organizacaoModel)
+        public ActionResult Delete(int id, OrganizacaoModel organizacaoModel)
         {
             _organizacaoService.Remover(id);
             return RedirectToAction(nameof(Index));

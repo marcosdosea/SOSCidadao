@@ -5,7 +5,7 @@ using SosCidadaoWeb.Models;
 
 namespace SosCidadaoWeb.Mappers
 {
-    public class PertenceProfile: Profile
+    public class PertenceProfile : Profile
     {
         public PertenceProfile()
         {

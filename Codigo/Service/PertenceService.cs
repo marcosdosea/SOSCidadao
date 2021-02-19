@@ -1,10 +1,8 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
@@ -53,9 +51,10 @@ namespace Service
                             Nome = pertence.Nome,
                             Descricao = pertence.Descricao,
                             StatusPertence = pertence.StatusPertence,
-                            IdOcorrencia =  pertence.IdOcorrencia,
+                            IdOcorrencia = pertence.IdOcorrencia,
                             IdTipoPertence = tipo_pertence.IdTipoPertence,
                             NomePertence = tipo_pertence.Nome
+
                         };
 
             return query.First();
@@ -90,7 +89,7 @@ namespace Service
 
         public void Remover(int idPertence)
         {
-            var _pertence  = _context.Pertence.Find(idPertence);
+            var _pertence = _context.Pertence.Find(idPertence);
             _context.Pertence.Remove(_pertence);
             _context.SaveChanges();
         }

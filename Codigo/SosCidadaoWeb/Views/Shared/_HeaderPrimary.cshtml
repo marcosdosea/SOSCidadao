@@ -1,4 +1,4 @@
-﻿<header>
+﻿<header class="mb-5" style="z-index:10 !important">
     <nav class="navbar  navbar-expand-lg navbar-light bg-inverse  navbar-customize">
         <a class="navbar-brand logo" href="#">
             <span class="text-green-secundary">S.O.S</span> <span>Cidadão</span>
@@ -18,36 +18,41 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Criar Conta", "Create", "Pessoa")
+                    <a asp-area="Identity" asp-page="/Account/Register">
+                        Criar Conta
+                    </a>
                 </li>
                 <li class="nav-item mt-2">
-                    <a class="btn btn-login" asp-controller="Home" asp-action="indexsystem">
+                    <a class="btn btn-login" id="login" asp-area="Identity" asp-page="/Account/Login">
                         Entrar
                     </a>
                 </li>
                 <li class="nav-item mt-2">
                     <a class="btn btn-danger btn-emergency" href="#">+ Emergência </a>
                 </li>
+               
+
             </ul>
         </div>
     </nav>
+    @if (ViewBag.isBannerHidden)
+    {
+        <div class="container-fluid bg-main-blue">
+        </div>
+        <div class="container-fluid banner-img">
+        </div>
+
+    }
+    else if (ViewBag.isBannerFull)
+    {
+        <div class="container-fluid bg-main-blue-full">
+        </div>
+        <div class="container-fluid banner-img-full">
+        </div>
+    }
+
 </header>
 
-@if (ViewBag.isBannerHidden)
-{
-    <div class="container-fluid bg-main-blue">
-    </div>
-    <div class="container-fluid banner-img">
-    </div>
-
-}
-else if (ViewBag.isBannerFull)
-{
-    <div class="container-fluid bg-main-blue-full">
-    </div>
-    <div class="container-fluid banner-img-full">
-    </div>
-}
 
 
 

@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -39,6 +37,7 @@ namespace SosCidadaoWeb.Controllers
             var listaPessoaDTO = _mapper.Map<List<PessoaDTO>>(listaPessoa);
 
             return View("./Index_DTO", listaPessoaDTO);
+
         }
 
         // GET: Pessoa/Details/5
@@ -80,6 +79,7 @@ namespace SosCidadaoWeb.Controllers
                 pessoa.DataCadastro = DateTime.Now;
 
                 _pessoaService.Inserir(pessoa);
+
             }
             return RedirectToAction(nameof(Index));
 
@@ -107,7 +107,7 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, PessoaModel pessoaModel)
         {
-            
+
             if (ModelState.IsValid)
             {
                 var pessoa = _mapper.Map<Pessoa>(pessoaModel);

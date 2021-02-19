@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Models
 {
@@ -37,24 +34,6 @@ namespace SosCidadaoWeb.Models
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail informado é inválido.")]
         [Required(ErrorMessage = "Campo E-mail é obrigatório.")]
         public string Email { get; set; }
-
-        [Display(Name = "Usuário")]
-        [StringLength(20, MinimumLength = 5, ErrorMessage = "Campo Usuário deve possuir no mínimo 5 caracteres.")]
-        [Required(ErrorMessage = "Campo Usuário é obrigatório.")]
-        public string Login { get; set; }
-
-        [Display(Name = "Senha")]
-        [DataType(DataType.Password)]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
-        [Required(ErrorMessage = "Campo Senha é obrigatório.")]
-        public string Senha { get; set; }
-
-        [Display(Name = "Repetir Senha")]
-        [DataType(DataType.Password)]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "Campo senha dever possuir no mínimo 6 caracteres")]
-        [Required(ErrorMessage = "Campo Repetir Senha é obrigatório.")]
-        [Compare("Senha", ErrorMessage = "A senhas informadas não são iguais.")]
-        public string ConfirmaSenha { get; set; }
 
         [Display(Name = "CEP")]
         [StringLength(9, ErrorMessage = "Campo CEP está incompleto", MinimumLength = 9)]

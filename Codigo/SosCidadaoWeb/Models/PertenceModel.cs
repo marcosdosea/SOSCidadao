@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SosCidadaoWeb.Models
 {
@@ -13,7 +9,7 @@ namespace SosCidadaoWeb.Models
 
         [Display(Name = "Nome ")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]
-        [Required(ErrorMessage = "Campo Nome é obrigatório.")] 
+        [Required(ErrorMessage = "Campo Nome é obrigatório.")]
         public string Nome { get; set; }
 
         [Display(Name = "Descrição")]
@@ -28,10 +24,10 @@ namespace SosCidadaoWeb.Models
         [Key]
         [Required(ErrorMessage = "Campo Ocorrência é obrigatório.")]
         public int IdOcorrencia { get; set; }
-        
+
         [Display(Name = "Tipo do pertence")]
         [Key]
-        [Required(ErrorMessage = "Campo Tipo do pertence é obrigatório.")] 
+        [Required(ErrorMessage = "Campo Tipo do pertence é obrigatório.")]
         public int IdTipoPertence { get; set; }
     }
 }

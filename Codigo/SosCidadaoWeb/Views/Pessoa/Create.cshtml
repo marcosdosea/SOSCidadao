@@ -1,24 +1,18 @@
-﻿@model SosCidadaoWeb.Models.PessoaModel
+﻿
+@model SosCidadaoWeb.Models.PessoaModel
 
 @{
     ViewData["Title"] = "Criar Pessoa";
-    Layout = "_Layout";
+    Layout = "_LayoutDashboard";
 }
 
 <div class="d-flex justify-content-center">
-    <div class="col-12 bg-white p-5 align-content-center" id="box-main">
-        <div class="container">
-            <h1>Criar Conta</h1>
-
-            <h4 id="step">Etapa 1</h4>
-            <hr />
-        </div>
-        <form asp-action="Create" class="container" id="form-create">
+    <div class="row">
+        <form asp-action="Create" id="form-create" class="col-md-12">
             <div class="row" id="data-personal">
                 <div class="col-6">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label asp-for="Nome" class="control-label"></label>
                         <input asp-for="Nome" class="form-control" />
                         <span asp-validation-for="Nome" class="text-danger"></span>
@@ -30,7 +24,6 @@
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
-
                     <div class="row">
                         <div class="form-group col-6">
                             <label asp-for="Cpf" class="control-label"></label>
@@ -38,7 +31,6 @@
                             <span asp-validation-for="Cpf" class="text-danger"></span>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="form-group col-6">
                             <label asp-for="Sexo" class="control-label"></label>
@@ -53,6 +45,7 @@
                             <label asp-for="DataNascimento" class="control-label"></label>
                             <input asp-for="DataNascimento" class="form-control" />
                             <span asp-validation-for="DataNascimento" class="text-danger"></span>
+
                         </div>
                     </div>
 
@@ -71,7 +64,7 @@
                             <div class="col-12">
                                 <div class="row">
                                     <input asp-for="Cep" id="cep" class="form-control col-7" />
-                                    <span id="search_cep" class="btn btn-success ml-2 col-3">
+                                    <span id="search_cep" class="btn btn-success ml-2 col-4">
                                         Buscar
                                     </span>
                                 </div>
@@ -117,64 +110,38 @@
                         </div>
                     </div>
 
-
                     <div class="row">
                         <div class="form-group col-9">
                             <label asp-for="IdOrganizacao" class="control-label"></label>
                             <select asp-for="IdOrganizacao" asp-items="ViewBag.IdOrganizacao" class="form-control"></select>
                             <span asp-validation-for="IdOrganizacao" class="text-danger"></span>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-            <div class="row d-none" id="data-user">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="align-content-center">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label asp-for="Login" class="control-label"></label>
-                                <input asp-for="Login" class="form-control col-12" />
-                                <span asp-validation-for="Login" class="text-danger"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Senha" class="control-label"></label>
-                                <input asp-for="Senha" class="form-control col-12" />
-                                <span asp-validation-for="Senha" class="text-danger"></span>
-                            </div>
 
-                            <div class="form-group">
-                                <label asp-for="ConfirmaSenha" class="control-label"></label>
-                                <input asp-for="ConfirmaSenha" class="form-control col-12" />
-                                <span asp-validation-for="ConfirmaSenha" class="text-danger"></span>
-                            </div>
+            <div class="col-12">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <a id="btn_back" asp-controller="Home" asp-action="Index" class="btn btn-outline-danger pointer">
+                                Voltar
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-6">
-                    <div class="form-group">
-                        <a id="btn_back" asp-controller="Home" asp-action="Index" class="btn btn-outline-danger pointer">
-                            Voltar
-                        </a>
-                    </div>
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                    <div class="form-group">
-                        <div id="bt_create" class="btn btn-primary pointer">
-                            Continuar
+                    <div class="col-6 d-flex justify-content-end">
+                        <div class="form-group">
+                            <button id="btn_create" type="submit" class="btn btn-primary pointer">
+                                Cadastrar
+                            </button>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
         </form>
-
-        <div>
-
-        </div>
     </div>
 </div>
 
@@ -182,4 +149,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-

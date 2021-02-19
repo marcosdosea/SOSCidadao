@@ -13,13 +13,13 @@
 
     @await Html.PartialAsync("_HeaderPrimary.cshtml")
 
-    <div class="container-fluid mt-5 pt-3 p-5">
-        <main role="main">
+    <div class="container-fluid" style="height:100%">
+        <main role="main" class="w-100 mt-5">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer  text-muted bg-dark">
+    <footer class="border-top footer  text-muted bg-dark " >
         <div class="container text-info">
             &copy; 2020 - SoSCidadaoWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -31,7 +31,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/criar_conta.js" asp-append-version="true"></script>
-    <script src="~/js/api_address.js" asp-append-version="true"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

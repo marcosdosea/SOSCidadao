@@ -19,10 +19,7 @@ namespace Core
         public string Sexo { get; set; }
         public string Cpf { get; set; }
         public string Telefone { get; set; }
-        public DateTime DataNascimento { get; set; }
         public string Email { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
         public string Cep { get; set; }
         public string Rua { get; set; }
         public string Bairro { get; set; }
@@ -31,8 +28,9 @@ namespace Core
         public int? NumeroEndereco { get; set; }
         public string TipoPessoa { get; set; }
         public string StatusPessoa { get; set; }
-        public DateTime DataCadastro { get; set; }
         public int? IdOrganizacao { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public DateTime DataCadastro{ get; set; }
 
         public virtual Organizacao IdOrganizacaoNavigation { get; set; }
         public virtual ICollection<Anexo> Anexo { get; set; }
