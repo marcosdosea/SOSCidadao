@@ -1,5 +1,3 @@
-using System;
-
 namespace SosCidadaoWeb.Models
 {
     public class ErrorViewModel

@@ -2,14 +2,10 @@
 using Core;
 using Core.DTO;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -35,7 +31,7 @@ namespace SosCidadaoWeb.Controllers
             var listaPertence = _pertenceService.ObterTodosDTO();
             var listaPertenceDTO = _mapper.Map<List<PertenceDTO>>(listaPertence);
 
-            return View("./Index_DTO",listaPertenceDTO);
+            return View("./Index_DTO", listaPertenceDTO);
         }
 
         // GET: Pertence/Details/5
@@ -47,6 +43,7 @@ namespace SosCidadaoWeb.Controllers
             PertenceDTO pertenceDto = _pertenceService.ObterDTO(id);
      
             return View("./Details_DTO",pertenceDto);
+
         }
 
         // GET: Pertence/Create
@@ -66,14 +63,14 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PertenceModel pertenceModel)
         {
-             if (ModelState.IsValid)
-             {
+            if (ModelState.IsValid)
+            {
                 var pertence = _mapper.Map<Pertence>(pertenceModel);
 
                 pertence.StatusPertence = "Em Analise";
                 _pertenceService.Inserir(pertence);
-             }
-             return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Pertence/Edit/5
@@ -98,7 +95,7 @@ namespace SosCidadaoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                 var pertence = _mapper.Map<Pertence>(pertenceModel);
+                var pertence = _mapper.Map<Pertence>(pertenceModel);
                 pertence.IdPertence = id;
                 _pertenceService.Atualizar(pertence);
             }
@@ -123,7 +120,7 @@ namespace SosCidadaoWeb.Controllers
         public ActionResult Delete(int id, PertenceModel pertenceModel)
         {
             _pertenceService.Remover(id);
-          return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

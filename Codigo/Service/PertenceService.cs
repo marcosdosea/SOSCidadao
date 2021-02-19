@@ -1,10 +1,8 @@
 ﻿using Core;
 using Core.DTO;
 using Core.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Service
 {
@@ -88,7 +86,7 @@ namespace Service
 
         public void Remover(int idPertence)
         {
-            var _pertence  = _context.Pertence.Find(idPertence);
+            var _pertence = _context.Pertence.Find(idPertence);
             _context.Pertence.Remove(_pertence);
             _context.SaveChanges();
         }

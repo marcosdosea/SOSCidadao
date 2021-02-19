@@ -1,10 +1,12 @@
-﻿﻿:root {
+﻿﻿
+:root {
     --color-gren-secundary: #DDF312;
     --color-gray-primary: #999999;
     --color-gray-light: #dacfcf;
     --color-white-light: rgb(242, 237, 237);
     --color-white-primary: #fff;
     --color-black-opacity: #0000005d;
+    --color-blue-primary-cidadao: #8EC4D2;
 }
 
 
@@ -25,7 +27,7 @@ html, body {
 
 /*============= Classes genéricas ==================*/
 .pointer {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 /*============= Margens ==================*/
@@ -80,7 +82,7 @@ a {
     background-color: #17a3b8bf;
     height: 45vw;
     z-index: 1 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
 
@@ -91,7 +93,7 @@ a {
     background-attachment: scroll;
     height: 45vw;
     z-index: 0 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -100,7 +102,7 @@ a {
     background-color: #17a3b8bf;
     height: 100%;
     z-index: 1 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
 
@@ -111,7 +113,7 @@ a {
     background-attachment: scroll;
     height: 100%;
     z-index: 0 !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 }
@@ -122,6 +124,15 @@ a {
     font-weight: 600;
     color: #fff !important;
 }
+
+
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+
+/*============= BUTTONS ==============*/
 
 .btn-login {
     background-color: rgba(0, 0, 0, 0.152);
@@ -143,6 +154,32 @@ a {
     font-size: 1em;
 }
 
-.navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+.btn-blue-default {
+    color: #fff;
+    background-color: #8EC4D2 !important;
+    border-radius: 130px !important;
+    border-color: #8EC4D2 !important;
+    transition-duration: .25s
+}
+
+.btn-blue-default:hover {
+    color: #8EC4D2 !important;
+    background-color:#FFF  !important;
+    border-color: #8EC4D2 !important;
+    transition-duration:.25s
+}
+
+.btn-blue-secundary {
+    color: #8EC4D2 !important;
+    background-color: #fff !important;
+    border-radius: 130px !important;
+    border-color: #8EC4D2 !important;
+    transition-duration: .25s
+}
+
+.btn-blue-secundary:hover {
+    color: #FFF !important;
+    background-color: #8EC4D2 !important;
+    border-color: #8EC4D2 !important;
+    transition-duration: .25s
 }

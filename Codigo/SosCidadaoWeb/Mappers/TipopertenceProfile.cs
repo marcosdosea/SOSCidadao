@@ -5,7 +5,7 @@ using SosCidadaoWeb.Models;
 
 namespace SosCidadaoWeb.Mappers
 {
-    public class TipopertenceProfile: Profile
+    public class TipopertenceProfile : Profile
     {
         public TipopertenceProfile()
         {

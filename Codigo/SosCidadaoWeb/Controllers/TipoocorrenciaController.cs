@@ -2,14 +2,10 @@
 using Core;
 using Core.DTO;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -19,8 +15,8 @@ namespace SosCidadaoWeb.Controllers
         private readonly IOrganizacaoService _organizacaoService;
 
         private readonly IMapper _mapper;
-        
-        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService,  IOrganizacaoService organizacaoService, IMapper mapper)
+
+        public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
             _tipoocorrenciaService = tipoocorrenciaService;
             _organizacaoService = organizacaoService;
@@ -113,7 +109,7 @@ namespace SosCidadaoWeb.Controllers
 
             TipoocorrenciaDTO tipoocorrenciaDTO = _tipoocorrenciaService.ObterDTO(id);
 
-            return View("./Delete_DTO",tipoocorrenciaDTO);
+            return View("./Delete_DTO", tipoocorrenciaDTO);
         }
 
         // POST: TipoocorrenciaController/Delete/5

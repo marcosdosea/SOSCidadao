@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.DTO
+﻿namespace Core.DTO
 {
     public class TipoocorrenciaDTO
     {
@@ -10,5 +6,6 @@ namespace Core.DTO
         public string Nome { get; set; }
         public int IdOrganizacao { get; set; }
         public string NomeOrganizacao { get; set; }
+        public string NomeFantasiaOrganizacao { get; set; }
     }
 }

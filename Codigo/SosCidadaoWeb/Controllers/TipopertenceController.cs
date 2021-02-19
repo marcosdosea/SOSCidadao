@@ -2,14 +2,10 @@
 using Core;
 using Core.DTO;
 using Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SosCidadaoWeb.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SosCidadaoWeb.Controllers
 {
@@ -65,14 +61,14 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TipopertenceModel tipopertenceModel)
         {
-             if (ModelState.IsValid)
-             {
+            if (ModelState.IsValid)
+            {
                 var tipopertence = _mapper.Map<Tipopertence>(tipopertenceModel);
 
                 tipopertence.IdOrganizacao = 1;
-                 _tipopertenceService.Inserir(tipopertence);
-             }
-             return RedirectToAction(nameof(Index));
+                _tipopertenceService.Inserir(tipopertence);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Tipopertence/Edit/5
@@ -121,9 +117,9 @@ namespace SosCidadaoWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, TipopertenceModel tipopertenceModel)
         {
-          _tipopertenceService.Remover(id);
-          return RedirectToAction(nameof(Index));
-        
+            _tipopertenceService.Remover(id);
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
