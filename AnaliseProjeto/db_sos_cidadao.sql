@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `sos_cidadao` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `sos_cidadao`;
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: sos_cidadao
@@ -37,6 +35,7 @@ CREATE TABLE `__efmigrationshistory` (
 
 LOCK TABLES `__efmigrationshistory` WRITE;
 /*!40000 ALTER TABLE `__efmigrationshistory` DISABLE KEYS */;
+INSERT INTO `__efmigrationshistory` VALUES ('20210214034937_CreateIdentitySchema','3.1.10');
 /*!40000 ALTER TABLE `__efmigrationshistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,11 +79,11 @@ DROP TABLE IF EXISTS `aspnetroleclaims`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `aspnetroleclaims` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `RoleId` varchar(767) NOT NULL,
+  `RoleId` varchar(85) NOT NULL,
   `ClaimType` text,
   `ClaimValue` text,
   PRIMARY KEY (`Id`),
-  KEY `FK_AspNetRoleClaims_AspNetRoles_RoleId` (`RoleId`),
+  KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`),
   CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -106,11 +105,12 @@ DROP TABLE IF EXISTS `aspnetroles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `aspnetroles` (
-  `Id` varchar(767) NOT NULL,
+  `Id` varchar(85) NOT NULL,
   `Name` varchar(256) DEFAULT NULL,
-  `NormalizedName` varchar(256) DEFAULT NULL,
+  `NormalizedName` varchar(85) DEFAULT NULL,
   `ConcurrencyStamp` text,
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `RoleNameIndex` (`NormalizedName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,11 +132,11 @@ DROP TABLE IF EXISTS `aspnetuserclaims`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `aspnetuserclaims` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `UserId` varchar(767) NOT NULL,
+  `UserId` varchar(85) NOT NULL,
   `ClaimType` text,
   `ClaimValue` text,
   PRIMARY KEY (`Id`),
-  KEY `FK_AspNetUserClaims_AspNetUsers_UserId` (`UserId`),
+  KEY `IX_AspNetUserClaims_UserId` (`UserId`),
   CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -158,12 +158,12 @@ DROP TABLE IF EXISTS `aspnetuserlogins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `aspnetuserlogins` (
-  `LoginProvider` varchar(128) NOT NULL,
-  `ProviderKey` varchar(128) NOT NULL,
+  `LoginProvider` varchar(85) NOT NULL,
+  `ProviderKey` varchar(85) NOT NULL,
   `ProviderDisplayName` text,
-  `UserId` varchar(767) NOT NULL,
+  `UserId` varchar(85) NOT NULL,
   PRIMARY KEY (`LoginProvider`,`ProviderKey`),
-  KEY `FK_AspNetUserLogins_AspNetUsers_UserId` (`UserId`),
+  KEY `IX_AspNetUserLogins_UserId` (`UserId`),
   CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -175,6 +175,32 @@ CREATE TABLE `aspnetuserlogins` (
 LOCK TABLES `aspnetuserlogins` WRITE;
 /*!40000 ALTER TABLE `aspnetuserlogins` DISABLE KEYS */;
 /*!40000 ALTER TABLE `aspnetuserlogins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `aspnetuserroles`
+--
+
+DROP TABLE IF EXISTS `aspnetuserroles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `aspnetuserroles` (
+  `UserId` varchar(85) NOT NULL,
+  `RoleId` varchar(85) NOT NULL,
+  PRIMARY KEY (`UserId`,`RoleId`),
+  KEY `IX_AspNetUserRoles_RoleId` (`RoleId`),
+  CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aspnetuserroles`
+--
+
+LOCK TABLES `aspnetuserroles` WRITE;
+/*!40000 ALTER TABLE `aspnetuserroles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetuserroles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -200,7 +226,9 @@ CREATE TABLE `aspnetusers` (
   `LockoutEnd` timestamp NULL DEFAULT NULL,
   `LockoutEnabled` tinyint(1) NOT NULL,
   `AccessFailedCount` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
+  KEY `EmailIndex` (`NormalizedEmail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -210,8 +238,34 @@ CREATE TABLE `aspnetusers` (
 
 LOCK TABLES `aspnetusers` WRITE;
 /*!40000 ALTER TABLE `aspnetusers` DISABLE KEYS */;
-INSERT INTO `aspnetusers` VALUES ('2aa0ef3b-3777-4a60-ab86-30b24dec5d68','luizcarlos@hotmail.com','LUIZCARLOS@HOTMAIL.COM','luizcarlos@hotmail.com','LUIZCARLOS@HOTMAIL.COM',0,'AQAAAAEAACcQAAAAEKHUvI6DukyS1JFVCAeUXlYnxO1nfLtaURJdONdtbx2b5N5yAvXGPrML3oWzx4WVxg==','AQC7WFIM247BDKDYWVN6JSL4SVKHEAQT','0fd56631-f443-48a0-9a31-d07e6fb9c17d',NULL,0,0,NULL,1,0);
+INSERT INTO `aspnetusers` VALUES ('27f5e888-f43b-44e2-aed3-f91388de9dfb','luizmoitinho2','LUIZMOITINHO2',NULL,NULL,0,'AQAAAAEAACcQAAAAEJrpje/zvhIgNZr/iVNbuuX8q+DEYOmOtdsjnly4XVsov4ixgF4cOMzv14cSyjruug==','2C5KWNCTSHHLZK3NGFD2EYHVFNRVB3LD','59b490e6-a5ad-4249-9cde-c433160205ec',NULL,0,0,NULL,1,0),('43074be3-2369-4089-a4c1-b79c735c5114','luizmoitinho3','LUIZMOITINHO3',NULL,NULL,0,'AQAAAAEAACcQAAAAEEhcWCzJ4RDhKuBC/kNfj+Ka8bCoUH7Up7s8jqSlu8dOO95BrKZJWUtZGySnOqstpg==','324SYOTRJRL5LTVJJVRS3NTWDZGYPYYS','7e80383c-5ac3-4517-b0ff-8e1bfd21de2c',NULL,0,0,NULL,1,0),('75dcaaea-ceb0-40ca-8510-8b6db161cc42','luizmoitinho','LUIZMOITINHO',NULL,NULL,0,'AQAAAAEAACcQAAAAECU4a0BMbtuGuyxBci4JVP4JTHZFF5vN9702PXxDrWD/w9uFhBtdm1QY4my3p1i3Uw==','VKXEJEJUL3S26L4KK4HPGIDKVNSALPF5','b6db0bd4-530a-45ec-b8c6-734d724c8227',NULL,0,0,NULL,1,0),('e3563ca7-142f-435f-ae72-e1cfc2b2d23d','sos_cidadao','SOS_CIDADAO',NULL,NULL,0,'AQAAAAEAACcQAAAAEDmlMKfZCs2TJ+ml8MKt1q0L4XHvaWi3h1yA7doy73hSGz7pQSV1yNfu1xybU3Cq0g==','F2OFGBKIORH5R6XRVL6BQILNWWQZ4WTX','3b907165-74c3-480d-994c-8081c365c500',NULL,0,0,NULL,1,0);
 /*!40000 ALTER TABLE `aspnetusers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `aspnetusertokens`
+--
+
+DROP TABLE IF EXISTS `aspnetusertokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `aspnetusertokens` (
+  `UserId` varchar(85) NOT NULL,
+  `LoginProvider` varchar(85) NOT NULL,
+  `Name` varchar(85) NOT NULL,
+  `Value` text,
+  PRIMARY KEY (`UserId`,`LoginProvider`,`Name`),
+  CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aspnetusertokens`
+--
+
+LOCK TABLES `aspnetusertokens` WRITE;
+/*!40000 ALTER TABLE `aspnetusertokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aspnetusertokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -270,8 +324,43 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-INSERT INTO `comentario` VALUES (7,'2021-01-18 23:57:16','teste comentario',3,1),(8,'2021-01-19 00:23:38','teste',3,1),(11,'2021-01-19 00:24:20','123123',3,1);
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `identityuser`
+--
+
+DROP TABLE IF EXISTS `identityuser`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `identityuser` (
+  `Id` varchar(85) NOT NULL,
+  `UserName` text,
+  `NormalizedUserName` varchar(85) DEFAULT NULL,
+  `Email` text,
+  `NormalizedEmail` varchar(85) DEFAULT NULL,
+  `EmailConfirmed` tinyint(1) NOT NULL,
+  `PasswordHash` text,
+  `SecurityStamp` text,
+  `ConcurrencyStamp` text,
+  `PhoneNumber` text,
+  `PhoneNumberConfirmed` tinyint(1) NOT NULL,
+  `TwoFactorEnabled` tinyint(1) NOT NULL,
+  `LockoutEnd` timestamp NULL DEFAULT NULL,
+  `LockoutEnabled` tinyint(1) NOT NULL,
+  `AccessFailedCount` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `identityuser`
+--
+
+LOCK TABLES `identityuser` WRITE;
+/*!40000 ALTER TABLE `identityuser` DISABLE KEYS */;
+/*!40000 ALTER TABLE `identityuser` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -305,7 +394,6 @@ CREATE TABLE `local` (
 
 LOCK TABLES `local` WRITE;
 /*!40000 ALTER TABLE `local` DISABLE KEYS */;
-INSERT INTO `local` VALUES (1,'root_admin',12500,12500,'00000-00','Rua Vereador Olimpio Grande','Centro','Itabaiana','SE',108,1);
 /*!40000 ALTER TABLE `local` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,7 +483,7 @@ CREATE TABLE `organizacao` (
   UNIQUE KEY `cpj_UNIQUE` (`cnpj`),
   KEY `fk_Organizacao_Pessoa1_idx` (`idPessoa`),
   CONSTRAINT `fk_Organizacao_Pessoa1` FOREIGN KEY (`idPessoa`) REFERENCES `pessoa` (`idPessoa`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -404,7 +492,7 @@ CREATE TABLE `organizacao` (
 
 LOCK TABLES `organizacao` WRITE;
 /*!40000 ALTER TABLE `organizacao` DISABLE KEYS */;
-INSERT INTO `organizacao` VALUES (1,'123456789','SOS Cidadao Softwares Solutions','SOS Cidadao','00000-00','Rua Vereador Olimpio Grande','Centro','Itabaiana','SE',1,'2021-01-01 00:00:00',NULL),(7,'12345678914','Campus Prof. Alberto Carvalho - ITA','Universidade Federal de Sergipe','49506-03','Av. Vereador Olímpio Grande','Porto','Itabaiana','SE',0,'2021-01-31 17:15:29',1);
+INSERT INTO `organizacao` VALUES (1,'00000000000000','Sem Organização','Sem Organização','0000000000','0','0','0','0',0,'2021-01-01 00:00:00',NULL);
 /*!40000 ALTER TABLE `organizacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,7 +524,6 @@ CREATE TABLE `pertence` (
 
 LOCK TABLES `pertence` WRITE;
 /*!40000 ALTER TABLE `pertence` DISABLE KEYS */;
-INSERT INTO `pertence` VALUES (6,'Moto G','Tela quebrada e adesivo da coca cola atrás','Em análise',3,7);
 /*!40000 ALTER TABLE `pertence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -455,8 +542,6 @@ CREATE TABLE `pessoa` (
   `telefone` varchar(16) DEFAULT NULL,
   `dataNascimento` datetime NOT NULL,
   `email` varchar(250) NOT NULL,
-  `login` varchar(30) NOT NULL,
-  `senha` text NOT NULL,
   `cep` varchar(10) NOT NULL,
   `rua` varchar(250) NOT NULL,
   `bairro` varchar(250) NOT NULL,
@@ -470,10 +555,9 @@ CREATE TABLE `pessoa` (
   PRIMARY KEY (`idPessoa`),
   UNIQUE KEY `cpf_UNIQUE` (`cpf`),
   UNIQUE KEY `email_UNIQUE` (`email`),
-  UNIQUE KEY `login_UNIQUE` (`login`),
   KEY `fk_Pessoa_Organizacao1_idx` (`idOrganizacao`),
   CONSTRAINT `fk_Pessoa_Organizacao1` FOREIGN KEY (`idOrganizacao`) REFERENCES `organizacao` (`idOrganizacao`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,7 +566,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (1,'luiz carlos costa moitinho','M','07462030552','11969744218','2021-01-22 00:00:00','luizcarloscmoitinho@gmail.com','teste','123123','48200-00','Teste','Teste','Macapa','BA',12,'Pessoa','Ativo','0001-01-01 00:00:00',1),(8,'root_admin','F','99999999999','11969744218','2021-02-06 00:00:00','root@soscidadao.com','root_admin','123123','48200-00','Av. olimpio','Sergipe','Macapa','AP',NULL,'Pessoa','Ativo','0001-01-01 00:00:00',NULL);
+INSERT INTO `pessoa` VALUES (1,'luiz carlos costa moitinho','M','07462030552','11969744218','2021-01-22 00:00:00','luizcarloscmoitinho@gmail.com','48200-00','Teste','Teste','Macapa','BA',12,'Pessoa','Ativo','0001-01-01 00:00:00',NULL),(8,'root_admin','F','99999999999','11969744218','2021-02-06 00:00:00','root@soscidadao.com','48200-00','Av. olimpio','Sergipe','Macapa','AP',NULL,'Pessoa','Ativo','0001-01-01 00:00:00',NULL);
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -510,7 +594,6 @@ CREATE TABLE `tipoocorrencia` (
 
 LOCK TABLES `tipoocorrencia` WRITE;
 /*!40000 ALTER TABLE `tipoocorrencia` DISABLE KEYS */;
-INSERT INTO `tipoocorrencia` VALUES (3,'Assédio',1),(4,'Assédio Sexual',7);
 /*!40000 ALTER TABLE `tipoocorrencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -537,7 +620,6 @@ CREATE TABLE `tipopertence` (
 
 LOCK TABLES `tipopertence` WRITE;
 /*!40000 ALTER TABLE `tipopertence` DISABLE KEYS */;
-INSERT INTO `tipopertence` VALUES (5,'Celular',1),(6,'Notebook',1),(7,'Moto 150v',1);
 /*!40000 ALTER TABLE `tipopertence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -558,4 +640,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-09 13:07:04
+-- Dump completed on 2021-02-19 19:58:25
