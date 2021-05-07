@@ -1,0 +1,52 @@
+﻿@model SosCidadaoWeb.Models.OcorrenciaModel
+
+@{
+    ViewData["Title"] = "Deletar Ocorrência";
+    Layout = "_LayoutDashboard";
+}
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdOcorrencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdOcorrencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StatusOcorrencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StatusOcorrencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emergencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emergencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdLocal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdLocal)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltart</a>
+    </form>
+</div>
