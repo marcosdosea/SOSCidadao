@@ -15,6 +15,7 @@ namespace Core
         }
 
         public int IdOcorrencia { get; set; }
+        public DateTime DataCadastro { get; set; }
         public string Descricao { get; set; }
         public string StatusOcorrencia { get; set; }
         public string TelefoneContato { get; set; }
