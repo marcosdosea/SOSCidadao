@@ -64,7 +64,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var ocorrencia = _mapper.Map<Ocorrencia>(ocorrenciaModel);
-                _ocorrenciaService.Editar(ocorrencia);
+                _ocorrenciaService.Inserir(ocorrencia);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -88,7 +88,7 @@ namespace SosCidadaoWeb.Controllers
             if (ModelState.IsValid)
             {
                 var ocorrencia = _mapper.Map<Ocorrencia>(ocorrenciaModel);
-                _ocorrenciaService.Editar(ocorrencia);
+                _ocorrenciaService.Atualizar(ocorrencia);
             }
             return RedirectToAction(nameof(Index));
         }

@@ -8,7 +8,7 @@ namespace Core.Service
 {
     public interface IOcorrenciaService
     {
-        int Editar(Ocorrencia ocorrencia);
+        int Inserir(Ocorrencia ocorrencia);
         Ocorrencia Obter(int idOcorrencia);
         IEnumerable<Ocorrencia> ObterTodos();
         OcorrenciaDTO ObterDTO(int idOcorrencia);

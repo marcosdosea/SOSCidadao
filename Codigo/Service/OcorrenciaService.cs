@@ -17,7 +17,7 @@ namespace Service
             _context = context;
         }
 
-        public int Editar(Ocorrencia ocorrencia)
+        public int Inserir(Ocorrencia ocorrencia)
         {
             _context.Add(ocorrencia);
             _context.SaveChanges();
@@ -94,6 +94,6 @@ namespace Service
             _context.Ocorrencia.Remove(_ocorrencia);
             _context.SaveChanges();
         }
-              
+                
     }
 }
