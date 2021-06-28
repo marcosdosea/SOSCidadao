@@ -47,8 +47,8 @@ namespace Service.Tests
 			// Act
 			_comentarioService.Inserir(new Comentario () { IdOcorrencia = 1, Descricao = "Carro com o vidro trincado", DataCadastro = DateTime.Parse("2021-12-31") });
 			// Assert
-			Assert.AreEqual(3, _comentarioService.ObterTodosDTO().Count());
-			var comentario = _comentarioService.Obter(4);
+			Assert.AreEqual(3, _comentarioService.ObterTodos().Count());
+			var comentario = _comentarioService.Obter(3);
 			Assert.AreEqual("Carro com o vidro trincado", comentario.Descricao);
 			Assert.AreEqual(DateTime.Parse("2021-12-31"), comentario.DataCadastro);
 		}
@@ -60,7 +60,7 @@ namespace Service.Tests
 			// Act
 			_comentarioService.Remover(2);
 			// Assert
-			Assert.AreEqual(2, _comentarioService.ObterTodos().Count());
+			Assert.AreEqual(1, _comentarioService.ObterTodos().Count());
 			var autor = _comentarioService.Obter(2);
 			Assert.AreEqual(null, autor);
 		}
@@ -71,7 +71,7 @@ namespace Service.Tests
 			// Act
 			var listaComentario = _comentarioService.ObterTodos();
 			// Assert
-			Assert.IsInstanceOfType(listaComentario, typeof(IEnumerable<ComentarioDTO>));
+			Assert.IsInstanceOfType(listaComentario, typeof(IEnumerable<Comentario>));
 			Assert.IsNotNull(listaComentario);
 			Assert.AreEqual(2, listaComentario.Count());
 			Assert.AreEqual(1, listaComentario.First().IdComentario);

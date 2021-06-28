@@ -89,7 +89,7 @@ namespace SosCidadaoWeb.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<TipopertenceDTO>));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<Tipopertence>));
             List<TipopertenceDTO> lista = (List<TipopertenceDTO>)viewResult.ViewData.Model;
             Assert.AreEqual(3, lista.Count);
         }
@@ -104,7 +104,7 @@ namespace SosCidadaoWeb.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(TipopertenceDTO));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(Tipopertence));
             TipopertenceDTO comentarioModel = (TipopertenceDTO)viewResult.ViewData.Model;
             Assert.AreEqual("Moto", comentarioModel.Nome);
 
