@@ -21,7 +21,8 @@ namespace SosCidadaoWeb.Controllers.Tests
     {
         private static ComentarioController controller;
 
-        public ComentarioControllerTests(TestContext testContext)
+        [ClassInitialize]
+        public static void Initialize(TestContext testContext)
         {
             // Arrange
             var mockService = new Mock<IComentarioService>();
