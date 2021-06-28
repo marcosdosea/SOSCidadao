@@ -14,6 +14,9 @@ namespace SosCidadaoWeb.Controllers
         private readonly ITipopertenceService _tipopertenceService;
         private readonly IOrganizacaoService _organizacaoService;
         private readonly IMapper _mapper;
+        private IComentarioService @object;
+        private IMapper mapper;
+        private ITipopertenceService object1;
 
         public TipopertenceController(ITipopertenceService tipopertenceService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
@@ -21,6 +24,19 @@ namespace SosCidadaoWeb.Controllers
             _organizacaoService = organizacaoService;
             _mapper = mapper;
         }
+
+        public TipopertenceController(IComentarioService @object, IMapper mapper)
+        {
+            this.@object = @object;
+            this.mapper = mapper;
+        }
+
+        public TipopertenceController(ITipopertenceService object1, IMapper mapper)
+        {
+            this.object1 = object1;
+            this.mapper = mapper;
+        }
+
         // GET: Tipopertence
         public ActionResult Index()
         {
