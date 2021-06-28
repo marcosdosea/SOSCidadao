@@ -15,12 +15,20 @@ namespace SosCidadaoWeb.Controllers
         private readonly IComentarioService _comentarioService;
         private readonly IPessoaService _pessoaService;
         private readonly IMapper _mapper;
+        private IComentarioService @object;
+        private IMapper mapper;
 
         public ComentarioController(IComentarioService comentario, IPessoaService pessoaService, IMapper mapper)
         {
             _comentarioService = comentario;
             _pessoaService = pessoaService;
             _mapper = mapper;
+        }
+
+        public ComentarioController(IComentarioService @object, IMapper mapper)
+        {
+            this.@object = @object;
+            this.mapper = mapper;
         }
 
         // GET: ComentarioController
