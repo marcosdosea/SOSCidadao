@@ -44,12 +44,6 @@ namespace SosCidadaoWeb.Controllers.Tests
 
         }
 
-        /*
-             public int IdTipoPertence { get; set; }
-        public string Nome { get; set; }
-        public int IdOrganizacao { get; set; }
-        public string NomeOrganizacao { get; set; }
-        */
 
         private static IEnumerable<Tipopertence> GetTestTiposPertence()
         {
