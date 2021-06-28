@@ -1,8 +1,3 @@
-C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csprojAssemblyReference.cache
-C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.GeneratedMSBuildEditorConfig.editorconfig
-C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfoInputs.cache
-C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfo.cs
-C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csproj.CoreCompileInputs.cache
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\SosCidadaoWeb.Views.dll
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\SosCidadaoWeb.Views.pdb
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\appsettings.Development.json
@@ -209,6 +204,11 @@ C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\SosCidadaoWeb.dll
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\SosCidadaoWeb.pdb
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\Core.pdb
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\bin\Debug\net5.0\Service.pdb
+C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csprojAssemblyReference.cache
+C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.GeneratedMSBuildEditorConfig.editorconfig
+C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfoInputs.cache
+C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfo.cs
+C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csproj.CoreCompileInputs.cache
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csproj.CopyComplete
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.dll
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\ref\SosCidadaoWebTests2.dll
