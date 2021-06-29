@@ -5,7 +5,7 @@ namespace SosCidadaoWeb.Models
     public class TipoocorrenciaModel
     {
         [Display(Name = "Nº Cadastral")]
-        public int? IdTipoOcorrencia { get; set; }
+        public int IdTipoOcorrencia { get; set; }
 
         [Display(Name = "Nome")]
         [StringLength(45, MinimumLength = 5, ErrorMessage = "Campo Nome deve possuir no mínimo 5 caracteres.")]

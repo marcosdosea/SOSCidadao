@@ -15,6 +15,8 @@ namespace SosCidadaoWeb.Controllers
         private readonly IOrganizacaoService _organizacaoService;
 
         private readonly IMapper _mapper;
+        private ITipoocorrenciaService @object;
+        private IMapper mapper;
 
         public TipoocorrenciaController(ITipoocorrenciaService tipoocorrenciaService, IOrganizacaoService organizacaoService, IMapper mapper)
         {
