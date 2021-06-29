@@ -25,12 +25,6 @@ namespace SosCidadaoWeb.Controllers
             _mapper = mapper;
         }
 
-        public TipoocorrenciaController(ITipoocorrenciaService @object, IMapper mapper)
-        {
-            this.@object = @object;
-            this.mapper = mapper;
-        }
-
         // GET: TipoocorrenciaController
         public ActionResult Index()
         {
