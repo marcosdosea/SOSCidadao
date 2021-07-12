@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Core.Ocorrencia>
+
+@{
+    ViewData["Title"] = "Listar Ocorrência";
+    Layout = "_LayoutDashboard";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOcorrencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusOcorrencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emergencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLocal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdOcorrencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusOcorrencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emergencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdLocal)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdOcorrencia }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.IdOcorrencia }) |
+                    @Html.ActionLink("Remover", "Delete", new { id = item.IdOcorrencia })
+                </td>
+            </tr>
+        }
+    </tbody>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="12" class=" text-center">
+                <h4 class="p-5">Não foram encontrados registros no momento.</h4>
+            </td>
+        </tr>
+    }
+</table>
