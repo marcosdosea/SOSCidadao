@@ -40,7 +40,6 @@ namespace Service.Tests
 			_tipoocorrenciaService = new TipoocorrenciaService(_context);
 		}
 
-
 		[TestMethod()]
 		public void InserirTest()
 		{
@@ -89,8 +88,6 @@ namespace Service.Tests
 			Assert.AreEqual("Violencia", listaTipoocorrencia.First().Nome);
 		}
 
-
-
 		[TestMethod()]
 		public void ObterTest()
 		{
@@ -98,8 +95,6 @@ namespace Service.Tests
 			Assert.IsNotNull(tipoocorrencia);
 			Assert.AreEqual("Violencia", tipoocorrencia.Nome);
 		}
-
-
 
 	}
 }
