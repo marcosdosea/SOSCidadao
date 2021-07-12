@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj": {}
+    "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj": {}
   },
   "projects": {
-    "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
+    "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\SOSCidadao\\Codigo\\Core\\obj\\",
+        "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\dryel\\.nuget\\packages\\",
+        "outputPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dryel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,21 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
+    "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj",
+        "projectUniqueName": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\SOSCidadao\\Codigo\\Service\\obj\\",
+        "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\dryel\\.nuget\\packages\\",
+        "outputPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dryel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,8 +98,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
-                "projectPath": "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj"
+              "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
+                "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj"
               }
             }
           }
@@ -144,21 +144,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj": {
+    "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj",
+        "projectUniqueName": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj",
         "projectName": "SosCidadaoWebTests2",
-        "projectPath": "C:\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj",
-        "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\obj\\",
+        "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\SosCidadaoWebTests2.csproj",
+        "packagesPath": "C:\\Users\\dryel\\.nuget\\packages\\",
+        "outputPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWebTests2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dryel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,8 +172,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj": {
-                "projectPath": "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj"
+              "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj": {
+                "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj"
               }
             }
           }
@@ -219,35 +219,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj": {
+    "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
+        "projectUniqueName": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
         "projectName": "SosCidadaoWeb",
-        "projectPath": "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
-        "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\SOSCidadao\\Codigo\\SosCidadaoWeb\\obj\\",
+        "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\SosCidadaoWeb.csproj",
+        "packagesPath": "C:\\Users\\dryel\\.nuget\\packages\\",
+        "outputPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\SosCidadaoWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dryel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -261,11 +252,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
-                "projectPath": "C:\\SOSCidadao\\Codigo\\Core\\Core.csproj"
+              "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj": {
+                "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Core\\Core.csproj"
               },
-              "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
-                "projectPath": "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj"
+              "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
+                "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj"
               }
             }
           }
@@ -327,12 +318,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -341,7 +326,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
