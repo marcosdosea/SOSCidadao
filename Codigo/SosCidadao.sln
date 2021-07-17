@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{D08ACDA6-E58E-42B0-85A3-E6AC86B4B6C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SosCidadaoWebTests2", "SosCidadaoWebTests2\SosCidadaoWebTests2.csproj", "{0B3F8F86-B2C2-4A3C-B280-8B6BCFAB6C4A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTests", "ServiceTests\ServiceTests.csproj", "{AA2A027B-5A09-40A1-9EA0-6C8FBC6B0607}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{D08ACDA6-E58E-42B0-85A3-E6AC86B4B6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D08ACDA6-E58E-42B0-85A3-E6AC86B4B6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D08ACDA6-E58E-42B0-85A3-E6AC86B4B6C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B3F8F86-B2C2-4A3C-B280-8B6BCFAB6C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B3F8F86-B2C2-4A3C-B280-8B6BCFAB6C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B3F8F86-B2C2-4A3C-B280-8B6BCFAB6C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B3F8F86-B2C2-4A3C-B280-8B6BCFAB6C4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA2A027B-5A09-40A1-9EA0-6C8FBC6B0607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA2A027B-5A09-40A1-9EA0-6C8FBC6B0607}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA2A027B-5A09-40A1-9EA0-6C8FBC6B0607}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA2A027B-5A09-40A1-9EA0-6C8FBC6B0607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
