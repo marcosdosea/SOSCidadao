@@ -8394,19 +8394,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\": {}
+    "C:\\Users\\dryel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SOSCidadao\\Codigo\\ServiceTests\\ServiceTests.csproj",
+      "projectUniqueName": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\ServiceTests\\ServiceTests.csproj",
       "projectName": "ServiceTests",
-      "projectPath": "C:\\SOSCidadao\\Codigo\\ServiceTests\\ServiceTests.csproj",
-      "packagesPath": "C:\\Users\\Luiz Carlos Moitinho\\.nuget\\packages\\",
-      "outputPath": "C:\\SOSCidadao\\Codigo\\ServiceTests\\obj\\",
+      "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\ServiceTests\\ServiceTests.csproj",
+      "packagesPath": "C:\\Users\\dryel\\.nuget\\packages\\",
+      "outputPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\ServiceTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Luiz Carlos Moitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dryel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8420,8 +8420,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
-              "projectPath": "C:\\SOSCidadao\\Codigo\\Service\\Service.csproj"
+            "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj": {
+              "projectPath": "D:\\Bibliotecas\\Documentos\\ESTUDO\\2020.2\\QUALIDADE\\TESTES\\SOSCidadao\\Codigo\\Service\\Service.csproj"
             }
           }
         }
@@ -8472,7 +8472,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
