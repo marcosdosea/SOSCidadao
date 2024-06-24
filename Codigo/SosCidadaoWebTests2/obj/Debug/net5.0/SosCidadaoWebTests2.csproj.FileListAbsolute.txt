@@ -214,3 +214,11 @@ C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.dl
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\ref\SosCidadaoWebTests2.dll
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.pdb
 C:\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.genruntimeconfig.cache
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csprojAssemblyReference.cache
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfoInputs.cache
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.AssemblyInfo.cs
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.csproj.CoreCompileInputs.cache
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.dll
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\ref\SosCidadaoWebTests2.dll
+C:\Users\Wedson\Documents\Projetos\Disciplina\SOSCidadao\Codigo\SosCidadaoWebTests2\obj\Debug\net5.0\SosCidadaoWebTests2.pdb
