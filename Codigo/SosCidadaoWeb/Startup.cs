@@ -37,6 +37,7 @@ namespace SosCidadaoWeb
             services.AddTransient<IPertenceService, PertenceService>();
             services.AddTransient<IOrganizacaoService, OrganizacaoService>();
             services.AddTransient<ILocalService, LocalService>();
+            services.AddTransient<IOcorrenciaService, OcorrenciaService>();
 
 
             services.AddAutoMapper(typeof(Startup).Assembly);
